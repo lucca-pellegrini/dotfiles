@@ -1,9 +1,9 @@
 h	~/
-D	~/dox
-d	~/.local/dl
-mu	~/music
-pp	~/pix
-vv	~/vids
+D	~/Documents
+d	~/Downloads
+mu	~/Music
+pp	~/Pictures
+vv	~/Videos
 cf	~/.config
 sc	~/.local/bin
 mn	/mnt

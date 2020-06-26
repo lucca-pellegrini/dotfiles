@@ -7,7 +7,7 @@
 # ░░░   ░░  ░░░░░  ░░░  ░░  ░░ ░░       ░░░░░  ░░      ░░
 
 # Directories
-mpd_music_dir = "~/music/"
+mpd_music_dir = "~/Music/"
 lyrics_directory  = "~/.config/ncmpcpp/lyrics"
 ncmpcpp_directory  = "~/.config/ncmpcpp"
 mpd_host = "127.0.0.1"
@@ -20,7 +20,7 @@ autocenter_mode = "yes"
 centered_cursor = "yes"
 ignore_leading_the = "yes"
 allow_for_physical_item_deletion = "yes"
-external_editor = "nvim"
+external_editor = "vim"
 default_place_to_search_in = "database"
 
 # Visualizer

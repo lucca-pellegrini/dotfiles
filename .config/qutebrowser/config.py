@@ -9,7 +9,7 @@
 # config.load_autoconfig()
 
 # Set custom User Agent
-# config.set('content.headers.user_agent', 'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0')
+ config.set('content.headers.user_agent', 'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0')
 
 # Scripts
 config.bind("pv", "spawn --userscript ~/.config/qutebrowser/scripts/view_in_mpv")
@@ -26,10 +26,8 @@ config.set("content.javascript.enabled", True, "qute://*/*")
 # c.content.user_stylesheets = ["css/main.css"]
 
 # Change start/default pages + search engine
-# config.set("url.start_pages", "https://start.duckduckgo.com/?kae=d")
-# config.set("url.default_page", "https://start.duckduckgo.com/?kae=d")
-config.set("url.start_pages", "https://cherrry9.github.io/startpage/")
-config.set("url.default_page", "https://cherrry9.github.io/startpage/")
+config.set("url.start_pages", "https://start.duckduckgo.com/?kae=d")
+config.set("url.default_page", "https://start.duckduckgo.com/?kae=d")
 config.set("url.searchengines", {
            "DEFAULT": "https://start.duckduckgo.com/?q={}&kae=d"})
 

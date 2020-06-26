@@ -33,8 +33,6 @@ static const Rule rules[] = {
 	{ "Gimp",        NULL,       NULL,       1 << 2,      0,            0,            0,            0,           -1 },
 	{ "Firefox",     NULL,       NULL,       1 << 2,      0,            0,            0,           -1,           -1 },
 	{ "qutebrowser", NULL,       NULL,       1 << 2,      0,            0,            0,           -1,           -1 },
-	{ "Telegram",    NULL,       NULL,       1 << 3,      0,            0,            0,            1,           -1 },
-	{ "discord",     NULL,       NULL,       1 << 3,      0,            0,            0,            1,           -1 },
 	{ "st",          NULL,       NULL,            0,      0,            0,            1,           -1,           -1 },
 	{ NULL,       "float",       NULL,            0,      1,            1,            0,            1,           -1 },
 };
@@ -125,7 +123,7 @@ static Key keys[] = {
 
 	{ ALTKEY,                       XK_f,      spawn,          SHCMD("st -e vf") },
 	{ ALTKEY,                       XK_m,      spawn,          SHCMD("st -n float -e ncmpcpp") },
-	{ ALTKEY,                       XK_v,      spawn,          SHCMD("st -e nvim") },
+	{ ALTKEY,                       XK_v,      spawn,          SHCMD("st -e vim") },
 	{ ALTKEY,                       XK_a,      spawn,          SHCMD("st -e alsamixer") },
 	{ ALTKEY,                       XK_e,      spawn,          SHCMD("st -e neomutt") },
 	{ ALTKEY|ShiftMask,             XK_e,      spawn,          SHCMD("st -n newsboat -e rss") },

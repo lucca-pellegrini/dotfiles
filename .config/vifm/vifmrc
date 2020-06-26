@@ -9,7 +9,7 @@
 
 colorscheme iceberg
 source ~/.config/vifm/vifmshortcuts
-set vicmd=nvim
+set vicmd=vim
 set syscalls
 set nofollowlinks
 set undolevels=100
@@ -41,7 +41,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " new file
-nnoremap V :!nvim<space>
+nnoremap V :!vim<space>
 
 " executable
 nnoremap x :!chmod +x %f<cr>
@@ -91,7 +91,7 @@ nnoremap ,c :edit $MYVIFMRC | restart<cr>
 nnoremap ,w :set wrap!<cr>
 
 command! df df -h %m 2> /dev/null
-command! diff nvim -d %f
+command! diff vim -d %f
 command! zip zip -r %f.zip %f
 command! make !!make %a
 command! reload :write | restart

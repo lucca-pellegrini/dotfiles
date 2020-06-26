@@ -200,7 +200,7 @@ alt + m
 	$TERMINAL -e ncmpcpp
 # Open the neovim
 alt + v
-	$TERMINAL -e nvim
+	$TERMINAL -e vim
 # Open the sound configurations
 alt + a
 	$TERMINAL -e alsamixer
