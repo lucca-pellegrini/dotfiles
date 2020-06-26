@@ -14,10 +14,14 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 (Windows NT 6.1; rv:52.0) 
 # Scripts
 config.bind("pv", "spawn --userscript ~/.config/qutebrowser/scripts/view_in_mpv")
 
-# Enable Javascript
-config.set("content.javascript.enabled", True, "file://*")
-config.set("content.javascript.enabled", True, "chrome://*/*")
-config.set("content.javascript.enabled", True, "qute://*/*")
+# Disable Javascript
+config.set("content.javascript.enabled", False, "file://*")
+config.set("content.javascript.enabled", False, "chrome://*/*")
+config.set("content.javascript.enabled", False, "qute://*/*")
+
+# Disable cookies
+config.set("content.cookies.accept", "never")
+config.set("content.cookies.store", False)
 
 # Custom Adblock list file
 # c.content.host_blocking.lists.append( str(config.configdir) + "/blockedHosts")
