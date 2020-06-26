@@ -11,6 +11,7 @@ alias mv='mv -iv'
 alias rm='rm -v'
 alias mkd='mkdir -pv'
 
+alias ls='ls --color=always'
 alias l="ls -lFh"        # Size, type, human readable.
 alias la="ls -lAFh"      # Long list, show almost all, type, human readable.
 alias lr="ls -tRFh"      # Sort by date, recursive, type, human readable.
