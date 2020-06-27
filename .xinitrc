@@ -14,5 +14,6 @@ mpd &
 #exec bspwm
 
 # dwm
+export XDG_CURRENT_DESKTOP=KDE
 dwmbar &
 exec dwm
