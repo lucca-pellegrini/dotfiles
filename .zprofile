@@ -53,7 +53,7 @@ export FZF_DEFAULT_OPTS='
 --info=inline
 --height 60%
 --reverse
---preview "( [ -d {} ] && ls -Fh --color=always {} ) || ( [ -f {} ] && bat --color always {} )"
+--preview "( [ -d {} ] && ls -Fh --color=always {} ) || ( [ -f {} ] && bat -pp --color always {} )"
 '
 
 export FZF_DEFAULT_COMMAND="find . -mindepth 1 2>/dev/null"
