@@ -61,6 +61,7 @@ export FZF_ALT_C_COMMAND='find . -mindepth 1 -type d 2>/dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Other program settings
+export GPG_TTY=$(tty)
 export SXHKD_SHELL="/bin/sh"
 export MPD_HOST="$XDG_CONFIG_HOME/mpd/socket"
 export GOPATH="$XDG_DATA_HOME/go"
