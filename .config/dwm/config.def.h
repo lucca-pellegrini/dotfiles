@@ -142,6 +142,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_u,      spawn,          SHCMD("dmenuumount") },
 	{ MODKEY|ControlMask,           XK_t,      spawn,          SHCMD("dmenutmux") },
 	{ MODKEY,                       XK_End,    spawn,          SHCMD("dmenuscreen") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenumonitor") },
 	{ MODKEY,                       XK_Insert, spawn,          SHCMD("showclip") },
 	{ MODKEY,                       XK_Escape, spawn,          SHCMD("dmenupower") },
 	{ MODKEY|ControlMask,           XK_Insert, spawn,          SHCMD("blaze") },

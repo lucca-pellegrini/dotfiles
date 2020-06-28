@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Change monitor settings
+#
+
+out='HDMI1'
+default='eDP1'
+
+ans="$(printf " Single Monitor\n Extend to Left\n Extend to Right" |
+	$DMENU -i -p 'Monitor')"
+
+case "$ans" in
+	' Single Monitor')  arg='--same-as' ;;
+	' Extend to Left')  arg='--left-of' ;;
+	' Extend to Right') arg='--right-of';;
+	*)                   exit            ;;
+esac
+
+xrandr --output "$out" --auto "$arg" "$default"
