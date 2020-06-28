@@ -1,0 +1,10 @@
+# Compose sequences
+# See Compose(5) for more details
+
+# Include default config at
+# /usr/share/X11/locale/<current_locale>/Compose
+include "%L"
+
+<Multi_key> <g> <a> : "α"
+<Multi_key> <g> <b> : "β"
+<Multi_key> <g> <g> : "γ"

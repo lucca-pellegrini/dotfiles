@@ -31,6 +31,8 @@ export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export LESSHISTFILE="-"
+export XCOMPOSEFILE="$XDG_CONFIG_HOME/XCompose"
+export XCOMPOSECACHE="${XDG_CACHE_HOME:-"$HOME/.cache"}/compose-cache"
 
 # Sudo
 export SUDO_PROMPT="$(printf "\033[1;36m")[sudo]$(printf "\033[0m") password for %p: "
