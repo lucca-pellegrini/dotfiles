@@ -221,3 +221,6 @@ egs() { clear; git status; zle redisplay; }
 zle -N egs; bindkey "^g" egs
 
 # vim: ft=zsh
+
+# Interactive program options
+export GPG_TTY=$(tty)
