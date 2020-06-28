@@ -20,7 +20,7 @@ deps() {
 	printf "\n"
 	printf "\033[32mOptional dependencies\033[0m\n"
 	printf " - \033[32mnotify-send\033[0m     Letting the user know when the recording starts/ends\n"
-	printf " - \033[32mxdg-desktop-dir\033[0m Use directory from xdg instead \$HOME/Videos\n"
+	printf " - \033[32mxdg-desktop-dir\033[0m Use directory from xdg instead \$HOME/Videos/Recordings\n"
 	exit
 }
 
@@ -37,12 +37,12 @@ _ xrandr || _ slop || deps="$deps xorg-xrandr/slop"
 if [ ! "$BLAZE_DIR" ]; then
 	_ xdg-user-dir &&
 		BLAZE_DIR=$(xdg-user-dir VIDEOS 2>/dev/null) ||
-		BLAZE_DIR="$HOME/Videos"
+		BLAZE_DIR="$HOME/Videos/Recordings"
 fi
 
 [ ! -d "$BLAZE_DIR" ] && mkdir -p "$BLAZE_DIR" >/dev/null 2>&1
 
-output="$BLAZE_DIR/${BLAZE_FILE:-blaze-$(date '+%Y-%m-%d_%H-%M-%S').mp4}"
+output="$BLAZE_DIR/${BLAZE_FILE:-(date '+%Y-%m-%d_%H-%M-%S').mp4}"
 
 # menu to use
 m() { ${DMENU:-dmenu} "$@"; }
@@ -99,10 +99,10 @@ help() {
 	printf "\n"
 	printf "\033[34mVariables\033[0m\n"
 	printf "  \033[34mBLAZE_DIR\033[0m    Location to save the video\n"
-	printf "    \033[37mDefault:     xdg-user-dir VIDEOS or \$HOME/Videos\033[0m\n"
+	printf "    \033[37mDefault:     xdg-user-dir VIDEOS or \$HOME/Videos/Recordings\033[0m\n"
 	printf "\n"
 	printf "  \033[34mBLAZE_FILE\033[0m   Name of the saved video\n"
-	printf "    \033[37mDefault:     blaze-%s.mp4\033[0m\n" "\$(date +%Y-%m-%d_%H-%M-%S)"
+	printf "    \033[37mDefault:     %s.mp4\033[0m\n" "\$(date +%Y-%m-%d_%H-%M-%S)"
 	printf "\n"
 	printf "  \033[34mBLAZE_SLOP\033[0m   Options to use for slop\n"
 	printf "    \033[37mDefault:     None\033[0m\n"
@@ -150,7 +150,7 @@ done
 shift $((OPTIND -1))
 
 # exit if blaze is running
-[ -f /tmp/blaze-pid ] && { 
+[ -f /tmp/blaze-pid ] && {
 	echo "Blaze is already running, exiting."
 	notify-send "Blaze is already running, exiting."
 	exit
