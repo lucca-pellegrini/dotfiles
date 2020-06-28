@@ -19,3 +19,12 @@ ResourcePref resources[] = {
 
 /* treat a cleared input like a wrong password (color) */
 static const int failonclear = 1;
+
+/* default message */
+static const char * message = "This computer is LOCKED";
+
+/* text color */
+static const char * text_color = "#ffffff";
+
+/* text size (must be a valid size) */
+static const char * font_name = "-misc-hack-medium-r-normal--0-0-0-0-p-0-iso8859-16";
