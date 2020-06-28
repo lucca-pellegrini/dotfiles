@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# open a new tmux session 
+# open a new tmux session
 # or attach to existing sessions
 
-sessions="$(tmux ls 2> /dev/null | awk '! /attached/ { sub(":", "", $1); print $1 ; }')" 
+sessions="$(tmux ls 2> /dev/null | awk '! /attached/ { sub(":", "", $1); print $1 ; }')"
 [ ! "$sessions" ] && sessions="new" || sessions="$sessions\nnew"
 choice=$(printf "%b" "$sessions" | $DMENU -i -p "attach")
 [ ! "$choice" ] && exit

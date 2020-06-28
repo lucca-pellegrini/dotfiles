@@ -5,7 +5,7 @@
 
 opt="copy url
 mpv
-mpv (loop) 
+mpv (loop)
 mpv (float)
 download
 youtube-dl
