@@ -21,7 +21,7 @@ ResourcePref resources[] = {
 static const int failonclear = 1;
 
 /* time in seconds before the monitor shuts down */
-static const int monitortime = 3600;
+static const int monitortime = 28800;
 
 /* allow control key to trigger fail on clear */
 static const int controlkeyclear = 1;
