@@ -59,18 +59,6 @@ alias dc='dots commit'
 alias dp='dots push'
 alias dl="dots log --all --decorate --oneline --graph"
 
-# git
-alias ga='git add'
-alias gd='git diff'
-alias gp='git push'
-alias gs='git status'
-alias gc='git commit'
-alias gaa='git add -A'
-alias gpf='git push -f'
-alias gcm='git commit -m'
-alias gca='git commit --amend'
-alias gl='git log --all --decorate --oneline --graph'
-
 # torrent
 alias trl='transmission-remote -l'
 alias tr-remote='transmission-remote'
