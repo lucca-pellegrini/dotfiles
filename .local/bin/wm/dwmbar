@@ -71,8 +71,6 @@ torrents() {
 		[ "${per%?}" = 100 ] && {
 			id="$(printf %s "$line" | awk '{ printf $1 }')"
 			name="$(printf %s "$line" | awk '{ printf $10 }')"
-			notify-send " Download completed." "$name"
-			transmission-remote -t "$id" -r >/dev/null 2>&1
 			continue
 		}
 		printf %s "$line" | sed "
