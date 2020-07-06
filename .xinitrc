@@ -4,6 +4,7 @@ setxkbmap br &                    # set brazilian keyboard
 setxkbmap -option compose:rctrl & # turn Right Control key into Compose key
 xrdb ~/.config/xrdb/Xdefaults     # load ~/.Xresources
 xsetroot -cursor_name left_ptr &  # change the cursor shape from "x" to normal
+xset s off                        # do not blank screen automatically
 unclutter --timeout 3 -jitter 50 --ignore-scrolling & # Remove mouse when idle
 dunst &
 picom &
