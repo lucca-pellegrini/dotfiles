@@ -23,7 +23,7 @@ set hlsearch  " Highlights matches.
 set scrolloff=10 " Stops cursor from reaching bottom (or top) of screen.
 set sidescrolloff=10 " Same but horizontally.
 
-autocmd vimenter * NERDTree " Starts NERDTree when VIM starts.
+"autocmd vimenter * NERDTree " Starts NERDTree when VIM starts.
 
 filetype plugin on " Writing of filetype-specific plugins.
 autocmd FileType sh setlocal noexpandtab ts=8 sts=8 sw=8
