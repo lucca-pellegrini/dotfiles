@@ -41,6 +41,11 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Use different cursor shapes in different modes *for VTE compatible terminals)
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
+
 "set spell spelllang=en_us " spell checking (only for comments in code)
 
 call plug#begin('~/.vim/plugged')
