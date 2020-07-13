@@ -42,7 +42,7 @@ fi
 
 [ ! -d "$BLAZE_DIR" ] && mkdir -p "$BLAZE_DIR" >/dev/null 2>&1
 
-output="$BLAZE_DIR/${BLAZE_FILE:-(date '+%Y-%m-%d_%H-%M-%S').mp4}"
+output="$BLAZE_DIR/${BLAZE_FILE:-$(date '+%Y-%m-%d_%H-%M-%S').mp4}"
 
 # menu to use
 m() { ${DMENU:-dmenu} "$@"; }
