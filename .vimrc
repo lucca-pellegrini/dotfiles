@@ -62,6 +62,7 @@ call plug#begin('~/.vim/plugged')
 	"Plug 'Yggdroot/indentLine' " Show indentation lines
 	"Plug 'alx741/vim-stylishask' " Haskell style
 	Plug 'neovimhaskell/haskell-vim' " Haskell indent and highlighting
+	Plug 'vim-syntastic/syntastic' " Syntax checking
 
 	" Colorschemes
 	Plug 'tomasr/molokai' " Colorscheme
