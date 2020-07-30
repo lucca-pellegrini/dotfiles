@@ -119,6 +119,7 @@ HISTFILE="${XDG_CONFIG_HOME:-~/.config}/zsh/.zsh_history"
 setopt extended_history   # Record timestamp of command in HISTFILE
 setopt hist_ignore_dups   # Ignore duplicated commands history list
 setopt share_history      # Share command history data
+setopt histignorespace    # Ignore commands prepended with a space
 
 #
 #   PROMPT
