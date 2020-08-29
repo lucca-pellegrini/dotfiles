@@ -28,7 +28,7 @@ battery() {
 }
 
 _date() {
-	printf " %s $SEP  %s" "$(date "+%I:%M %p")" "$(date "+%Y-%m-%d")"
+	printf " %s $SEP  %s" "$(date "+%H:%M")" "$(date "+%Y-%m-%d")"
 }
 
 backlight() {
