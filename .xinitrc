@@ -21,6 +21,6 @@ synclient VertScrollDelta=-47 # Because it makes more sense
 synclient HorizScrollDelta=-47
 
 # dwm
-export XDG_CURRENT_DESKTOP=KDE   # because I'm too lazy to configure Qt myself
+export QT_STYLE_OVERRIDE=kvantum-dark
 dwmbar &
 exec dwm
