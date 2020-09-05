@@ -118,6 +118,7 @@ static Key keys[] = {
 
 	/* programs */
 	{ MODKEY,                       XK_q,      killclient,     {0} },
+	{ MODKEY,                       XK_x,      spawn,          SHCMD("xkill") },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 
