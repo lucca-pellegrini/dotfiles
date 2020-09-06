@@ -44,16 +44,6 @@ config.set("search.ignore_case", "always")
 # Confirm exit when downloading files
 c.confirm_quit = ["downloads"]
 
-# Fonts
-c.fonts.default_family = "Hack Nerd Font Mono"
-c.fonts.completion.category = "10pt Hack Nerd Font Mono"
-c.fonts.completion.entry = "10pt Hack Nerd Font Mono"
-c.fonts.tabs = "10pt Hack Nerd Font Mono"
-c.fonts.statusbar = "10pt Hack Nerd Font Mono"
-c.fonts.downloads = "10pt Hack Nerd Font Mono"
-c.fonts.hints = "bold 10pt Hack Nerd Font Mono"
-c.fonts.debug_console = "10pt Hack Nerd Font Mono"
-
 # Color Scheme
 black = "#161821"
 white = "#c6c8d1"
