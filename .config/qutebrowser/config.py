@@ -44,6 +44,9 @@ config.set("search.ignore_case", "always")
 # Confirm exit when downloading files
 c.confirm_quit = ["downloads"]
 
+# Fonts
+config.set("fonts.default_size", "9pt")
+
 # Color Scheme
 black = "#161821"
 white = "#c6c8d1"
