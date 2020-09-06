@@ -46,13 +46,13 @@ c.confirm_quit = ["downloads"]
 
 # Fonts
 c.fonts.default_size =  "9pt"
-c.fonts.default_family = "xos4 Terminus"
-c.fonts.completion.category = "10pt xos4 Terminus"
-c.fonts.completion.entry = "10pt xos4 Terminus"
-c.fonts.statusbar = "10pt xos4 Terminus"
-c.fonts.downloads = "10pt xos4 Terminus"
-c.fonts.hints = "bold 10pt xos4 Terminus"
-c.fonts.debug_console = "10pt xos4 Terminus"
+c.fonts.default_family = "Carot Mono Light"
+c.fonts.completion.category = "10pt Carot Mono Light"
+c.fonts.completion.entry = "10pt Carot Mono Light"
+c.fonts.statusbar = "10pt Carot Mono Light"
+c.fonts.downloads = "10pt Carot Mono Light"
+c.fonts.hints = "bold 10pt Carot Mono Light"
+c.fonts.debug_console = "10pt Carot Mono Light"
 
 
 # Color Scheme

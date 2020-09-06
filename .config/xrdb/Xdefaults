@@ -27,9 +27,9 @@ URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
 ! █▓▒░ font settings
-URxvt.font: xft:Hack Nerd Font:style=Regular:size=9
-dmenu.font: Hack Nerd Font:size=9
-*.font: xft:Hack Nerd Font:style=Regular:size=8
+URxvt.font: xft:Carot Mono:style=Regular:size=9
+dmenu.font: Carot Mono:size=9
+*.font: xft:Carot Mono:style=Regular:size=8
 
 Xft.dpi: 96
 Xft.antialias: true
