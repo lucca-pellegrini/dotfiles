@@ -22,5 +22,6 @@ synclient HorizScrollDelta=-47
 
 # dwm
 export QT_STYLE_OVERRIDE=kvantum-dark
+clipmenud &
 dwmbar &
 exec dwm

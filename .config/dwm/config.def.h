@@ -121,6 +121,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("xkill") },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_c,      spawn,          SHCMD("clipmenu") },
 
 	{ ALTKEY,                       XK_f,      spawn,          SHCMD("st -e vf") },
 	{ ALTKEY,                       XK_m,      spawn,          SHCMD("st -n float -e ncmpcpp") },
