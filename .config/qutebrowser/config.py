@@ -45,7 +45,15 @@ config.set("search.ignore_case", "always")
 c.confirm_quit = ["downloads"]
 
 # Fonts
-config.set("fonts.default_size", "9pt")
+c.fonts.default_size =  "9pt"
+c.fonts.default_family = "xos4 Terminus"
+c.fonts.completion.category = "10pt xos4 Terminus"
+c.fonts.completion.entry = "10pt xos4 Terminus"
+c.fonts.statusbar = "10pt xos4 Terminus"
+c.fonts.downloads = "10pt xos4 Terminus"
+c.fonts.hints = "bold 10pt xos4 Terminus"
+c.fonts.debug_console = "10pt xos4 Terminus"
+
 
 # Color Scheme
 black = "#161821"
