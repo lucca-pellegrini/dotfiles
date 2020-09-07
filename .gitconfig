@@ -1,0 +1,38 @@
+[user]
+	name = Lucca Mendes Alves Pellegrini
+	email = luccapellegrini@protonmail.com
+	signingkey = luccapellegrini@protonmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true
+[core]
+	quotepath = false
+	commitGraph = true
+	pager = bat
+[gc]
+	writeCommitGraph = true
+[alias]
+	glog = !"git --no-pager log --all --color=always --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' | sed -r -e 's/\\|(\\x1b\\[[0-9;]*m)+\\\\(\\x1b\\[[0-9;]*m)+ /├\\1─╮\\2/' -e 's/(\\x1b\\[[0-9;]+m)\\|\\x1b\\[m\\1\\/\\x1b\\[m /\\1├─╯\\x1b\\[m/' -e 's/\\|(\\x1b\\[[0-9;]*m)+\\\\(\\x1b\\[[0-9;]*m)+/├\\1╮\\2/' -e 's/(\\x1b\\[[0-9;]+m)\\|\\x1b\\[m\\1\\/\\x1b\\[m/\\1├╯\\x1b\\[m/' -e 's/╮(\\x1b\\[[0-9;]*m)+\\\\/╮\\1╰╮/' -e 's/╯(\\x1b\\[[0-9;]*m)+\\//╯\\1╭╯/' -e 's/(\\||\\\\)\\x1b\\[m   (\\x1b\\[[0-9;]*m)/╰╮\\2/' -e 's/(\\x1b\\[[0-9;]*m)\\\\/\\1╮/g' -e 's/(\\x1b\\[[0-9;]*m)\\//\\1╯/g' -e 's/^\\*|(\\x1b\\[m )\\*/\\1⎬/g' -e 's/(\\x1b\\[[0-9;]*m)\\|/\\1│/g' | less -r -X +/[^/]HEAD"
+	pkgver = "!git describe --long --tags | sed 's/^v//;s/\\([^-]*-g\\)/r\\1/;s/-/./g'"
+	#Git graphical log
+[gui]
+	recentrepo = /home/nietzsche/repos/pyr2
+[credential]
+	helper = store
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
+[push]
+	followTags = true
+[sendemail]
+	from = luccapellegrini@gmail.com
+	smtpencryption = tls
+	smtpserver = smpt.gmail.com
+	smtpdomain = gmail.com
+	smtpserverport = 587
+	smtpuser = luccapellegrini@gmail.com
