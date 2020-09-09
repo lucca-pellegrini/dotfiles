@@ -33,4 +33,4 @@ static const char * message = "Computer locked.";
 static const char * text_color = "#ffffff";
 
 /* text size (must be a valid size) */
-static const char * font_name = "-misc-hack-medium-r-normal--0-0-0-0-p-0-iso8859-16";
+static const char * font_name = "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1";
