@@ -27,7 +27,7 @@ static const int monitortime = 28800;
 static const int controlkeyclear = 1;
 
 /* default message */
-static const char * message = "This computer is LOCKED";
+static const char * message = "Computer locked.";
 
 /* text color */
 static const char * text_color = "#ffffff";
