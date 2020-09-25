@@ -75,6 +75,7 @@ call plug#begin('~/.vim/plugged')
 	"Plug 'HenryNewcomer/vim-theme-papaya' " Colorscheme
 	Plug 'fneu/breezy' " Colorscheme
 	Plug 'altercation/vim-colors-solarized' " Colorscheme
+	Plug 'embark-theme/vim', { 'as': 'embark' } " Colorscheme
 
 	Plug 'ryanoasis/vim-devicons' " Icons
 
@@ -84,12 +85,12 @@ call plug#end()
 let g:haskell_indent_disable = 1
 
 let g:lightline = {
-      \ 'colorscheme': 'iceberg',
+      \ 'colorscheme': 'embark',
       \ }		" Lightline Colorscheme
 
 set background=dark
 set termguicolors " if you want to run vim in a terminal
-colorscheme iceberg " Sets the colorscheme
+colorscheme embark " Sets the colorscheme
 "autocmd FileType mail colorscheme iceberg
 "let python_highlight_all=1
 
