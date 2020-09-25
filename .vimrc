@@ -90,6 +90,7 @@ let g:lightline = {
 
 set background=dark
 set termguicolors " if you want to run vim in a terminal
+let g:embark_terminal_italics = 1
 colorscheme embark " Sets the colorscheme
 "autocmd FileType mail colorscheme iceberg
 "let python_highlight_all=1
