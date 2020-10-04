@@ -112,5 +112,6 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 "set listchars=eol:¬,tab:▸\ ,trail:×,extends:>,precedes:<,nbsp:⎵
 "set listchars=tab:▸\ ,trail:×,extends:>,precedes:<,nbsp:⎵
-set listchars=tab:‣\ ,trail:×,extends:>,precedes:<,nbsp:⎵
+"set listchars=tab:‣\ ,trail:×,extends:>,precedes:<,nbsp:⎵
+set listchars=tab:\ \ ,trail:×,extends:>,precedes:<,nbsp:⎵
 set list
