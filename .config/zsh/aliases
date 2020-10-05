@@ -110,5 +110,6 @@ alias bat="bat --tabs 8"
 alias j="jobs"
 alias q=qalc
 alias mpv="mpv --osd-fractions --fullscreen --loop"
+alias calibre='calibre --no-update-check'
 
 # vim: filetype=zsh
