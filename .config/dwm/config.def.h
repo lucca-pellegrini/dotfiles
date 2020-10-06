@@ -123,13 +123,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("clipmenu") },
 
-	{ ALTKEY,                       XK_f,      spawn,          SHCMD("st -e vf") },
-	{ ALTKEY,                       XK_m,      spawn,          SHCMD("st -n float -e ncmpcpp") },
-	{ ALTKEY,                       XK_v,      spawn,          SHCMD("st -e vim") },
-	{ ALTKEY,                       XK_a,      spawn,          SHCMD("st -e alsamixer") },
-	{ ALTKEY,                       XK_e,      spawn,          SHCMD("st -e neomutt") },
-	{ ALTKEY|ShiftMask,             XK_e,      spawn,          SHCMD("st -n newsboat -e rss") },
-	{ ALTKEY,                       XK_w,      spawn,          SHCMD("qutebrowser") },
+	{ MODKEY|ALTKEY,                XK_f,      spawn,          SHCMD("st -e vf") },
+	{ MODKEY|ALTKEY,                XK_m,      spawn,          SHCMD("st -n float -e ncmpcpp") },
+	{ MODKEY|ALTKEY,                XK_v,      spawn,          SHCMD("st -e vim") },
+	{ MODKEY|ALTKEY,                XK_a,      spawn,          SHCMD("st -e alsamixer") },
+	{ MODKEY|ALTKEY,                XK_w,      spawn,          SHCMD("qutebrowser") },
 
 	/* scripts */
 	{ MODKEY|ControlMask,           XK_e,      spawn,          SHCMD("prompt 'Leave Xorg?' 'killall Xorg'") },
@@ -174,10 +172,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_minus,  spawn,          SHCMD("volume mpc down")  },
 
 	/* backlight */
-	{ ALTKEY,                       XK_equal,  spawn,          SHCMD("brightness up")   },
-	{ ALTKEY|ShiftMask,             XK_equal,  spawn,          SHCMD("keybacklight -inc")  },
-	{ ALTKEY,                       XK_minus,  spawn,          SHCMD("brightness down") },
-	{ ALTKEY|ShiftMask,             XK_minus,  spawn,          SHCMD("keybacklight -dec")  },
+	{ MODKEY|ALTKEY,                XK_equal,  spawn,          SHCMD("brightness up")   },
+	{ MODKEY|ALTKEY,                XK_minus,  spawn,          SHCMD("brightness down") },
 
 	/* workspaces */
 	TAGKEYS(                        XK_1,                      0)
