@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+tcc -run - << __EOF__
+
+#include <unistd.h>
+
+int main()
+{
+	pause();
+}
+
+__EOF__
