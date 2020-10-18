@@ -50,14 +50,6 @@ alias pacfiles="pacman -F"
 alias pacls="pacman -Ql"
 alias pacown="pacman -Qo"
 
-# dots
-alias d='dots'
-alias ds='dots status'
-alias da='dots add'
-alias dc='dots commit'
-alias dp='dots push'
-alias dl="dots log --all --decorate --oneline --graph"
-
 # torrent
 alias trl='transmission-remote -l'
 alias tr-remote='transmission-remote'
