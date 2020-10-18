@@ -127,6 +127,7 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,                XK_m,      spawn,          SHCMD("st -n float -e ncmpcpp") },
 	{ MODKEY|ALTKEY,                XK_v,      spawn,          SHCMD("st -e vim") },
 	{ MODKEY|ALTKEY,                XK_a,      spawn,          SHCMD("st -e alsamixer") },
+	{ MODKEY|ALTKEY,                XK_t,      spawn,          SHCMD("t") },
 	{ MODKEY|ALTKEY,                XK_w,      spawn,          SHCMD("qutebrowser") },
 
 	/* scripts */
