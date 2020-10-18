@@ -148,7 +148,6 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_Insert, spawn,          SHCMD("blaze") },
 	{ MODKEY|ControlMask,           XK_w,      spawn,          SHCMD("blaze -s") },
 	{ MODKEY|ControlMask,           XK_Delete, spawn,          SHCMD("dmenureload") },
-	{ MODKEY|ControlMask|ShiftMask, XK_u,      spawn,          SHCMD("update") },
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("passmenu2 --type") },
 
 	/* media */
