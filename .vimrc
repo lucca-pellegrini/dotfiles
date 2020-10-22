@@ -115,3 +115,6 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 "set listchars=tab:‣\ ,trail:×,extends:>,precedes:<,nbsp:⎵
 set listchars=tab:\ \ ,trail:×,extends:>,precedes:<,nbsp:⎵
 set list
+
+" Always display lightline
+set laststatus=2
