@@ -72,7 +72,7 @@ export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 
 [ ! -f ~/.config/zsh/shortcutrc ] && shortcuts >/dev/null 2>&1
 
-# set getty colours
+# Customize TTY
 if [ "$TERM" = "linux" ]; then
 	# 8 normal colours
 	echo -en "\e]P0161821" #black
@@ -93,6 +93,8 @@ if [ "$TERM" = "linux" ]; then
 	echo -en "\e]PDADA0D3" #magenta
 	echo -en "\e]PE95C4CE" #cyan
 	echo -en "\e]PFD2D4DE" #white
+
+	setfont /usr/share/kbd/consolefonts/ter-v16n.psf.gz
 
 	clear #for background artifacting
 fi
