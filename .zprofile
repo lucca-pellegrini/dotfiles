@@ -72,5 +72,30 @@ export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 
 [ ! -f ~/.config/zsh/shortcutrc ] && shortcuts >/dev/null 2>&1
 
+# set getty colours
+if [ "$TERM" = "linux" ]; then
+	# 8 normal colours
+	echo -en "\e]P0161821" #black
+	echo -en "\e]P1E27878" #darkred
+	echo -en "\e]P2B4BE82" #darkgreen
+	echo -en "\e]P3E2A478" #brown
+	echo -en "\e]P484A0C6" #darkblue
+	echo -en "\e]P5A093C7" #darkmagenta
+	echo -en "\e]P689B8C2" #darkcyan
+	echo -en "\e]P7C6C8D1" #lightgrey
+
+	# 8 bright colours
+	echo -en "\e]P86B7089" #darkgrey
+	echo -en "\e]P9E98989" #red
+	echo -en "\e]PAC0CA8E" #green
+	echo -en "\e]PBE9B189" #yellow
+	echo -en "\e]PC91ACD1" #blue
+	echo -en "\e]PDADA0D3" #magenta
+	echo -en "\e]PE95C4CE" #cyan
+	echo -en "\e]PFD2D4DE" #white
+
+	clear #for background artifacting
+fi
+
 # Start graphical server on tty1 if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
