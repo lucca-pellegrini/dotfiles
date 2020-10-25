@@ -101,3 +101,9 @@ fi
 
 # Start graphical server on tty1 if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
+
+# Attach tmux when connecting via SSH
+if [[ -z "$TMUX" ]] && [[ "$SSH_CONNECTION" ]]; then
+	tmux a || tmux
+	exit
+fi
