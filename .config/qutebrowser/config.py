@@ -28,10 +28,48 @@ config.set("content.cookies.store", False)
 # c.content.user_stylesheets = ["css/main.css"]
 
 # Change start/default pages + search engine
-config.set("url.start_pages", "https://start.duckduckgo.com/?kae=d")
-config.set("url.default_page", "https://start.duckduckgo.com/?kae=d")
+config.set("url.start_pages", "https://start.duckduckgo.com/?kae=t")
+config.set("url.default_page", "https://start.duckduckgo.com/?kae=t")
 config.set("url.searchengines", {
-           "DEFAULT": "https://start.duckduckgo.com/?q={}&kae=d"})
+    # Main
+    "DEFAULT": "https://start.duckduckgo.com/?q={}&kae=t",
+
+    # Arch Linux
+    "pac": "https://archlinux.org/packages/?q={}"              ,
+    "aur": "https://aur.archlinux.org/packages/?K={}"          ,
+    "aw" : "https://wiki.archlinux.org/index.php?search={}"    ,
+    "bug": "https://bugs.archlinux.org/index.php?string={}"    ,
+    "man": "https://jlk.fjfi.cvut.cz/arch/manpages/search?q={}",
+
+    # Wikimedia
+    "w"  : "https://en.wikipedia.org/w/index.php?search={}",
+    "wla": "https://la.wikipedia.org/w/index.php?search={}",
+    "wpt": "https://pt.wikipedia.org/w/index.php?search={}",
+
+    "wt"  : "https://en.wiktionary.org/w/index.php?search={}",
+    "wtla": "https://la.wiktionary.org/w/index.php?search={}",
+    "wtpt": "https://pt.wiktionary.org/w/index.php?search={}",
+
+    "wq"  : "https://en.wikiquote.org/w/index.php?search={}",
+    "wqla": "https://la.wikiquote.org/w/index.php?search={}",
+    "wqpt": "https://pt.wikiquote.org/w/index.php?search={}",
+
+    "wb"  : "https://en.wikibooks.org/w/index.php?search={}",
+    "wbla": "https://la.wikibooks.org/w/index.php?search={}",
+    "wbpt": "https://pt.wikibooks.org/w/index.php?search={}",
+
+    "ws"  : "https://en.wikisource.org/w/index.php?search={}",
+    "wsla": "https://la.wikisource.org/w/index.php?search={}",
+    "wspt": "https://pt.wikisource.org/w/index.php?search={}",
+
+    "wc": "https://commons.wikimedia.org/w/index.php?search={}",
+
+    # Misc.
+    "gutenberg": "https://gutenberg.org/ebooks/search/?query={}"          ,
+    "libgen"   : "http://gen.lib.rus.ec/search.php?req={}"                ,
+    "osm"      : "https://openstreetmap.org/search?query={}"              ,
+    "perseus"  : "https://www.perseus.tufts.edu/hopper/searchresults?q={}",
+})
 
 # Tab settings
 config.set("tabs.padding", {"top": 1, "bottom": 2, "left": 5, "right": 5})
