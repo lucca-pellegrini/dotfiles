@@ -72,9 +72,14 @@ config.set("url.searchengines", {
 })
 
 # Tab settings
+config.set("tabs.position", "bottom")
+config.set("tabs.show", "multiple")
 config.set("tabs.padding", {"top": 1, "bottom": 2, "left": 5, "right": 5})
 config.set("tabs.indicator.width", 0)
 config.set("tabs.favicons.scale", 1.2)
+
+# Completion settings
+config.set("completion.shrink", True)
 
 # Disable case sensitivity for searching
 config.set("search.ignore_case", "always")
