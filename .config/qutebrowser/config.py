@@ -9,7 +9,7 @@
 # config.load_autoconfig()
 
 # Set custom User Agent
-config.set('content.headers.user_agent', 'Mozilla/5.0 (Windows NT 6.1; rv:52.0) Gecko/20100101 Firefox/52.0')
+config.set('content.headers.user_agent', 'Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0')
 
 # Scripts
 config.bind("pv", "spawn --userscript ~/.config/qutebrowser/scripts/view_in_mpv")
