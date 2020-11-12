@@ -1,0 +1,61 @@
+#!/bin/sh
+
+#   aegis2cloak - Reads Aegis JSON file and adds accounts to Cloak
+#   Copyright © 2020  Lucca Pellegrini <luccapellegrini@gmail.com>
+#
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+aegis2cloak()
+{
+	[ ! -f "$1" ] && return 1
+	awkprog='{ print("cloak add "$1" "$2) }'
+
+	egrep 'issuer|secret' "$1" |
+		sed -e 's/^.*".*": "//g' -e 's/",$//g' -e 's/ /\\\\ /g' |
+		paste - - |
+
+		while read line; do
+			cmd=$(
+				echo "$line" |
+				awk -F '	' "$awkprog"
+			)
+			eval $cmd
+		done
+
+	return 0
+}
+
+usage()
+{
+	cat <<- _EOF
+		Usage: `basename $0` FILE
+		Where FILE is a valid aegis unencrypted json file
+	_EOF
+}
+
+[ "$1" ] && [ ! "$2" ] || {
+	usage >&2
+	exit 1
+}
+
+case "$1" in
+-h|--help)
+	usage
+	exit 1
+	;;
+*)
+	aegis2cloak "$1"
+	exit $?
+	;;
+esac
