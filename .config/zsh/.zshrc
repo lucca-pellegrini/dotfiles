@@ -196,9 +196,10 @@ preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 #
 #   Miscellaneous
 #
-set -k                       # Allow comments in shell
-setopt auto_cd               # cd by just typing the directory name
-unsetopt flowcontrol         # Disable Ctrl-S + Ctrl-Q
+set -k                  # Allow comments in shell
+setopt shwordsplit      # Split words on variable substitution (like in sh)
+setopt auto_cd          # cd by just typing the directory name
+unsetopt flowcontrol    # Disable Ctrl-S + Ctrl-Q
 source "$ZDOTDIR/aliases" 2>/dev/null
 source "$ZDOTDIR/shortcutrc" 2>/dev/null
 
