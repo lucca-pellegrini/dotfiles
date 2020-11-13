@@ -29,6 +29,11 @@ config.set("content.javascript.enabled", True, "https://3g2upl4pq6kufc4m.onion/*
 config.set("content.cookies.accept", "never")
 config.set("content.cookies.store", False)
 
+# Special rules for my hidden service
+with config.pattern('*://qxbpps3h5bfkrnuy55fljgc4hll45lmc7zfznmi4yypfy744m4v4y3qd.onion/*') as p:
+    p.content.cookies.accept = "no-3rdparty"
+    p.content.javascript.enabled = True
+
 # Custom Adblock list file
 # c.content.host_blocking.lists.append( str(config.configdir) + "/blockedHosts")
 
