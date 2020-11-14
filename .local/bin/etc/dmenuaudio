@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+# Change ALSA output device
+#
+
+card=0
+
+headphones=" Headphones"
+speaker=" Speaker"
+
+_headphones()
+{
+	amixer -c "$card" set Master unmute
+	amixer -c "$card" set Master 100
+	amixer -c "$card" set Headphone unmute
+	amixer -c "$card" set Headphone 100
+	amixer -c "$card" set Speaker mute
+	amixer -c "$card" set Speaker 0
+	return 0
+}
+
+_speaker()
+{
+	amixer -c "$card" set Master unmute
+	amixer -c "$card" set Master 100
+	amixer -c "$card" set Speaker unmute
+	amixer -c "$card" set Speaker 100
+	return 0
+}
+
+ans="$(printf \
+	"${headphones}\n${speaker}" |
+	$DMENU -i -p 'ALSA'
+)"
+
+case "$ans" in
+	"$headphones") _headphones; exit $? ;;
+	"$speaker")    _speaker; exit $?    ;;
+	*)             exit 255             ;;
+esac
