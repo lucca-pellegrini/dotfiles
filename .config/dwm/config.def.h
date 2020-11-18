@@ -150,6 +150,8 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_w,      spawn,          SHCMD("blaze -s") },
 	{ MODKEY|ControlMask,           XK_Delete, spawn,          SHCMD("dmenureload") },
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("passmenu2 --type") },
+	{ MODKEY|ControlMask,           XK_c,      spawn,          SHCMD("dmenucloak") },
+	{ MODKEY|ControlMask,           XK_a,      spawn,          SHCMD("dmenuaudio") },
 
 	/* media */
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("amixer sset Master toggle") },
