@@ -85,13 +85,13 @@ call plug#end()
 let g:haskell_indent_disable = 1
 
 let g:lightline = {
-      \ 'colorscheme': 'embark',
+      \ 'colorscheme': 'iceberg',
       \ }		" Lightline Colorscheme
 
 set background=dark
 set termguicolors " if you want to run vim in a terminal
 let g:embark_terminal_italics = 1
-colorscheme embark " Sets the colorscheme
+colorscheme iceberg " Sets the colorscheme
 "autocmd FileType mail colorscheme iceberg
 "let python_highlight_all=1
 
