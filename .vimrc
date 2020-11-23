@@ -63,6 +63,8 @@ call plug#begin('~/.vim/plugged')
 	"Plug 'alx741/vim-stylishask' " Haskell style
 	Plug 'neovimhaskell/haskell-vim' " Haskell indent and highlighting
 	Plug 'vim-syntastic/syntastic' " Syntax checking
+	Plug 'vlime/vlime' " Lisp plugin
+	Plug 'kovisoft/paredit' " And one of its dependencies
 
 	" Colorschemes
 	Plug 'tomasr/molokai' " Colorscheme
