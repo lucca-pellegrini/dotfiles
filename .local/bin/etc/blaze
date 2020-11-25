@@ -36,7 +36,7 @@ _ xrandr || _ slop || deps="$deps xorg-xrandr/slop"
 # output file, use $BLAZE_DIR and $BLAZE_FILE if they are set
 if [ ! "$BLAZE_DIR" ]; then
 	_ xdg-user-dir &&
-		BLAZE_DIR=$(xdg-user-dir VIDEOS 2>/dev/null) ||
+		BLAZE_DIR=$(xdg-user-dir VIDEOS 2>/dev/null)/Recordings ||
 		BLAZE_DIR="$HOME/Videos/Recordings"
 fi
 
