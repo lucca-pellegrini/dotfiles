@@ -68,19 +68,22 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-syntastic/syntastic' " Syntax checking
 	Plug 'vlime/vlime' " Lisp plugin
 	Plug 'kovisoft/paredit' " And one of its dependencies
+	Plug 'vim-scripts/CRefVim' " C reference manual
+	Plug 'vim-scripts/Printer-Dialog' " To print files
 
 	" Colorschemes
 	Plug 'tomasr/molokai' " Colorscheme
-	"Plug 'ajmwagar/vim-deus' " Colorscheme
-	"Plug 'nanotech/jellybeans.vim' " Colorscheme
-	"Plug 'rakr/vim-one' " Colorscheme
-	"Plug 'morhetz/gruvbox' " Colorscheme
+	Plug 'ajmwagar/vim-deus' " Colorscheme
+	Plug 'nanotech/jellybeans.vim' " Colorscheme
+	Plug 'rakr/vim-one' " Colorscheme
+	Plug 'morhetz/gruvbox' " Colorscheme
 	Plug 'cocopon/iceberg.vim' " Colorscheme
-	"Plug 'kyoz/purify', { 'rtp': 'vim' } " Colorscheme
-	"Plug 'HenryNewcomer/vim-theme-papaya' " Colorscheme
+	Plug 'kyoz/purify', { 'rtp': 'vim' } " Colorscheme
+	Plug 'HenryNewcomer/vim-theme-papaya' " Colorscheme
 	Plug 'fneu/breezy' " Colorscheme
 	Plug 'altercation/vim-colors-solarized' " Colorscheme
 	Plug 'embark-theme/vim', { 'as': 'embark' } " Colorscheme
+	Plug 'ayu-theme/ayu-vim'
 
 	Plug 'ryanoasis/vim-devicons' " Icons
 
