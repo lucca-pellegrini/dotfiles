@@ -49,19 +49,10 @@ let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
-"set spell spelllang=en_us " spell checking (only for comments in code)
-
 call plug#begin('~/.vim/plugged')
 
 	" Plugins
 	Plug 'itchyny/lightline.vim' " Like Powerline but better
-	"Plug 'scrooloose/nerdcommenter' " For commenting multiple lines
-	"Plug 'WolfgangMehner/c-support' " C Plugin
-	"Plug 'lervag/vimtex' " LaTeX Plugin
-	"Plug 'terryma/vim-multiple-cursors' " Multiple cursors
-	"Plug 'antoyo/vim-licenses' " For adding license text to buffer
-	"Plug 'Yggdroot/indentLine' " Show indentation lines
-	"Plug 'alx741/vim-stylishask' " Haskell style
 	Plug 'neovimhaskell/haskell-vim' " Haskell indent and highlighting
 	Plug 'vlime/vlime' " Lisp plugin
 	Plug 'kovisoft/paredit' " And one of its dependencies
