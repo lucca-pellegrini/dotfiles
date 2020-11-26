@@ -92,24 +92,21 @@ call plug#end()
 " I dislike how haskell-vim handles indentation, so it's disabled
 let g:haskell_indent_disable = 1
 
-let g:lightline = {
-      \ 'colorscheme': 'iceberg',
-      \ }		" Lightline Colorscheme
-
-set background=dark
 set termguicolors " if you want to run vim in a terminal
-let g:embark_terminal_italics = 1
-colorscheme iceberg " Sets the colorscheme
-"autocmd FileType mail colorscheme iceberg
-"let python_highlight_all=1
-
-let g:NERDTreeWinSize=42 " Changes NERDTree width
-
-"let g:gruvbox_italic = 1
-"let g:gruvbox_contrast_dark = 'soft'
-"let g:gruvbox_contrast_light = 'hard'
-
-"set background=dark
+if $VIM_COLOURS == 'light' " A switch/case thing would be useful
+	let g:lightline = {'colorscheme': 'iceberg'}
+	colorscheme iceberg
+	set bg=light
+elseif $VIM_COLOURS == 'embark'
+	let g:embark_terminal_italics = 1
+	let g:lightline = {'colorscheme': 'embark'}
+	colorscheme embark
+	set bg=dark
+else
+	let g:lightline = {'colorscheme': 'iceberg'}
+	colorscheme iceberg
+	set bg=dark
+endif
 
 " Highlighting unwanted whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
