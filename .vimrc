@@ -68,8 +68,6 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-syntastic/syntastic' " Syntax checking
 	Plug 'vlime/vlime' " Lisp plugin
 	Plug 'kovisoft/paredit' " And one of its dependencies
-	Plug 'vim-scripts/CRefVim' " C reference manual
-	Plug 'vim-scripts/Printer-Dialog' " To print files
 
 	" Colorschemes
 	Plug 'tomasr/molokai' " Colorscheme
