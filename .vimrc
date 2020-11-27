@@ -1,9 +1,9 @@
+set encoding=UTF-8 " use UTF-8
+scriptencoding utf-8
 " set Vim-specific sequences for RGB colors
 " Needed when TERM is st-256color
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-set encoding=UTF-8 " use UTF-8
 
 set exrc " Allows VIM to read .vimrc from working directory, if one exists.
 set secure " Stops harmful commands from those dotfiles.
@@ -29,14 +29,16 @@ let g:NERDTreeDirArrowCollapsible = ' '
 let g:NERDTreeWinSize=25 " Changes NERDTree width
 
 filetype plugin on " Writing of filetype-specific plugins.
-autocmd FileType sh setlocal noexpandtab ts=8 sts=8 sw=8
-autocmd Filetype c setlocal noexpandtab ts=8 sts=8 sw=8 " rules for C
-autocmd Filetype python setlocal expandtab ts=4 sts=4 sw=4 " and Python
-" Haskell rules stolen from <http://dmwit.com/tabs/>
-autocmd FileType haskell setlocal noet ci pi ts=8 sw=8 sts=0 " and so on
-autocmd FileType lilypond setlocal expandtab ts=4 sts=4 sw=4
-autocmd FileType sh setlocal noexpandtab ts=8 sts=8 sw=8
-autocmd FileType tex setlocal expandtab ts=4 sts=4 sw=4
+augroup indentation
+	autocmd FileType sh setlocal noexpandtab ts=8 sts=8 sw=8
+	autocmd Filetype c setlocal noexpandtab ts=8 sts=8 sw=8 " rules for C
+	autocmd Filetype python setlocal expandtab ts=4 sts=4 sw=4 " and Python
+	" Haskell rules stolen from <http://dmwit.com/tabs/>
+	autocmd FileType haskell setlocal noet ci pi ts=8 sw=8 sts=0 " so on…
+	autocmd FileType lilypond setlocal expandtab ts=4 sts=4 sw=4
+	autocmd FileType sh setlocal noexpandtab ts=8 sts=8 sw=8
+	autocmd FileType tex setlocal expandtab ts=4 sts=4 sw=4
+augroup END
 
 " Map switching panes to <C-h/j/k/l>
 map <C-j> <C-W>j
@@ -78,27 +80,29 @@ call plug#end()
 let g:haskell_indent_disable = 1
 
 set termguicolors " if you want to run vim in a terminal
-if $VIM_COLOURS == 'light' " A switch/case thing would be useful
+if $VIM_COLOURS ==? 'light' " A switch/case thing would be useful
 	let g:lightline = {'colorscheme': 'iceberg'}
 	colorscheme iceberg
-	set bg=light
-elseif $VIM_COLOURS == 'embark'
+	set background=light
+elseif $VIM_COLOURS ==? 'embark'
 	let g:embark_terminal_italics = 1
 	let g:lightline = {'colorscheme': 'embark'}
 	colorscheme embark
-	set bg=dark
+	set background=dark
 else
 	let g:lightline = {'colorscheme': 'iceberg'}
 	colorscheme iceberg
-	set bg=dark
+	set background=dark
 endif
 
 " Highlighting unwanted whitespaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+augroup trailing_space
+	highlight ExtraWhitespace ctermbg=red guibg=red
+	match ExtraWhitespace /\s\+$/
+	autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+	autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+	autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+augroup END
 
 "set listchars=eol:¬,tab:🠂\ ,trail:×,extends:▹,precedes:◃,space:·,nbsp:%
 set listchars=eol:\ ,tab:\ \ ,trail:×,extends:▹,precedes:◃,space:\ ,nbsp:%
