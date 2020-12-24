@@ -76,6 +76,14 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
+" Set ALE linters and options
+let g:ale_linters = #{
+	\ c: ['cc'],
+\}
+
+let g:ale_c_cc_executable = 'cc'
+let g:ale_c_cc_options = '-Wall -Wextra -pedantic'
+
 " I dislike how haskell-vim handles indentation, so it's disabled
 let g:haskell_indent_disable = 1
 
