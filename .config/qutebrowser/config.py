@@ -11,7 +11,8 @@
 # Use TOR by default and bind ,t & ,T to control it
 config.set('content.proxy', 'socks://localhost:9050/')
 config.bind(',t', 'set content.proxy socks://localhost:9050/')
-config.bind(',T', 'set content.proxy system')
+config.bind(',2', 'set content.proxy http://localhost:4444/')
+config.bind(',P', 'set content.proxy system')
 
 # Set custom User Agent
 config.set('content.headers.user_agent', 'Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0')
