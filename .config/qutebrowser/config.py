@@ -127,6 +127,9 @@ background = black
 backgroundAlt = "#22262e"
 accent = blue
 
+# Set dark mode
+config.set("colors.webpage.darkmode.enabled", True)
+
 # Set colors from color scheme
 c.colors.completion.category.bg = background
 c.colors.completion.category.border.bottom = background
