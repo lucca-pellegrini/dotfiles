@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 FONT="${FONT:-Source Code Pro Medium}"
-SIZE="${SIZE:-16}"
+SIZE="${SIZE:-9}"
 
 params=$(getopt \
 	-o f:,s: \
