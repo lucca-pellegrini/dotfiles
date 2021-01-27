@@ -91,6 +91,12 @@ calc() { echo "scale=5; $*" | bc; }
 hextorgb() { printf "%d %d %d\n" "0x${1:0:2}" "0x${1:2:2}" "0x${1:4:2}"; }
 rgbtohex() { printf "%02X%02X%02X\n" "$@"; }
 
+# custom vim modes
+function vhelp()
+{
+	vim -c "help $1" -c "only"
+}
+
 # other
 alias hc='history -c'
 alias out='pkill -kill -u $(whoami)'
