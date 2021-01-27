@@ -7,8 +7,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Carot Mono:size=9" };
-static const char dmenufont[]       = "Carot Mono:size=10";
+static const char *fonts[]          = { "Source Code Pro:size=9" };
+static const char dmenufont[]       = "Source Code Pro:size=10";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
