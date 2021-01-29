@@ -35,6 +35,13 @@ backlight() {
 	printf " %0.f%%" "$(xbacklight -get)"
 }
 
+keymap() {
+	printf '['
+	getxkbmap |
+		tr '[:lower:]' '[:upper:]'
+	printf ']\n'
+}
+
 volume() {
 	vol="$(amixer get Master | awk -F"[][%]" '$0~/%/ { print $2; exit }')"
 	if [ "$vol" -lt 30 ]; then
@@ -89,6 +96,6 @@ EOF
 }
 
 while :; do
-	xsetroot -name " $(mpd)$(torrents)$(news)$(pkg) $(backlight) $SEP $(volume) $SEP $(battery) $SEP $(_date) "
+	xsetroot -name " $(mpd)$(torrents)$(news)$(pkg) $(backlight) $SEP $(volume) $SEP $(battery) $SEP $(keymap) $SEP $(_date) "
 	sleep 1
 done
