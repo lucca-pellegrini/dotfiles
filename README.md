@@ -39,10 +39,10 @@ Set `zsh` as default shell
 ```
 $ chsh -s /usr/bin/zsh
 ```
-Remove `LICENSE` and `README.md` from your `$HOME`
+Remove some files from your `$HOME`
 ```
-$ dots update-index --assume-unchanged LICENSE README.md
-$ rm -rf LICENSE README.md
+$ dots update-index --assume-unchanged LICENSE README.md .gitignore
+$ rm -rf LICENSE README.md .gitignore
 ```
 You can revert this later with `--no-assume-unchanged` flag.
 ## Build and install suckless programs
