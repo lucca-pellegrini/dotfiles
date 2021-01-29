@@ -1,7 +1,8 @@
 #!/bin/sh
 setbg &                           # set the background with the `setbg` script
-setxkbmap br &                    # set brazilian keyboard
 xrdb ~/.config/xrdb/Xdefaults     # load ~/.Xresources
+setxkbmap br,apl &                # set keyboard layout
+setxkbmap -option grp:shift_caps_switch & # switch layouts with Shift+CapsLock
 setxkbmap -option compose:rctrl & # turn Right Control key into Compose key
 xsetroot -cursor_name left_ptr &  # change the cursor shape from "x" to normal
 xset s off                        # do not blank screen automatically
