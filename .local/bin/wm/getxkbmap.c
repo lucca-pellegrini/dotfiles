@@ -49,21 +49,21 @@ main(void)
 	int i;
 
 	if ((display = XOpenDisplay(NULL)) == NULL) {
-		fputs("XOpenDisplay(): Failed to open display", stderr);
+		fputs("XOpenDisplay(): Failed to open display\n", stderr);
 		return -1;
 	}
 
 	group = (int) xkb_get_group(display, XkbUseCoreKbd);
 
 	if ((layout = xkb_get_layouts(display)) == NULL) {
-		fputs("XkbRF_GetNamesProp() failed", stderr);
+		fputs("XkbRF_GetNamesProp() failed\n", stderr);
 		return -1;
 	}
 
 	tok = strtok(layout, ",");
 	for (i = 0; i < group; ++i) {
 		if ((tok = strtok(NULL, ",")) == NULL) {
-			fputs("Failed to identify layout", stderr);
+			fputs("Failed to identify layout\n", stderr);
 			return -1;
 		}
 	}
