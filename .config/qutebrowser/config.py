@@ -8,7 +8,7 @@
 # Do not load autoconfig.yml
 config.load_autoconfig(False)
 
-# Use TOR by default and bind ,t & ,T to control it
+# Bind keys to control content.proxy & use TOR by default
 config.set('content.proxy', 'socks://localhost:9050/')
 config.bind(',t', 'set content.proxy socks://localhost:9050/')
 config.bind(',2', 'set content.proxy http://localhost:4444/')
