@@ -93,6 +93,9 @@ config.set("tabs.padding", {"top": 1, "bottom": 2, "left": 5, "right": 5})
 config.set("tabs.indicator.width", 0)
 config.set("tabs.favicons.scale", 1.2)
 
+# Hide scroll bar
+config.set("scrolling.bar", "never")
+
 # Completion settings
 config.set("completion.shrink", True)
 
