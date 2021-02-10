@@ -5,8 +5,8 @@
 #   \__, |\__,_|\__\___|_.__/|_|  \___/ \_/\_/ |___/\___|_|
 #      |_|
 
-# Uncomment this to still load settings configured via autoconfig.yml
-# config.load_autoconfig()
+# Do not load autoconfig.yml
+config.load_autoconfig(False)
 
 # Use TOR by default and bind ,t & ,T to control it
 config.set('content.proxy', 'socks://localhost:9050/')
