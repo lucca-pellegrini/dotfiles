@@ -149,3 +149,8 @@ map <leader>r :set relativenumber!<CR>
 map <leader>w :set wrap!<CR>
 map <leader>l :call CycleListchars()<CR>
 map <leader>s :call CycleScl()<CR>
+map <leader>e :Lexplore \| vertical resize 25<CR>
+
+" netrw options
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3 " tree style listing
