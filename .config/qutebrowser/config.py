@@ -17,6 +17,16 @@ config.bind(',P', 'set content.proxy system')
 # Set custom User Agent
 config.set('content.headers.user_agent', 'Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0')
 
+# Set a generic HTTP_ACCEPT header
+config.set("content.headers.accept_language", "en-US,en;q=0.5")
+config.set("content.headers.custom", {"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"})
+
+# Disable reading from canvas
+config.set("content.canvas_reading", False)
+
+# Disable HTML 5 local storage and Web SQL
+config.set("content.local_storage", False)
+
 # Scripts
 config.bind("pv", "spawn --userscript ~/.config/qutebrowser/scripts/view_in_mpv")
 
