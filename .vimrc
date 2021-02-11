@@ -112,9 +112,20 @@ augroup trailing_space
 	autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 augroup END
 
-"set listchars=eol:¬,tab:🠂\ ,trail:×,extends:▹,precedes:◃,space:·,nbsp:%
+" Always display lightline
+set laststatus=2
+
 set listchars=eol:\ ,tab:\ \ ,trail:×,extends:▹,precedes:◃,space:\ ,nbsp:%
 set list
 
-" Always display lightline
-set laststatus=2
+" Set function to cycle between configured listchars
+let s:currentListchars = 0
+function! CycleListchars()
+	if s:currentListchars
+		set listchars=eol:\ ,tab:\ \ ,trail:×,extends:▹,precedes:◃,space:\ ,nbsp:%
+	else
+		set listchars=eol:¬,tab:┼─,trail:×,extends:▹,precedes:◃,space:·,nbsp:%
+	endif
+
+	let s:currentListchars = !s:currentListchars
+endfunction
