@@ -142,3 +142,10 @@ function! CycleScl()
 	let s:scl = !s:scl
 endfunction
 
+" Map some keys
+map <leader>h :nohlsearch<CR>
+map <leader>n :set number!<CR>
+map <leader>r :set relativenumber!<CR>
+map <leader>w :set wrap!<CR>
+map <leader>l :call CycleListchars()<CR>
+map <leader>s :call CycleScl()<CR>
