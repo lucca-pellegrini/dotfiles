@@ -129,3 +129,16 @@ function! CycleListchars()
 
 	let s:currentListchars = !s:currentListchars
 endfunction
+
+" And another to hide the signcolumn
+let s:scl = 1
+function! CycleScl()
+	if s:scl
+		set scl=no
+	else
+		set scl=auto
+	endif
+
+	let s:scl = !s:scl
+endfunction
+
