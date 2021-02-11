@@ -96,6 +96,9 @@ config.set("url.searchengines", {
     "perseus"  : "https://www.perseus.tufts.edu/hopper/searchresults?q={}",
 })
 
+# Set custom window title
+config.set("window.title_format", "{perc}{current_title}")
+
 # Tab settings
 config.set("tabs.position", "bottom")
 config.set("tabs.show", "multiple")
