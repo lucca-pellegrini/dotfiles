@@ -38,6 +38,14 @@ include "%L"
 <Multi_key> <s> <parenleft>                      : "⟅" # ‘S’ shaped
 <Multi_key> <s> <parenright>                     : "⟆"
 
+#### Daggers ##################################################################
+<Multi_key> <T> <space>                          : "†" # Dagger
+<Multi_key> <T> <T> <space>                      : "‡" # Double Dagger
+<Multi_key> <T> <T> <T>                          : "⹋" # Triple Dagger
+<Multi_key> <l> <T>                              : "⸶" # Left Guard Dagger
+<Multi_key> <r> <T>                              : "⸷" # Right Guard Dagger
+<Multi_key> <exclam> <T>                         : "⸸" # Inverted Dagger
+
 # Majuscule Greek
 <Multi_key> <G> <a>     : "Α"
 <Multi_key> <G> <b>     : "Β"
@@ -91,3 +99,13 @@ include "%L"
 <Multi_key> <g> <x>     : "χ"
 <Multi_key> <g> <p> <s> : "ψ"
 <Multi_key> <g> <w>     : "ω"
+
+#### Punctuation ##############################################################
+<Multi_key> <P> <P>                              : "¶" # Pilcrow
+<Multi_key> <f> <less> <3>                       : "❦" # Floral Heart
+<Multi_key> <greater> <f> <less> <3>             : "❧" # Floral Heart Bullet
+<Multi_key> <less> <f> <less> <3>                : "☙" # ” ” ” Inverted
+<Multi_key> <asterisk> <asterisk>                : "⁂" # Asterism
+<Multi_key> <n> <o>                              : "№" # Numero
+<Multi_key> <minus> <equal>                      : "⹀" # Double Hyphen
+<Multi_key> <o> <p>                              : "℗" # Sound Recording ©
