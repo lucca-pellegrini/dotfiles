@@ -5,6 +5,15 @@
 # /usr/share/X11/locale/<current_locale>/Compose
 include "%L"
 
+#### Astronomical symbols #####################################################
+<Multi_key> <A> <a> <n>                          : "☊" # Ascending node
+<Multi_key> <A> <d> <n>                          : "☋" # Descending node
+<Multi_key> <A> <c> <j>                          : "☌" # Conjunction
+<Multi_key> <A> <o> <p>                          : "☍" # Opposition
+<Multi_key> <A> <q>                              : "□" # Quadrature
+<Multi_key> <A> <c> <o>                          : "☄" # Comet
+<Multi_key> <A> <s>                              : "★" # Star
+
 # Majuscule Greek
 <Multi_key> <G> <a>     : "Α"
 <Multi_key> <G> <b>     : "Β"
