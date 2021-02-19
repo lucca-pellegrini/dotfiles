@@ -108,6 +108,42 @@ include "%L"
 <Multi_key> <colon> <period>                     : "∴" # Therefore
 <Multi_key> <period> <colon>                     : "∵" # Because
 
+#### Planet symbols ###########################################################
+<Multi_key> <P> <s> <o> <l>                      : "☉" # Sun (centre of system)
+<Multi_key> <P> <s> <r>                          : "🜚" # Sun (with one ray)
+<Multi_key> <P> <s> <s>                          : "🌞︎" # Sun (in splendor)
+
+<Multi_key> <P> <l> <u> <n> <a>                  : "☾" # Moon (decrescent)
+<Multi_key> <P> <l> <i>                          : "☽︎" # Moon (increscent)
+<Multi_key> <P> <l> <f>                          : "🌕︎" # Moon (full)
+<Multi_key> <P> <l> <d>                          : "☾" # Moon (decrescent)
+<Multi_key> <P> <l> <n>                          : "🌑︎" # Moon (new)
+
+<Multi_key> <P> <h> <g>                          : "☿" # Mercury
+<Multi_key> <P> <v> <n>                          : "♀" # Venus
+<Multi_key> <P> <e>                              : "♁" # Earth (g.c.)
+<Multi_key> <P> <E>                              : "⨁" # Earth (eq. & mer.)
+<Multi_key> <P> <m>                              : "♂" # Mars
+
+<Multi_key> <P> <j> <u>                          : "♃" # Jupiter
+<Multi_key> <P> <s>                              : "♄" # Saturn
+<Multi_key> <P> <u>                              : "⛢" # Uranus (Mars & Sun)
+<Multi_key> <P> <U>                              : "♅" # Uranus (Herschel)
+<Multi_key> <P> <n>                              : "♆" # Neptune (trident)
+<Multi_key> <P> <N>                              : "⯉" # Neptune (Le Verrier)
+
+<Multi_key> <P> <p> <l>                          : "♇" # Pluto
+<Multi_key> <P> <c> <e>                          : "⚳" # Ceres
+<Multi_key> <P> <p> <a>                          : "⚴" # Pallas
+<Multi_key> <P> <j> <n>                          : "⚵" # Juno
+<Multi_key> <P> <v> <v>                          : "⚶" # Vesta
+<Multi_key> <P> <c> <h>                          : "⚷" # Chiron
+
+<Multi_key> <P> <a>                              : "⚖" # Astrea
+<Multi_key> <P> <h> <e>                          : "🍷︎" # Hebe
+<Multi_key> <P> <f> <l>                          : "⚘" # Flora
+<Multi_key> <P> <h> <y>                          : "⚕" # Hygiea
+
 #### Punctuation ##############################################################
 <Multi_key> <P> <P>                              : "¶" # Pilcrow
 <Multi_key> <f> <less> <3>                       : "❦" # Floral Heart
@@ -117,3 +153,9 @@ include "%L"
 <Multi_key> <n> <o>                              : "№" # Numero
 <Multi_key> <minus> <equal>                      : "⹀" # Double Hyphen
 <Multi_key> <o> <p>                              : "℗" # Sound Recording ©
+
+#### Solstices & equinoctes ###################################################
+<Multi_key> <A> <r> <i>                          : "♈︎" # March equinox
+<Multi_key> <C> <n> <c>                          : "♋︎" # June solstice
+<Multi_key> <L> <i> <b>                          : "♎︎" # September equinox
+<Multi_key> <C> <a> <p>                          : "♑︎" # December solstice
