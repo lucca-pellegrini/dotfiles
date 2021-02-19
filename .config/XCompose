@@ -14,6 +14,30 @@ include "%L"
 <Multi_key> <A> <c> <o>                          : "☄" # Comet
 <Multi_key> <A> <s>                              : "★" # Star
 
+#### Bars #####################################################################
+<Multi_key> <bar> <bar>                          : "‖" # Double bar
+<Multi_key> <bar> <exclam>                       : "¦" # Broken bar
+
+#### Brackets #################################################################
+<Multi_key> <parenleft> <greater>                : "⟨" # Chevron
+<Multi_key> <parenright> <less>                  : "⟩"
+<Multi_key> <parenleft> <parenleft> <greater>    : "⟪"
+<Multi_key> <parenright> <parenright> <less>     : "⟫"
+<Multi_key> <bracketleft> <bracketleft>          : "⟦"
+<Multi_key> <bracketright> <bracketright>        : "⟧"
+<Multi_key> <c> <bracketleft>                    : "⌈" # Ceiling
+<Multi_key> <c> <bracketright>                   : "⌉"
+<Multi_key> <f> <bracketleft>                    : "⌊" # Floor
+<Multi_key> <f> <bracketright>                   : "⌋"
+<Multi_key> <braceleft> <braceleft>              : "⦃"
+<Multi_key> <braceright> <braceright>            : "⦄"
+<Multi_key> <t> <parenleft>                      : "❲" # Turtle bracket
+<Multi_key> <t> <parenright>                     : "❳"
+<Multi_key> <T> <parenleft>                      : "⦗"
+<Multi_key> <T> <parenright>                     : "⦘"
+<Multi_key> <s> <parenleft>                      : "⟅" # ‘S’ shaped
+<Multi_key> <s> <parenright>                     : "⟆"
+
 # Majuscule Greek
 <Multi_key> <G> <a>     : "Α"
 <Multi_key> <G> <b>     : "Β"
