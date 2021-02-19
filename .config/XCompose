@@ -100,6 +100,14 @@ include "%L"
 <Multi_key> <g> <p> <s>                          : "ψ"
 <Multi_key> <g> <w>                              : "ω"
 
+#### Mathematics, numbers & logic #############################################
+<Multi_key> <b> <p>                              : "‱" # Basis point
+<Multi_key> <2> <v> <slash>                      : "√" # Square root
+<Multi_key> <3> <v> <slash>                      : "∛" # Cube root
+<Multi_key> <4> <v> <slash>                      : "∜" # Fourth root
+<Multi_key> <colon> <period>                     : "∴" # Therefore
+<Multi_key> <period> <colon>                     : "∵" # Because
+
 #### Punctuation ##############################################################
 <Multi_key> <P> <P>                              : "¶" # Pilcrow
 <Multi_key> <f> <less> <3>                       : "❦" # Floral Heart
