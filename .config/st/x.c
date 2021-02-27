@@ -1529,8 +1529,9 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og)
 	/* draw the new one */
 	if (IS_SET(MODE_FOCUSED)) {
 		switch (win.cursor) {
-		case 7: /* st extension: snowman (U+2603) */
-			g.u = 0x2603;
+		case 7: /* st extension */
+			g.u = 0x2603; /* snowman (U+2603) */
+			/* FALLTHROUGH */
 		case 0: /* Blinking Block */
 		case 1: /* Blinking Block (Default) */
 		case 2: /* Steady Block */
@@ -1692,8 +1693,7 @@ xsetmode(int set, unsigned int flags)
 int
 xsetcursor(int cursor)
 {
-	DEFAULT(cursor, 1);
-	if (!BETWEEN(cursor, 0, 6))
+	if (!BETWEEN(cursor, 0, 7)) /* 7: st extension */
 		return 1;
 	win.cursor = cursor;
 	return 0;
@@ -1864,9 +1864,6 @@ resize(XEvent *e)
 	cresize(e->xconfigure.width, e->xconfigure.height);
 }
 
-int tinsync(uint);
-int ttyread_pending();
-
 void
 run(void)
 {
@@ -1901,7 +1898,7 @@ run(void)
 		FD_SET(ttyfd, &rfd);
 		FD_SET(xfd, &rfd);
 
-		if (XPending(xw.dpy) || ttyread_pending())
+		if (XPending(xw.dpy))
 			timeout = 0;  /* existing events might not set xfd */
 
 		seltv.tv_sec = timeout / 1E3;
@@ -1915,8 +1912,7 @@ run(void)
 		}
 		clock_gettime(CLOCK_MONOTONIC, &now);
 
-		int ttyin = FD_ISSET(ttyfd, &rfd) || ttyread_pending();
-		if (ttyin)
+		if (FD_ISSET(ttyfd, &rfd))
 			ttyread();
 
 		xev = 0;
@@ -1934,13 +1930,13 @@ run(void)
 		 * triggers drawing, we first wait a bit to ensure we got
 		 * everything, and if nothing new arrives - we draw.
 		 * We start with trying to wait minlatency ms. If more content
-		 * arrives sooner, we retry with shorter and shorter preiods,
+		 * arrives sooner, we retry with shorter and shorter periods,
 		 * and eventually draw even without idle after maxlatency ms.
 		 * Typically this results in low latency while interacting,
 		 * maximum latency intervals during `cat huge.txt`, and perfect
 		 * sync with periodic updates from animations/key-repeats/etc.
 		 */
-		if (ttyin || xev) {
+		if (FD_ISSET(ttyfd, &rfd) || xev) {
 			if (!drawing) {
 				trigger = now;
 				drawing = 1;
@@ -1949,18 +1945,6 @@ run(void)
 			          / maxlatency * minlatency;
 			if (timeout > 0)
 				continue;  /* we have time, try to find idle */
-		}
-
-		if (tinsync(su_timeout)) {
-			/*
-			 * on synchronized-update draw-suspension: don't reset
-			 * drawing so that we draw ASAP once we can (just after
-			 * ESU). it won't be too soon because we already can
-			 * draw now but we skip. we set timeout > 0 to draw on
-			 * SU-timeout even without new content.
-			 */
-			timeout = minlatency;
-			continue;
 		}
 
 		/* idle detected or maxlatency exhausted -> draw */
@@ -2001,7 +1985,7 @@ main(int argc, char *argv[])
 {
 	xw.l = xw.t = 0;
 	xw.isfixed = False;
-	win.cursor = cursorshape;
+	xsetcursor(cursorshape);
 
 	ARGBEGIN {
 	case 'a':
