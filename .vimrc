@@ -79,7 +79,9 @@ call plug#end()
 
 " Set ALE linters and options
 let g:ale_linters = #{
-	\ c: ['cc'],
+	\ c      : ['cc'],
+	\ python : ['pylint'],
+	\ tex    : ['chktex', 'proselint'],
 \}
 
 let g:ale_c_cc_executable = 'cc'
