@@ -36,3 +36,5 @@
 	smtpserverport = 587
 [include]
 	path = ~/.gitconfig.secret
+[init]
+	defaultBranch = master
