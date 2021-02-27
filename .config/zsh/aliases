@@ -66,8 +66,37 @@ alias tmk='tmux kill-session -t'
 alias tmks='tmux kill-server'
 
 # youtube-dl
-alias yt='youtube-dl --add-metadata --embed-thumbnail --embed-subs --ignore-errors -o '%(upload_date)s-%(title)s.%(ext)s''
-alias yta='youtube-dl --add-metadata --ignore-errors --extract-audio -f bestaudio/best --audio-format mp3 --audio-quality 0'
+function yt()
+{
+	youtube-dl                                             \
+		--add-metadata                                 \
+		--all-subs                                     \
+		--embed-subs                                   \
+		--embed-thumbnail                              \
+		--ignore-errors                                \
+		--no-overwrites                                \
+		--output '%(upload_date)s - %(title)s.%(ext)s' \
+		--retries infinite                             \
+		--user-agent ''                                \
+		"$@"
+	return $?
+}
+
+function yta()
+{
+	youtube-dl                                             \
+		--add-metadata                                 \
+		--audio-quality 0                              \
+		--extract-audio                                \
+		--format 'bestaudio/best'                      \
+		--ignore-errors                                \
+		--no-overwrites                                \
+		--output '%(upload_date)s - %(title)s.%(ext)s' \
+		--retries infinite                             \
+		--user-agent ''                                \
+		"$@"
+	return $?
+}
 
 # head / tail shortcuts
 alias -g H='| head'
