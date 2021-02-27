@@ -60,11 +60,6 @@ mpd() {
 	[ "$music" ] && printf " %s %s" "$music" "$SEP"
 }
 
-pkg() {
-	updates=$(pacman -Quq | wc -l)
-	[ "$updates" -gt 0 ] && printf "   %s %s" "$updates" "$SEP"
-}
-
 news() {
 	news="$(cat ~/.cache/news_unread)"
 	[ "$news" -gt 0 ] && printf "  %s %s" "$news" "$SEP"
@@ -96,6 +91,6 @@ EOF
 }
 
 while :; do
-	xsetroot -name " $(mpd)$(torrents)$(news)$(pkg) $(backlight) $SEP $(volume) $SEP $(battery) $SEP $(keymap) $SEP $(_date) "
+	xsetroot -name " $(mpd)$(torrents)$(news) $(backlight) $SEP $(volume) $SEP $(battery) $SEP $(keymap) $SEP $(_date) "
 	sleep 1
 done
