@@ -152,6 +152,19 @@ map <leader>l :call CycleListchars()<CR>
 map <leader>s :call CycleScl()<CR>
 map <leader>e :Lexplore \| vertical resize 25<CR>
 
+" ft-man-plugin mappings
+map <leader>m  :Man<space>
+map <leader>mm :Man<space>
+map <leader>m1 :Man 1<space>
+map <leader>m2 :Man 2<space>
+map <leader>m3 :Man 3<space>
+map <leader>m4 :Man 4<space>
+map <leader>m5 :Man 5<space>
+map <leader>m6 :Man 6<space>
+map <leader>m7 :Man 7<space>
+map <leader>m8 :Man 8<space>
+map <leader>m9 :Man 9<space>
+
 " netrw options
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3 " tree style listing
