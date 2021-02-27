@@ -38,3 +38,5 @@
 	path = ~/.gitconfig.secret
 [init]
 	defaultBranch = master
+[pull]
+	rebase = false
