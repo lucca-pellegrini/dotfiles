@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+# A dmenu prompt to power-off (eject) devices
+
+m() { ${DMENU:-dmenu} -w 512 "$@"; }
+drives="$(lsblk -rpo "name,type,size,label,mountpoint" | awk '$5==""{printf "%s (%s) %s\n",$1,$3,$4}')"
+[ "$drives" ] || { notify-send "No USB drive detected."; exit 1; }
+
+chosen="$(echo "$drives" | column -t | m -p " Eject" | cut -d ' ' -f 1)"
+[ "$chosen" ] || exit 1
+
+if ! { udisksctl power-off -b "$chosen" && notify-send " USB eject." "$chosen ejected."; } ;then
+	notify-send " USB eject." "$chosen failed."
+fi
