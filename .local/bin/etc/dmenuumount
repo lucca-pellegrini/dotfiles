@@ -1,14 +1,23 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # A dmenu prompt to unmount drives.
 
-m() { ${DMENU:-dmenu} "$@"; }
+m() { ${DMENU:-dmenu} -w 512 "$@"; }
+dm() { ${DMENU:-dmenu} "$@"; }
 
-drives=$(lsblk -nrpo "name,type,size,mountpoint" | awk '$4!~/\/boot|\/home$|SWAP/&&length($4)>1{printf "%s (%s)\n",$4,$3}')
-[ "$drives" ] || { notify-send "No drives to unmount."; exit 1; }
+drives=$(lsblk -nrpo "name,type,size,mountpoint" | awk '$4!~/\/boot|\/home$|SWAP/&&length($4)>1{printf "%s (%s) %s\n",$4,$3,$1}' | grep -v '/tmp')
+[ "$drives" ] || { notify-send " USB unmounting" "No drives to unmount."; exit 1; }
 
-chosen="$(echo "$drives" | m -p "Umount" | cut -d ' ' -f 1)"
+chosen="$(echo "$drives" | column -t | m -p "Umount" | awk '{print $(NF)}')"
 [ "$chosen" ] || exit 1
 
-sudo -A umount -l "$chosen" &&
-	notify-send " USB unmounting." "$chosen unmounted."
+if ! { udisksctl unmount -b "$chosen" && notify-send " USB unmounting." "$chosen unmounted."; }; then
+	notify-send " USB unmounting." "$chosen failed."
+fi
+
+eject="$(printf 'Yes\nNo' | dm -p " Eject $chosen?")"
+[ "$eject" = "No" ] && exit 0
+
+if ! { udisksctl power-off -b "$chosen" && notify-send " USB eject." "$chosen ejected."; } ;then
+	notify-send " USB eject." "$chosen failed."
+fi
