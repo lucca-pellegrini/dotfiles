@@ -131,7 +131,6 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,                XK_w,      spawn,          SHCMD("qutebrowser") },
 
 	/* scripts */
-	{ MODKEY|ControlMask,           XK_e,      spawn,          SHCMD("prompt 'Leave Xorg?' 'killall Xorg'") },
 	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("prompt 'Shutdown computer?' 'shutdown -h now'") },
 	{ MODKEY|ControlMask,           XK_x,      spawn,          SHCMD("prompt 'Lock screen' 'slock & mpc pause'") },
 	{ MODKEY|ControlMask,           XK_BackSpace, spawn,       SHCMD("prompt 'Reboot computer?' 'reboot'") },
@@ -141,6 +140,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_n,      spawn,          SHCMD("dmenuiwd") },
 	{ MODKEY|ControlMask,           XK_m,      spawn,          SHCMD("dmenumount") },
 	{ MODKEY|ControlMask,           XK_u,      spawn,          SHCMD("dmenuumount") },
+	{ MODKEY|ControlMask,           XK_e,      spawn,          SHCMD("dmenueject") },
 	{ MODKEY|ControlMask,           XK_t,      spawn,          SHCMD("dmenutmux") },
 	{ MODKEY,                       XK_End,    spawn,          SHCMD("dmenuscreen") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenumonitor") },
