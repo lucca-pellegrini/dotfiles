@@ -31,6 +31,8 @@ export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export LESSHISTFILE="-"
+export LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
+export LYNX_LSS="$XDG_CONFIG_HOME/lynx/lynx.lss"
 export XCOMPOSEFILE="$XDG_CONFIG_HOME/XCompose"
 export XCOMPOSECACHE="${XDG_CACHE_HOME:-"$HOME/.cache"}/compose-cache"
 
