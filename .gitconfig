@@ -12,7 +12,6 @@
 [core]
 	quotepath = false
 	commitGraph = true
-	pager = bat
 [gc]
 	writeCommitGraph = true
 [alias]
