@@ -10,6 +10,7 @@ set secure " Stops harmful commands from those dotfiles.
 
 syntax enable " Enables syntax highlighting by default.
 set number " Enables line numbering.
+set relativenumber " And makes it relative to cursor
 set cursorline " Highlights current line.
 set wildmenu " Autocompletion menu for vim commands.
 
