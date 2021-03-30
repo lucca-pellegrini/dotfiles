@@ -57,10 +57,10 @@ runtime ftplugin/man.vim
 call plug#begin('~/.vim/plugged')
 
 	" Plugins
-	Plug 'itchyny/lightline.vim' " Like Powerline but better
+	Plug 'itchyny/lightline.vim'     " Like Powerline but better
 	Plug 'neovimhaskell/haskell-vim' " Haskell indent and highlighting
-	Plug 'vlime/vlime' " Lisp plugin
-	Plug 'kovisoft/paredit' " And one of its dependencies
+	Plug 'vlime/vlime'               " Lisp plugin
+	Plug 'kovisoft/paredit'          " And one of its dependencies
 
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus' " Colorscheme
