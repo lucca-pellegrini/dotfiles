@@ -3,9 +3,19 @@
 tcc -run - << __EOF__
 
 #include <unistd.h>
+#include <signal.h>
+#include <stdlib.h>
+
+void die(int sig)
+{
+	(void) sig;
+	exit(0);
+}
 
 int main()
 {
+	signal(SIGTERM, &die);
+	signal(SIGINT, &die);
 	pause();
 }
 
