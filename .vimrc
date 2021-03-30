@@ -65,16 +65,16 @@ call plug#begin('~/.vim/plugged')
 	Plug 'francoiscabrol/ranger.vim' " For ranger integration
 
 	" Colorschemes
-	Plug 'ajmwagar/vim-deus' " Colorscheme
-	Plug 'nanotech/jellybeans.vim' " Colorscheme
-	Plug 'rakr/vim-one' " Colorscheme
-	Plug 'morhetz/gruvbox' " Colorscheme
-	Plug 'cocopon/iceberg.vim' " Colorscheme
-	Plug 'kyoz/purify', { 'rtp': 'vim' } " Colorscheme
-	Plug 'HenryNewcomer/vim-theme-papaya' " Colorscheme
-	Plug 'fneu/breezy' " Colorscheme
-	Plug 'altercation/vim-colors-solarized' " Colorscheme
-	Plug 'embark-theme/vim', { 'as': 'embark' } " Colorscheme
+	Plug 'ajmwagar/vim-deus'
+	Plug 'nanotech/jellybeans.vim'
+	Plug 'rakr/vim-one'
+	Plug 'morhetz/gruvbox'
+	Plug 'cocopon/iceberg.vim'
+	Plug 'kyoz/purify', { 'rtp': 'vim' }
+	Plug 'HenryNewcomer/vim-theme-papaya'
+	Plug 'fneu/breezy'
+	Plug 'altercation/vim-colors-solarized'
+	Plug 'embark-theme/vim', { 'as': 'embark' }
 	Plug 'ayu-theme/ayu-vim'
 
 	Plug 'ryanoasis/vim-devicons' " Icons
