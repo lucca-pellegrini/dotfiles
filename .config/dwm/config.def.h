@@ -135,6 +135,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_x,      spawn,          SHCMD("prompt 'Lock screen' 'slock & mpc pause'") },
 	{ MODKEY|ControlMask,           XK_BackSpace, spawn,       SHCMD("prompt 'Reboot computer?' 'reboot'") },
 
+	{ MODKEY|ControlMask,           XK_d,      spawn,          SHCMD("dmenuducky") },
 	{ MODKEY|ControlMask,           XK_i,      spawn,          SHCMD("dmenuunicode") },
 	{ MODKEY|ControlMask,           XK_o,      spawn,          SHCMD("dmenunewtab") },
 	{ MODKEY|ControlMask,           XK_n,      spawn,          SHCMD("dmenuiwd") },

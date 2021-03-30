@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+# Prompts user for DuckDuckGo search
+
+m() { ${DMENU:-dmenu} -w 512 "$@"; }
+
+search="$(m -p ' Search' < /dev/null)"
+[ -z "$search" ] && exit
+
+st -n float -e                               \
+	torsocks ddgr -n3 --reg=us-en --noua \
+	$search
