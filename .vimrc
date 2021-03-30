@@ -13,6 +13,7 @@ set number " Enables line numbering.
 set relativenumber " And makes it relative to cursor
 set cursorline " Highlights current line.
 set wildmenu " Autocompletion menu for vim commands.
+set showcmd " Show partial command list.
 
 set colorcolumn=80 " Highlights 80th column.
 highlight ColorColumn ctermbg=black
