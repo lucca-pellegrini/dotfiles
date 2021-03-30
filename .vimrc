@@ -61,6 +61,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'neovimhaskell/haskell-vim' " Haskell indent and highlighting
 	Plug 'vlime/vlime'               " Lisp plugin
 	Plug 'kovisoft/paredit'          " And one of its dependencies
+	Plug 'sirtaj/vim-openscad'       " For OpenSCAD files
 
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus' " Colorscheme
