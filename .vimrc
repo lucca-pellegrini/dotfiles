@@ -117,6 +117,14 @@ else
 	set background=dark
 endif
 
+let g:lightline['active'] = {
+	\ 'left': [ [ 'mode', 'paste' ],
+		\ [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+\ }
+let g:lightline['component_function'] = {
+	\ 'gitbranch': 'FugitiveHead'
+\ }
+
 " Highlighting unwanted whitespaces
 augroup trailing_space
 	highlight ExtraWhitespace ctermbg=red guibg=red
