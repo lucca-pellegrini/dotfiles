@@ -40,6 +40,7 @@ augroup indentation
 	autocmd FileType lilypond setlocal expandtab ts=4 sts=4 sw=4
 	autocmd FileType sh setlocal noexpandtab ts=8 sts=8 sw=8
 	autocmd FileType tex setlocal expandtab ts=4 sts=4 sw=4
+	autocmd FileType lisp setlocal expandtab ts=2 sts=2 sw=2
 augroup END
 
 " Map switching panes to <C-h/j/k/l>
