@@ -165,26 +165,26 @@ function! CycleScl()
 endfunction
 
 " Map some keys
-map <leader>h :nohlsearch<CR>
-map <leader>n :set number!<CR>
-map <leader>r :set relativenumber!<CR>
-map <leader>w :set wrap!<CR>
-map <leader>l :call CycleListchars()<CR>
-map <leader>s :call CycleScl()<CR>
-map <leader>e :Lexplore \| vertical resize 25<CR>
+nmap <leader>h :nohlsearch<CR>
+nmap <leader>n :set number!<CR>
+nmap <leader>r :set relativenumber!<CR>
+nmap <leader>w :set wrap!<CR>
+nmap <leader>l :call CycleListchars()<CR>
+nmap <leader>s :call CycleScl()<CR>
+nmap <leader>e :Lexplore \| vertical resize 25<CR>
 
 " ft-man-plugin mappings
-map <leader>m  :Man<space>
-map <leader>mm :Man<space>
-map <leader>m1 :Man 1<space>
-map <leader>m2 :Man 2<space>
-map <leader>m3 :Man 3<space>
-map <leader>m4 :Man 4<space>
-map <leader>m5 :Man 5<space>
-map <leader>m6 :Man 6<space>
-map <leader>m7 :Man 7<space>
-map <leader>m8 :Man 8<space>
-map <leader>m9 :Man 9<space>
+nmap <leader>m  :Man<space>
+nmap <leader>mm :Man<space>
+nmap <leader>m1 :Man 1<space>
+nmap <leader>m2 :Man 2<space>
+nmap <leader>m3 :Man 3<space>
+nmap <leader>m4 :Man 4<space>
+nmap <leader>m5 :Man 5<space>
+nmap <leader>m6 :Man 6<space>
+nmap <leader>m7 :Man 7<space>
+nmap <leader>m8 :Man 8<space>
+nmap <leader>m9 :Man 9<space>
 
 " netrw options
 let g:netrw_banner = 0
