@@ -64,6 +64,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'kovisoft/paredit'          " And one of its dependencies
 	Plug 'sirtaj/vim-openscad'       " For OpenSCAD files
 	Plug 'francoiscabrol/ranger.vim' " For ranger integration
+	Plug 'cespare/vim-toml'          " TOML syntax
 
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus'
