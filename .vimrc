@@ -78,6 +78,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'altercation/vim-colors-solarized'
 	Plug 'embark-theme/vim', { 'as': 'embark' }
 	Plug 'ayu-theme/ayu-vim'
+	Plug 'cormacrelf/vim-colors-github'
 
 	Plug 'ryanoasis/vim-devicons' " Icons
 
@@ -100,6 +101,10 @@ set termguicolors " if you want to run vim in a terminal
 if $VIM_COLOURS ==? 'light' " A switch/case thing would be useful
 	let g:lightline = {'colorscheme': 'iceberg'}
 	colorscheme iceberg
+	set background=light
+elseif $VIM_COLOURS ==? 'github'
+	let g:lightline = { 'colorscheme': 'github' }
+	colorscheme github
 	set background=light
 elseif $VIM_COLOURS ==? 'embark'
 	let g:embark_terminal_italics = 1
