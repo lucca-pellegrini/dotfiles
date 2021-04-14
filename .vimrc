@@ -22,6 +22,8 @@ set cindent " Changes identation rules.
 set tabstop=8 " Changes the displayed size of tabs.
 set incsearch " Search as characters are entered (incremental search).
 set hlsearch  " Highlights matches.
+set ignorecase " Ignore case in search
+set smartcase " unless search contains uppercase character.
 set scrolloff=10 " Stops cursor from reaching bottom (or top) of screen.
 set sidescrolloff=10 " Same but horizontally.
 
