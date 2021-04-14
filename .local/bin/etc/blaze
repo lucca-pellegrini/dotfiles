@@ -252,19 +252,19 @@ EOF
 	# -q:v              | changes the quality of the video, lower is better.
 	# "$output"         | file to save the recording to
 
-	ffmpeg                         \
-	  -loglevel error              \
-	  -y                           \
-	  $audio                       \
-	  -f x11grab                   \
-	  -draw_mouse 1                \
-	  -s "${width}x$height"        \
-	  -r "$rate"                   \
-	  -i "$DISPLAY.0+$offX,$offY"  \
-	  $bitrate                     \
-	  -pix_fmt yuv420p             \
-	  $nvenc                      \
-	  -q:v 0                       \
+	ffmpeg                           \
+	  -loglevel error                \
+	  -y                             \
+	  $audio                         \
+	  -f x11grab                     \
+	  -draw_mouse "${draw_mouse:-1}" \
+	  -s "${width}x$height"          \
+	  -r "$rate"                     \
+	  -i "$DISPLAY.0+$offX,$offY"    \
+	  $bitrate                       \
+	  -pix_fmt yuv420p               \
+	  $nvenc                         \
+	  -q:v 0                         \
 	  "$output" &
 
 	echo $! > /tmp/blaze-pid
