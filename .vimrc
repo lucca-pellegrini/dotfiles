@@ -27,6 +27,14 @@ set smartcase " unless search contains uppercase character.
 set scrolloff=10 " Stops cursor from reaching bottom (or top) of screen.
 set sidescrolloff=10 " Same but horizontally.
 set virtualedit=block " Allow virtual editing in block mode.
+set display=lastline " Display as much of the last line as possible;.
+set nojoinspaces " Do not insert two spaces after ‘.’, ‘?’ or ‘!’ on join.
+set formatoptions=croqlj " See ':help fo-table'.
+set history=4096 " Increase history size.
+
+" Stop bad editing habits
+set backspace=
+nnoremap <DEL> <Nop>| " ‘x’ easier to reach.
 
 "autocmd vimenter * NERDTree " Starts NERDTree when VIM starts.
 let g:NERDTreeDirArrowExpandable = ' ' " Changes arrow character
