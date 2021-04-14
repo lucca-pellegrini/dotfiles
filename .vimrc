@@ -77,6 +77,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'francoiscabrol/ranger.vim' " For ranger integration
 	Plug 'cespare/vim-toml'          " TOML syntax
 	Plug 'tpope/vim-surround'        " For brackets, parentheses et cetera
+	Plug 'tpope/vim-commentary'      " Comment stuff out
 
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus'
