@@ -65,6 +65,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'sirtaj/vim-openscad'       " For OpenSCAD files
 	Plug 'francoiscabrol/ranger.vim' " For ranger integration
 	Plug 'cespare/vim-toml'          " TOML syntax
+	Plug 'tpope/vim-surround'        " For brackets, parentheses et cetera
 
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus'
