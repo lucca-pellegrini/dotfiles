@@ -78,6 +78,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'cespare/vim-toml'          " TOML syntax
 	Plug 'tpope/vim-surround'        " For brackets, parentheses et cetera
 	Plug 'tpope/vim-commentary'      " Comment stuff out
+	Plug 'https://tildegit.org/sloum/gemini-vim-syntax.git' " gmi syntax
 
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus'
