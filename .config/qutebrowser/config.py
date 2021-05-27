@@ -90,10 +90,12 @@ config.set("url.searchengines", {
     "wc": "https://commons.wikimedia.org/w/index.php?search={}",
 
     # Misc.
-    "gutenberg": "https://gutenberg.org/ebooks/search/?query={}"          ,
-    "libgen"   : "http://gen.lib.rus.ec/search.php?req={}"                ,
-    "osm"      : "https://openstreetmap.org/search?query={}"              ,
-    "perseus"  : "https://www.perseus.tufts.edu/hopper/searchresults?q={}",
+    "archive"   : "https://archive.org/search.php?query={}"                 ,
+    "fdroid"    : "https://search.f-droid.org/?q={}"                        ,
+    "gutenberg" : "https://gutenberg.org/ebooks/search/?query={}"           ,
+    "libgen"    : "http://gen.lib.rus.ec/search.php?req={}"                 ,
+    "osm"       : "https://openstreetmap.org/search?query={}"               ,
+    "perseus"   : "https://www.perseus.tufts.edu/hopper/searchresults?q={}" ,
 })
 
 # Set custom window title
