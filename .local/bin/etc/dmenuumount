@@ -16,7 +16,9 @@ if ! { udisksctl unmount -b "$chosen" && notify-send " USB unmounting." "$cho
 fi
 
 eject="$(printf 'Yes\nNo' | dm -p " Eject $chosen?")"
-[ "$eject" = "No" ] && exit 0
+if [ -z "$eject" ] || [ "$eject" = "No" ]; then
+	exit 0
+fi
 
 if ! { udisksctl power-off -b "$chosen" && notify-send " USB eject." "$chosen ejected."; } ;then
 	notify-send " USB eject." "$chosen failed."
