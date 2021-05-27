@@ -98,7 +98,7 @@ if [ "$TERM" = "linux" ]; then
 	echo -en "\e]PE95C4CE" #cyan
 	echo -en "\e]PFD2D4DE" #white
 
-	setfont /usr/share/kbd/consolefonts/ter-v16n.psf.gz
+	setfont /usr/share/kbd/consolefonts/ter-v12n.psf.gz
 
 	clear #for background artifacting
 fi
