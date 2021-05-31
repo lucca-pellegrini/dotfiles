@@ -124,7 +124,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("clipmenu") },
 
 	{ MODKEY|ALTKEY,                XK_f,      spawn,          SHCMD("st -e vf") },
-	{ MODKEY|ALTKEY,                XK_m,      spawn,          SHCMD("st -n float -e ncmpcpp") },
+	{ MODKEY|ALTKEY,                XK_m,      spawn,          SHCMD("st -n float -g 120x36 -e ncmpcpp") },
 	{ MODKEY|ALTKEY,                XK_v,      spawn,          SHCMD("st -e vim") },
 	{ MODKEY|ALTKEY,                XK_a,      spawn,          SHCMD("st -e alsamixer") },
 	{ MODKEY|ALTKEY,                XK_t,      spawn,          SHCMD("t") },
