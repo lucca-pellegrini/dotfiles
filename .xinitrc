@@ -18,6 +18,7 @@ synclient VertScrollDelta=-47 # Because it makes more sense
 synclient HorizScrollDelta=-47
 
 # dwm
+export GTK_THEME=Materia-dark-compact
 export QT_STYLE_OVERRIDE=kvantum-dark
 clipmenud &
 dwmbar &
