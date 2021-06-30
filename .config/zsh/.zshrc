@@ -124,10 +124,10 @@ setopt histignorespace    # Ignore commands prepended with a space
 #
 #   PROMPT
 #
-ICO_DIRTY="*"
-ICO_AHEAD="+"
-ICO_BEHIND="-"
-ICO_DIVERGED="!"
+ICO_DIRTY="%F{red}•"
+ICO_AHEAD="%F{green}↑"
+ICO_BEHIND="%F{yellow}↓"
+ICO_DIVERGED="%F{red}!"
 
 COLOR_ROOT="%F{red}"
 COLOR_USER="%F{blue}"
