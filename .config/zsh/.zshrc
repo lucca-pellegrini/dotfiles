@@ -162,9 +162,14 @@ GIT_PROMPT() {
 	echo "${USER_LEVEL}─[${COLOR_NORMAL}${ref}${dirty}${stat}${USER_LEVEL}]"
 }
 
-[ "$PROMPT_STYLE" = "dual" ] &&
-	PROMPT='${USER_LEVEL}┌%(?..[%F{red}%?${USER_LEVEL}]-)[${COLOR_NORMAL}%~${USER_LEVEL}]$(GIT_PROMPT)'$'\n''${USER_LEVEL}└─ ─ %f' ||
-	PROMPT='${USER_LEVEL}%(?..[%F{red}%?${USER_LEVEL}]-)[${COLOR_NORMAL}%~${USER_LEVEL}]$(GIT_PROMPT)── ─ %f'
+chpwd() { # Use two line prompt when $PWD is long
+	if [ ${#PWD} -ge 50 ]; then
+		PROMPT='${USER_LEVEL}┌%(?..[%F{red}%?${USER_LEVEL}]-)[${COLOR_NORMAL}%~${USER_LEVEL}]$(GIT_PROMPT)'$'\n''${USER_LEVEL}└─ ─ %f'
+	else
+		PROMPT='${USER_LEVEL}%(?..[%F{red}%?${USER_LEVEL}]-)[${COLOR_NORMAL}%~${USER_LEVEL}]$(GIT_PROMPT)── ─ %f'
+	fi
+}
+chpwd # Required to set $PROMPT before changing directory
 
 #
 #   VI MODE
