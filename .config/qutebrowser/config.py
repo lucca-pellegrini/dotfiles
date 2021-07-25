@@ -34,7 +34,7 @@ config.bind("pv", "spawn --userscript ~/.config/qutebrowser/scripts/view_in_mpv"
 config.set("content.javascript.enabled", False)
 # Except on these domains
 config.set("content.javascript.enabled", True, "https://start.duckduckgo.com/*")
-config.set("content.javascript.enabled", True, "https://3g2upl4pq6kufc4m.onion/*")
+config.set("content.javascript.enabled", True, "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/")
 
 # Disable cookies
 config.set("content.cookies.accept", "never")
@@ -57,7 +57,7 @@ config.set("url.default_page", "https://start.duckduckgo.com/?kae=t")
 config.set("url.searchengines", {
     # Main
     "DEFAULT": "https://start.duckduckgo.com/?q={}&kae=t"  ,
-    "o"      : "https://3g2upl4pq6kufc4m.onion/?q={}&kae=t",
+    "o"      : "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?q={}&kae=t",
 
     # Arch Linux
     "pac": "https://archlinux.org/packages/?q={}"              ,
