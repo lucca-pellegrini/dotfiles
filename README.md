@@ -46,26 +46,13 @@ $ rm -rf LICENSE README.md .gitignore
 ```
 You can revert this later with `--no-assume-unchanged` flag.
 ## Build and install suckless programs
-Install dwm
+```sh
+for d in ~/.config/{dmenu,dwm,slock,st}; do
+	cd "$d"
+	make clean all && sudo make install
+done
 ```
-$ cd ~/.config/dwm
-$ sudo make clean install
-```
-Install st
-```
-$ cd ~/.config/st
-$ sudo make clean install
-```
-Install slock
-```
-$ cd ~/.config/slock
-$ sudo make clean install
-```
-Install dmenu
-```
-$ cd ~/.config/dmenu
-$ sudo make clean install
-```
+
 Compile programs for the WM
 ```
 $ cd ~/.local/bin/wm
