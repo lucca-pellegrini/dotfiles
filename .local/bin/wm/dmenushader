@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+
+# A dmenuprompt to change picom shaders
+
+m() { ${DMENU:-dmenu} "$@"; }
+nullopt="None"
+
+cd "$XDG_DATA_HOME/shaders" || exit 1
+shaders="$nullopt
+$(find . -type f -name '*.glsl' | sed -e 's/.glsl$//g' -e 's|^./||g')"
+
+chosen="$(echo "$shaders" | m -p " Shader")"
+[ -z "$chosen" ] && exit 1
+
+if [ "$chosen" = "$nullopt" ]; then
+	killall picom
+	picom &
+	exit
+else
+	killall picom
+	if [ -f "${chosen}.sh" ]; then
+		is_script=1
+		./"${chosen}.sh" $$ &
+		scriptpid=$!
+	else
+		is_script=''
+	fi
+	trap 'kill -HUP '$scriptpid HUP INT TERM EXIT
+	picom --glx-fshader-win "$(cat "$chosen.glsl")"
+	[ -n "$is_script" ] && kill -INT $scriptpid
+fi
