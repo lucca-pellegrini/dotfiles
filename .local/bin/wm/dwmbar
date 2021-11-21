@@ -56,12 +56,14 @@ volume() {
 }
 
 mpd() {
+	mpc | grep -q paused && return
 	music="$(mpc current -f "%artist% - %title%")"
 	[ "$music" ] && printf " %s %s" "$music" "$SEP"
 }
 
 news() {
 	news="$(cat ~/.cache/news_unread)"
+	[ -z "$news" ] && return
 	[ "$news" -gt 0 ] && printf "  %s %s" "$news" "$SEP"
 }
 
