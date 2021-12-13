@@ -102,7 +102,7 @@ call plug#end()
 let g:ale_linters = {
 	\ 'c'      : ['cc'],
 	\ 'python' : ['pylint'],
-	\ 'tex'    : ['chktex', 'proselint'],
+	\ 'tex'    : ['chktex', 'lacheck', 'proselint'],
 \}
 
 let g:ale_c_cc_executable = 'cc'
