@@ -58,6 +58,7 @@ config.set("url.searchengines", {
     # Main
     "DEFAULT": "https://start.duckduckgo.com/?q={}&kae=t"  ,
     "o"      : "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?q={}&kae=t",
+    "lite"   : "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/lite?q={}",
 
     # Arch Linux
     "pac": "https://archlinux.org/packages/?q={}"              ,
