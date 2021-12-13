@@ -95,6 +95,8 @@ config.set("url.searchengines", {
     "fdroid"    : "https://search.f-droid.org/?q={}"                        ,
     "gutenberg" : "https://gutenberg.org/ebooks/search/?query={}"           ,
     "libgen"    : "http://gen.lib.rus.ec/search.php?req={}"                 ,
+    "nitter"    : "http://nitter7bryz3jv7e3uekphigvmoyoem4al3fynerxkj22dmoxoq553qd.onion/search?f=users&q={}" ,
+    "invidious" : "http://c7hqkpkpemu6e7emz5b4vyz7idjgdvgaaa3dyimmeojqbgpea3xqjoid.onion/search?q={}" ,
     "osm"       : "https://openstreetmap.org/search?query={}"               ,
     "perseus"   : "https://www.perseus.tufts.edu/hopper/searchresults?q={}" ,
 })
