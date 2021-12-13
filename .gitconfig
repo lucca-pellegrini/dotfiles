@@ -39,3 +39,5 @@
 	defaultBranch = master
 [pull]
 	rebase = false
+[diff]
+	algorithm = histogram
