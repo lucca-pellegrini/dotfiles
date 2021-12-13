@@ -79,6 +79,10 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-surround'        " For brackets, parentheses et cetera
 	Plug 'tpope/vim-commentary'      " Comment stuff out
 	Plug 'https://tildegit.org/sloum/gemini-vim-syntax.git' " gmi syntax
+	Plug 'vimwiki/vimwiki'           " Personal wiki
+	Plug 'https://git.sr.ht/~sircmpwn/hare.vim' " Hare programming
+	Plug 'tikhomirov/vim-glsl'       " OpenGL Shading Language runtime
+	Plug 'twh2898/vim-scarpet'       " Carpet mod script support
 
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus'
