@@ -126,13 +126,13 @@ c.confirm_quit = ["downloads"]
 
 # Fonts
 c.fonts.default_size        = "9pt"
-c.fonts.default_family      = "Carot Mono Light"
-c.fonts.completion.category = "10pt Carot Mono Light"
-c.fonts.completion.entry    = "10pt Carot Mono Light"
-c.fonts.statusbar           = "10pt Carot Mono Light"
-c.fonts.downloads           = "10pt Carot Mono Light"
-c.fonts.hints               = "bold 10pt Carot Mono Light"
-c.fonts.debug_console       = "10pt Carot Mono Light"
+c.fonts.default_family      = "Source Code Pro Light"
+c.fonts.completion.category = "10pt Source Code Pro Light"
+c.fonts.completion.entry    = "10pt Source Code Pro Light"
+c.fonts.statusbar           = "10pt Source Code Pro Light"
+c.fonts.downloads           = "10pt Source Code Pro Light"
+c.fonts.hints               = "bold 10pt Source Code Pro Light"
+c.fonts.debug_console       = "10pt Source Code Pro Light"
 
 
 # Color Scheme
