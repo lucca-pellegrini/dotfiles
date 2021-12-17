@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+#
+# Launch specified qutebrowser profile
+#
+
+profiles="$(printf 'Default\n'; qbpm list)"
+
+ans="$(printf '%s' "$profiles" | $DMENU -i -p 'Qutebrowser')"
+
+case "$ans" in
+	'Default')
+		qutebrowser ;;
+	'')
+		exit ;;
+	*)
+		qbpm launch "$ans"
+esac
