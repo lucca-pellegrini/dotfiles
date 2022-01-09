@@ -34,7 +34,7 @@ alias nm='neomutt'
 alias ab='abook -C "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_CONFIG_HOME"/abook/addressbook'
 
 # pacman
-alias pac="sudo pacman -Syu"
+alias pac="sudo pacman -Syu --needed"
 alias pacins="sudo pacman -U"
 alias pacre="sudo pacman -Rs"
 alias pacrem="sudo pacman -Rns"
