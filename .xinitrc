@@ -9,7 +9,7 @@ xsetroot -cursor_name left_ptr &  # change the cursor shape from "x" to normal
 xset s off -dpms                  # do not blank screen automatically
 unclutter --timeout 3 -jitter 50 --ignore-scrolling & # Remove mouse when idle
 /usr/lib/kdeconnectd &
-dunst &
+xdunst &
 picom &
 
 # synaptics touchpad options
