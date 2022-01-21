@@ -7,7 +7,7 @@
 !  ██   ░░██░░██████░░██████  ░██  ░░████████░░██████ ███  ░░██  ██████
 ! ░░     ░░  ░░░░░░  ░░░░░░   ░░    ░░░░░░░░  ░░░░░░ ░░░    ░░  ░░░░░░
 
-*.font: xft:Terminus:pixelsize=14
+*.font: Source Code Pro:size=9
 
 #ifdef LIGHT_THEME
 #define bg	#e8e9ec
@@ -99,7 +99,7 @@
 *color5:	ice05
 *color6:	ice06
 *color7:	ice07
-*color8:	ice08 
+*color8:	ice08
 *color9:	ice09
 *color10:	ice0A
 *color11:	ice0B

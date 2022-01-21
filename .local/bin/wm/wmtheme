@@ -1,0 +1,4 @@
+#!/bin/sh
+xrdb -merge -D"$(printf '%s' "$1" | tr '[:lower:]' '[:upper:]')"_THEME ~/.config/xrdb/Xdefaults
+killall dunst
+dunst &
