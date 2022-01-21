@@ -17,3 +17,4 @@ case "$ans" in
 esac
 
 xrandr --output "$out" --auto "$arg" "$default"
+setbg
