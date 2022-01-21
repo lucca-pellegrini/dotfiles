@@ -27,4 +27,9 @@ export QT_STYLE_OVERRIDE=kvantum-dark
 eval "$(ssh-agent)"
 clipmenud &
 dwmbar &
+
+# set environment for user systemd units
+/etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+systemctl --user import-environment SSH_AGENT_PID SSH_AUTH_SOCK
+
 exec "$WM"
