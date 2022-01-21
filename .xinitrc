@@ -20,6 +20,7 @@ synclient HorizScrollDelta=-47
 # dwm
 export GTK_THEME=Materia-dark-compact
 export QT_STYLE_OVERRIDE=kvantum-dark
+eval "$(ssh-agent)"
 clipmenud &
 dwmbar &
 exec dwm
