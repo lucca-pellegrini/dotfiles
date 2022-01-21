@@ -1,4 +1,7 @@
 #!/bin/sh
+
+WM="${WM:-dwm}"
+
 setbg &                           # set the background with the `setbg` script
 xrdb ~/.config/xrdb/Xdefaults     # load ~/.Xresources
 setxkbmap br,apl -option grp:shift_caps_toggle,compose:rctrl & # set xkb opts
@@ -17,10 +20,10 @@ synclient CircularScrolling=1 # For greater speed and precision
 synclient VertScrollDelta=-47 # Because it makes more sense
 synclient HorizScrollDelta=-47
 
-# dwm
+# WM
 export GTK_THEME=Materia-dark-compact
 export QT_STYLE_OVERRIDE=kvantum-dark
 eval "$(ssh-agent)"
 clipmenud &
 dwmbar &
-exec dwm
+exec "$WM"
