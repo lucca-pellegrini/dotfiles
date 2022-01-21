@@ -162,14 +162,16 @@ GIT_PROMPT() {
 	echo "${USER_LEVEL}─[${COLOR_NORMAL}${ref}${dirty}${stat}${USER_LEVEL}]"
 }
 
-chpwd() { # Use two line prompt when $PWD is long
+precmd() { # Use two line prompt when $PWD is long
 	if [ ${#PWD} -ge 50 ]; then
 		PROMPT='${USER_LEVEL}┌%(?..[%F{red}%?${USER_LEVEL}]-)[${COLOR_NORMAL}%~${USER_LEVEL}]$(GIT_PROMPT)'$'\n''${USER_LEVEL}└─ ─ %f'
 	else
 		PROMPT='${USER_LEVEL}%(?..[%F{red}%?${USER_LEVEL}]-)[${COLOR_NORMAL}%~${USER_LEVEL}]$(GIT_PROMPT)── ─ %f'
 	fi
+
+	# Set window title
+	printf '\033]0;%s\007' "$PWD"
 }
-chpwd # Required to set $PROMPT before changing directory
 
 #
 #   VI MODE
