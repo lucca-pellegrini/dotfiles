@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Terminus";
+static char *font = "Source Code Pro";
 static int borderpx = 10;
 
 /*
