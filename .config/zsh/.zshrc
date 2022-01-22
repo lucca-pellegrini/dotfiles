@@ -226,3 +226,7 @@ zle -N egs; bindkey "^g" egs
 
 # Interactive program options
 export GPG_TTY=$(tty)
+
+if [ "$DISPLAY" ] && [ "$(xgetres foreground)" = '#33374c' ]; then
+	export VIM_COLOURS=light
+fi
