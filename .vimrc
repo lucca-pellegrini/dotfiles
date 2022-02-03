@@ -99,6 +99,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'embark-theme/vim', { 'as': 'embark' }
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'cormacrelf/vim-colors-github'
+	Plug 'bluz71/vim-moonfly-colors'
 
 	Plug 'ryanoasis/vim-devicons' " Icons
 
@@ -130,6 +131,10 @@ elseif $VIM_COLOURS ==? 'embark'
 	let g:embark_terminal_italics = 1
 	let g:lightline = {'colorscheme': 'embark'}
 	colorscheme embark
+	set background=dark
+elseif $VIM_COLOURS ==? 'moonfly'
+	let g:lightline = {'colorscheme': 'moonfly'}
+	colorscheme moonfly
 	set background=dark
 else
 	let g:lightline = {'colorscheme': 'iceberg'}
