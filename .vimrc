@@ -84,6 +84,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'https://git.sr.ht/~sircmpwn/hare.vim' " Hare programming
 	Plug 'tikhomirov/vim-glsl'       " OpenGL Shading Language runtime
 	Plug 'twh2898/vim-scarpet'       " Carpet mod script support
+	Plug 'vim-scripts/Conque-GDB'    " GNU Project Debugger integration
 
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus'
