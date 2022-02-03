@@ -31,6 +31,7 @@ set display=lastline " Display as much of the last line as possible;.
 set nojoinspaces " Do not insert two spaces after ‘.’, ‘?’ or ‘!’ on join.
 set formatoptions=croqlj " See ':help fo-table'.
 set history=4096 " Increase history size.
+set guioptions=acgfit! " Set options for GVIM
 
 " Stop bad editing habits
 set backspace=
