@@ -9,7 +9,9 @@
 
 *.font: Source Code Pro:size=9
 
+! Iceberg Light
 #ifdef LIGHT_THEME
+
 #define bg	#e8e9ec
 #define fg	#33374c
 
@@ -47,7 +49,12 @@
 
 ! special
 #define accent	ice07
-#else
+
+#endif
+
+! Iceberg Dark
+#ifdef DARK_THEME
+
 #define bg	#161821
 #define fg	#c6c8d1
 
@@ -85,6 +92,50 @@
 
 ! special
 #define accent	ice04
+
+#endif
+
+! Moonfly
+#ifdef MOONFLY_THEME
+
+#define bg	#080808
+#define fg	#b2b2b2
+
+! black
+#define ice00	#323437
+#define ice08	#949494
+
+! red
+#define ice01	#ff5454
+#define ice09	#ff5189
+
+! green
+#define ice02	#8cc85f
+#define ice0A	#36c692
+
+! yellow
+#define ice03	#e3c78a
+#define ice0B	#c2c292
+
+! blue
+#define ice04	#80a0ff
+#define ice0C	#74b2ff
+
+! magenta
+#define ice05	#d183e8
+#define ice0D	#ae81ff
+
+! cyan
+#define ice06	#79dac8
+#define ice0E	#85dc85
+
+! white
+#define ice07	#c6c6c6
+#define ice0F	#e4e4e4
+
+! special
+#define accent	ice04
+
 #endif
 
 *background:	bg
@@ -123,7 +174,7 @@ dwm.selbordercolor:  accent
 tabbed.normfgcolor:     fg
 tabbed.normbgcolor:     bg
 tabbed.selfgcolor:      bg
-tabbed.selbgcolor:      accent
+tabbed.selbgcolor:      ice04
 
 slock.init:         bg
 slock.input:        accent
