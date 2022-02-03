@@ -227,6 +227,14 @@ zle -N egs; bindkey "^g" egs
 # Interactive program options
 export GPG_TTY=$(tty)
 
-if [ "$DISPLAY" ] && [ "$(xgetres foreground)" = '#33374c' ]; then
-	export VIM_COLOURS=light
+# Set vim colorscheme according to Xresources
+if [ "$DISPLAY" ]; then
+	case "$(xgetres foreground)" in
+	'#33374c')
+		export VIM_COLOURS=light
+		;;
+	'#b2b2b2')
+		export VIM_COLOURS=moonfly
+		;;
+	esac
 fi
