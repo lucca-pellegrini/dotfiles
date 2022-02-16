@@ -2,8 +2,16 @@
 
 WM="${WM:-dwm}"
 
+# check for previously set theme
+WM_THEME_FILE="${XDG_CONFIG_HOME:-"$HOME/.config"}/wm_theme"
+if [ -f "$WM_THEME_FILE" ]; then
+	WM_THEME="$(cat "$WM_THEME_FILE")"
+else
+	WM_THEME=DARK
+fi
+xrdb -merge -D"$WM_THEME"_THEME ~/.config/xrdb/Xdefaults # load Xdefaults
+
 setbg &                           # set the background with the `setbg` script
-xrdb -merge -DDARK_THEME ~/.config/xrdb/Xdefaults # load Xdefaults
 setxkbmap br,apl -option grp:shift_caps_toggle,compose:rctrl & # set xkb opts
 xset s off -dpms                  # do not blank screen automatically
 unclutter --timeout 3 -jitter 50 --ignore-scrolling & # Remove mouse when idle

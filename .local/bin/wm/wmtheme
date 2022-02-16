@@ -1,4 +1,11 @@
 #!/bin/sh
-xrdb -merge -D"$(printf '%s' "$1" | tr '[:lower:]' '[:upper:]')"_THEME ~/.config/xrdb/Xdefaults
+
+THEME="$(printf '%s' "$1" | tr '[:lower:]' '[:upper:]')"
+
+# save theme for future logins
+WM_THEME_FILE="${XDG_CONFIG_HOME:-"$HOME/.config"}/wm_theme"
+printf '%s' "$THEME" > "$WM_THEME_FILE"
+
+xrdb -merge -D"$THEME"_THEME ~/.config/xrdb/Xdefaults
 killall dunst
 dunst &
