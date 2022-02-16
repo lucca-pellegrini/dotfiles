@@ -5,7 +5,6 @@ WM="${WM:-dwm}"
 setbg &                           # set the background with the `setbg` script
 xrdb -merge -DDARK_THEME ~/.config/xrdb/Xdefaults # load Xdefaults
 setxkbmap br,apl -option grp:shift_caps_toggle,compose:rctrl & # set xkb opts
-xsetroot -cursor_name left_ptr &  # change the cursor shape from "x" to normal
 xset s off -dpms                  # do not blank screen automatically
 unclutter --timeout 3 -jitter 50 --ignore-scrolling & # Remove mouse when idle
 /usr/lib/kdeconnectd &
