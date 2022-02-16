@@ -180,4 +180,7 @@ slock.init:         bg
 slock.input:        accent
 slock.failed:       ice01
 
+Xcursor.theme:		Neutral
+Xcursor.size:		16
+
 ! vim: ft=xdefaults
