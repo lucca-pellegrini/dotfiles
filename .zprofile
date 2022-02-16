@@ -100,8 +100,6 @@ if [ "$TERM" = "linux" ]; then
 	echo -en "\e]PFD2D4DE" #white
 
 	setfont /usr/share/kbd/consolefonts/ter-v12n.psf.gz
-
-	clear #for background artifacting
 fi
 
 # Start graphical server on tty1 if not already running.
