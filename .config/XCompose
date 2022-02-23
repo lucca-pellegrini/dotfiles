@@ -51,7 +51,15 @@ include "%L"
 <Multi_key> <T> <P>                              : "⳨" # Staurogram
 
 #### Crosses ##################################################################
-<Multi_key> <C> <x> <x>                          : "✝" # Crux immissa
+
+# Latin Crosses
+<Multi_key> <C> <x> <x>                          : "🕇" # Crux immissa
+<Multi_key> <C> <x> <space>                      : "🕆" # Crux immissa (hollow)
+<Multi_key> <C> <x> <s>                          : "✞" # Crux immissa (shadow)
+<Multi_key> <C> <x> <0>                          : "✟" # Crux immissa (outline)
+<Multi_key> <C> <x> <equal>                      : "✝" # Crux immissa (emoji)
+
+# Cross variants
 <Multi_key> <C> <x> <a>                          : "☥" # Crux ansata
 <Multi_key> <C> <x> <l>                          : "☨" # Croix de Lorraine
 <Multi_key> <C> <x> <p>                          : "☩" # Croix potencée
