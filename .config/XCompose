@@ -46,6 +46,10 @@ include "%L"
 <Multi_key> <r> <T>                              : "⸷" # Right Guard Dagger
 <Multi_key> <exclam> <T>                         : "⸸" # Inverted Dagger
 
+#### Christograms #############################################################
+<Multi_key> <X> <P>                              : "☧" # Chrismon
+<Multi_key> <T> <P>                              : "⳨" # Staurogram
+
 #### Crosses ##################################################################
 <Multi_key> <C> <x> <x>                          : "✝" # Crux immissa
 <Multi_key> <C> <x> <a>                          : "☥" # Crux ansata
