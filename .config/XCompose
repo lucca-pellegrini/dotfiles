@@ -152,6 +152,7 @@ include "%L"
 <Multi_key> <asterisk> <asterisk>                : "⁂" # Asterism
 <Multi_key> <n> <o>                              : "№" # Numero
 <Multi_key> <minus> <equal>                      : "⹀" # Double Hyphen
+<Multi_key> <N> <O>                              : "⃠" # Prohibited
 <Multi_key> <o> <p>                              : "℗" # Sound Recording ©
 
 #### Solstices & equinoctes ###################################################
