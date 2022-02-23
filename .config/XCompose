@@ -178,6 +178,39 @@ include "%L"
 <Multi_key> <N> <O>                              : "⃠" # Prohibited
 <Multi_key> <o> <p>                              : "℗" # Sound Recording ©
 
+#### Regional indicator symbols ###############################################
+<Multi_key> <R> <a>                              : "🇦"
+<Multi_key> <R> <b>                              : "🇧"
+<Multi_key> <R> <c>                              : "🇨"
+<Multi_key> <R> <d>                              : "🇩"
+<Multi_key> <R> <e>                              : "🇪"
+<Multi_key> <R> <f>                              : "🇫"
+<Multi_key> <R> <g>                              : "🇬"
+<Multi_key> <R> <h>                              : "🇭"
+<Multi_key> <R> <i>                              : "🇮"
+<Multi_key> <R> <j>                              : "🇯"
+<Multi_key> <R> <k>                              : "🇰"
+<Multi_key> <R> <l>                              : "🇱"
+<Multi_key> <R> <m>                              : "🇲"
+<Multi_key> <R> <n>                              : "🇳"
+<Multi_key> <R> <o>                              : "🇴"
+<Multi_key> <R> <p>                              : "🇵"
+<Multi_key> <R> <q>                              : "🇶"
+<Multi_key> <R> <r>                              : "🇷"
+<Multi_key> <R> <s>                              : "🇸"
+<Multi_key> <R> <t>                              : "🇹"
+<Multi_key> <R> <u>                              : "🇺"
+<Multi_key> <R> <v>                              : "🇻"
+<Multi_key> <R> <w>                              : "🇼"
+<Multi_key> <R> <x>                              : "🇽"
+<Multi_key> <R> <y>                              : "🇾"
+<Multi_key> <R> <z>                              : "🇿"
+# These can be combined into country codes to make flags:
+# 🇬 + 🇧 = 🇬🇧
+# 🇲 + 🇹 = 🇲🇹
+# 🇻 + 🇦 = 🇻🇦
+# et cetera
+
 #### Solstices & equinoctes ###################################################
 <Multi_key> <A> <r> <i>                          : "♈︎" # March equinox
 <Multi_key> <C> <n> <c>                          : "♋︎" # June solstice
