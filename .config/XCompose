@@ -46,6 +46,17 @@ include "%L"
 <Multi_key> <r> <T>                              : "⸷" # Right Guard Dagger
 <Multi_key> <exclam> <T>                         : "⸸" # Inverted Dagger
 
+#### Crosses ##################################################################
+<Multi_key> <C> <x> <x>                          : "✝" # Crux immissa
+<Multi_key> <C> <x> <a>                          : "☥" # Crux ansata
+<Multi_key> <C> <x> <l>                          : "☨" # Croix de Lorraine
+<Multi_key> <C> <x> <p>                          : "☩" # Croix potencée
+<Multi_key> <C> <x> <v>                          : "✠" # Maltese cross
+<Multi_key> <C> <x> <o>                          : "☦" # Suppedaneum cross
+<Multi_key> <C> <x> <c>                          : "🕈" # Celtic cross
+<Multi_key> <C> <x> <g>                          : "🞣" # Greek cross
+<Multi_key> <C> <x> <G>                          : "♁" # Globus cruciger
+
 #### Majuscule Greek ##########################################################
 <Multi_key> <G> <a>                              : "Α"
 <Multi_key> <G> <b>                              : "Β"
