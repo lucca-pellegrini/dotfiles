@@ -52,11 +52,12 @@ with config.pattern('*://qxbpps3h5bfkrnuy55fljgc4hll45lmc7zfznmi4yypfy744m4v4y3q
 # c.content.user_stylesheets = ["css/main.css"]
 
 # Change start/default pages + search engine
-config.set("url.start_pages", "https://start.duckduckgo.com/?kae=t")
-config.set("url.default_page", "https://start.duckduckgo.com/?kae=t")
+config.set("url.start_pages", "http://localhost:18811")
+config.set("url.default_page", "http://localhost:18811")
 config.set("url.searchengines", {
     # Main
-    "DEFAULT": "https://start.duckduckgo.com/?q={}&kae=t"  ,
+    "DEFAULT": "http://localhost:18811/search?q={}", # Local searx instance
+    "duck"   : "https://start.duckduckgo.com/?q={}&kae=t",
     "o"      : "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?q={}&kae=t",
     "lite"   : "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/lite?q={}",
 
