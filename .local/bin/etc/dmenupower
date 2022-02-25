@@ -1,8 +1,17 @@
-#!/bin/sh
+#!/usr/bin/env sh
+
+kill_xorg() {
+	pid="$(
+		lsof /tmp/.X11-unix/X"${DISPLAY#:}" |
+		awk '/^Xorg/ { print $2 }'
+	)"
+	kill "$pid"
+}
+
 ANS="$(printf " Lock\n Exit\n Shutdown\n Reboot" | $DMENU -i -p ' System')"
 case "$ANS" in
 	' Lock') slock;;
-	' Exit') killall Xorg;;
+	' Exit') kill_xorg;;
 	' Shutdown') shutdown now;;
 	' Reboot') reboot;;
 esac
