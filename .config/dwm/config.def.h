@@ -127,7 +127,7 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,                XK_m,      spawn,          SHCMD("st -n float -g 120x36 -e ncmpcpp") },
 	{ MODKEY|ALTKEY,                XK_v,      spawn,          SHCMD("st -e vim") },
 	{ MODKEY|ALTKEY,                XK_a,      spawn,          SHCMD("st -e alsamixer") },
-	{ MODKEY|ALTKEY,                XK_w,      spawn,          SHCMD("qutebrowser") },
+	{ MODKEY|ALTKEY,                XK_w,      spawn,          SHCMD("dmenuqbpm") },
 
 	/* scripts */
 	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("prompt 'Shutdown computer?' 'shutdown -h now'") },
