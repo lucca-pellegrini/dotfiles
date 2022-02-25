@@ -107,13 +107,19 @@ call plug#end()
 
 " Set ALE linters and options
 let g:ale_linters = {
-	\ 'c'      : ['cc'],
+	\ 'c'      : ['cc', 'ccls'],
 	\ 'python' : ['pylint'],
 	\ 'tex'    : ['chktex', 'lacheck', 'proselint'],
 \}
 
 let g:ale_c_cc_executable = 'cc'
 let g:ale_c_cc_options = '-Wall -Wextra -pedantic'
+let g:ale_c_ccls_init_options = {
+	\ 'cache': {
+		\ 'directory': $XDG_DATA_HOME . '/ccls'
+	\}
+\}
+let g:ale_cpp_ccls_init_options = g:ale_c_ccls_init_options
 
 " I dislike how haskell-vim handles indentation, so it's disabled
 let g:haskell_indent_disable = 1
