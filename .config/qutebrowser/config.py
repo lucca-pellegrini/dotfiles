@@ -91,13 +91,17 @@ config.set("url.searchengines", {
 
     "wc": "https://commons.wikimedia.org/w/index.php?search={}",
 
+    # Self hosted
+    "nitter"    : "http://localhost:13500/search?f=users&q={}" ,
+    "reddit"    : "http://localhost:8080/search?q={}&nsfw=off" , # teddit
+    "yt"        : "http://localhost:10909/search?q={}"         , # invidious
+    "ig"        : "http://localhost:10407/u/{}"                , # bibliogram
+
     # Misc.
     "archive"   : "https://archive.org/search.php?query={}"                 ,
     "fdroid"    : "https://search.f-droid.org/?q={}"                        ,
     "gutenberg" : "https://gutenberg.org/ebooks/search/?query={}"           ,
     "libgen"    : "http://libgen.st/search.php?req={}"                      ,
-    "nitter"    : "http://nitter7bryz3jv7e3uekphigvmoyoem4al3fynerxkj22dmoxoq553qd.onion/search?f=users&q={}" ,
-    "invidious" : "http://c7hqkpkpemu6e7emz5b4vyz7idjgdvgaaa3dyimmeojqbgpea3xqjoid.onion/search?q={}" ,
     "osm"       : "https://openstreetmap.org/search?query={}"               ,
     "perseus"   : "https://www.perseus.tufts.edu/hopper/searchresults?q={}" ,
 })
