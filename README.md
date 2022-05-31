@@ -47,7 +47,7 @@ $ rm -rf LICENSE README.md .gitignore
 You can revert this later with `--no-assume-unchanged` flag.
 ## Build and install suckless programs
 ```sh
-for d in ~/.config/{dmenu,dwm,slock,st}; do
+for d in ~/.config/suckless/*; do
 	cd "$d"
 	make clean all && sudo make install
 done
