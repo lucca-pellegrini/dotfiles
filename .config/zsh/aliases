@@ -69,7 +69,7 @@ alias tmks='tmux kill-server'
 # youtube-dl
 function yt()
 {
-	youtube-dl                                             \
+	yt-dlp                                                 \
 		--add-metadata                                 \
 		--all-subs                                     \
 		--embed-subs                                   \
@@ -85,7 +85,7 @@ function yt()
 
 function yta()
 {
-	youtube-dl                                             \
+	yt-dlp                                                 \
 		--add-metadata                                 \
 		--audio-quality 0                              \
 		--extract-audio                                \
