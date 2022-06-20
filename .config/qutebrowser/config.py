@@ -15,7 +15,7 @@ config.bind(',2', 'set content.proxy http://localhost:4444/')
 config.bind(',P', 'set content.proxy system')
 
 # Set custom User Agent
-config.set('content.headers.user_agent', 'Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0')
+config.set('content.headers.user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0')
 
 # Set a generic HTTP_ACCEPT header
 config.set("content.headers.accept_language", "en-US,en;q=0.5")
