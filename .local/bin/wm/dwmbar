@@ -92,6 +92,8 @@ EOF
 }
 
 while :; do
-	xsetroot -name " $(mpd)$(torrents)$(news) $(backlight) $SEP $(volume) $SEP $(battery) $SEP $(keymap) $SEP $(_date) "
+	name=" $(mpd)$(torrents)$(news) $(backlight) $SEP $(volume) $SEP $(battery) $SEP $(keymap) $SEP $(_date) "
+	xsetroot -name "$name"
+	printf '%s\n' "$name"
 	sleep 1
 done
