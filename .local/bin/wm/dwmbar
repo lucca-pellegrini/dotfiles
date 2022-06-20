@@ -38,10 +38,9 @@ backlight() {
 }
 
 keymap() {
-	printf '['
-	getxkbmap |
-		tr '[:lower:]' '[:upper:]'
-	printf ']\n'
+	printf ' '
+	getxkbmap | tr '[:lower:]' '[:upper:]'
+	printf '\n'
 }
 
 volume() {
