@@ -44,7 +44,9 @@ export GTK_THEME=Materia-dark-compact
 export QT_STYLE_OVERRIDE=kvantum-dark
 /usr/lib/kdeconnectd &
 xdunst &
-picom &
+if [ ! "NOPICOM"]; then
+	picom &
+fi
 clipmenud &
 dwmbar &
 
