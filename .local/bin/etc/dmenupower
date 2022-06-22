@@ -8,10 +8,21 @@ kill_xorg() {
 	kill "$pid"
 }
 
-ANS="$(printf " Lock\n Exit\n Shutdown\n Reboot" | $DMENU -i -p ' System')"
+ANS="$(cat <<-\! | $DMENU -i -p ' System'
+	 Lock
+	 Exit
+	 Suspend
+	 Hibernate
+	 Reboot
+	 Shutdown
+!
+)"
+
 case "$ANS" in
 	' Lock') slock;;
 	' Exit') kill_xorg;;
-	' Shutdown') shutdown now;;
+	' Suspend') slock & systemctl suspend;;
+	' Hibernate') systemctl hibernate;;
 	' Reboot') reboot;;
+	' Shutdown') shutdown now;;
 esac
