@@ -153,7 +153,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_a,      spawn,          SHCMD("dmenuaudio") },
 
 	/* media */
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("amixer sset Master toggle") },
+	{ NULL,                         XF86XK_AudioMute, spawn,   SHCMD("amixer sset Master toggle") },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("mpc toggle") },
 
 	{ MODKEY,                       XK_comma,  spawn,          SHCMD("mpc prev; dunstify \"$(mpc current)\"") },
@@ -167,14 +167,14 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_bracketright,   spawn,  SHCMD("mpc seek +60") },
 
 	/* volume */
-	{ MODKEY,                       XK_equal,  spawn,          SHCMD("volume alsa up")   },
-	{ MODKEY|ShiftMask,             XK_equal,  spawn,          SHCMD("volume mpc up")  },
-	{ MODKEY,                       XK_minus,  spawn,          SHCMD("volume alsa down") },
-	{ MODKEY|ShiftMask,             XK_minus,  spawn,          SHCMD("volume mpc down")  },
+	{ MODKEY|ShiftMask,             XK_equal,                spawn, SHCMD("volume mpc up")  },
+	{ MODKEY|ShiftMask,             XK_minus,                spawn, SHCMD("volume mpc down")  },
+	{ NULL,                         XF86XK_AudioRaiseVolume, spawn, SHCMD("volume alsa up") },
+	{ NULL,                         XF86XK_AudioLowerVolume, spawn, SHCMD("volume alsa down") },
 
 	/* backlight */
-	{ MODKEY|ALTKEY,                XK_equal,  spawn,          SHCMD("brightness up")   },
-	{ MODKEY|ALTKEY,                XK_minus,  spawn,          SHCMD("brightness down") },
+	{ NULL,                         XF86XK_MonBrightnessUp,   spawn, SHCMD("brightness up")   },
+	{ NULL,                         XF86XK_MonBrightnessDown, spawn, SHCMD("brightness down") },
 
 	/* workspaces */
 	TAGKEYS(                        XK_1,                      0)
