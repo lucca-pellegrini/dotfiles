@@ -93,9 +93,9 @@ torrents() {
 				s/.*[A-Z][a-z].*/  / g;
 				"
 		printf %s "$per"
-	done <<EOF
-	$data
-EOF
+	done <<-EOF
+		$data
+	EOF
 	transmission-remote -l | grep -qE "%|n/a" && printf " %s" "$SEP"
 }
 
