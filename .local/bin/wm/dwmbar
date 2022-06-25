@@ -69,13 +69,21 @@ news() {
 }
 
 torrents() {
-	data=$(transmission-remote -l 2>/dev/null | grep -E "%|n/a" | sed 6q)
+	data=$(transmission-remote -l 2>/dev/null | grep -E "%|n/a")
 	[ "$data" ] || return
+
+	i=0
 	while read -r line; do
 		per="$(printf %s "$line" | awk '{ printf $2 }')"
 		[ "${per%?}" = 100 ] && {
 			continue
 		}
+
+		[ $i -ge 6 ] && {
+			break
+		}
+		i=$((i+1))
+
 		printf %s "$line" | sed "
 				s/.*Stopped.*/  /g;
 				s/.*Seeding.*/  /g;
