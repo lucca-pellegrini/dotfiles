@@ -59,7 +59,7 @@ Compile programs for the WM
 $ cd ~/.local/bin/wm
 $ make all
 ```
-To display colorful emoji in dmenu you need `libxft-bgra` (see [.config/dmenu/README](.config/dmenu/README) "Requirements")<br>
+To display colorful emoji in dmenu you need `libxft-bgra`.
 
 ## Finished
 That's it, dotfiles are ready! It is recommended to restart your computer. Now you can type `dots up` to update dotfiles or use regular git commands:
