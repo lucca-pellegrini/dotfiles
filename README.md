@@ -45,6 +45,7 @@ $ dots update-index --assume-unchanged LICENSE README.md .gitignore
 $ rm -rf LICENSE README.md .gitignore
 ```
 You can revert this later with `--no-assume-unchanged` flag.
+
 ## Build and install suckless programs
 ```sh
 for d in ~/.config/suckless/*; do
@@ -59,6 +60,7 @@ $ cd ~/.local/bin/wm
 $ make all
 ```
 To display colorful emoji in dmenu you need `libxft-bgra` (see [.config/dmenu/README](.config/dmenu/README) "Requirements")<br>
+
 ## Finished
 That's it, dotfiles are ready! It is recommended to restart your computer. Now you can type `dots up` to update dotfiles or use regular git commands:
 ```
@@ -68,4 +70,3 @@ $ dots add
 $ dots commit
 $ dots push
 ```
-
