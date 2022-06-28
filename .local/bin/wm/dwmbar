@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 xsetroot -name " Welcome to $(hostname) "
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # Behavior:
 #   Userscript for qutebrowser which views the current web page in mpv using

@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 cp "$(xdg-user-dir PICTURES)"/wallpaper /tmp/wallpaper.bak
 convert /tmp/wallpaper.bak -colorspace gray /tmp/wallpaper

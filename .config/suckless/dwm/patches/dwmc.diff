@@ -195,7 +195,7 @@ index 0000000..5ff8dbc
 --- /dev/null
 +++ b/dwmc
 @@ -0,0 +1,40 @@
-+#!/usr/bin/env sh
++#!/bin/sh
 +
 +signal() {
 +	xsetroot -name "fsignal:$*"

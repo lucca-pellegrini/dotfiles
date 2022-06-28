@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 kill_xorg() {
 	pid="$(

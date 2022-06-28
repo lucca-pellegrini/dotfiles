@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # It's simple script to control a wirelless network connection
 # using iwd and dhcpcd

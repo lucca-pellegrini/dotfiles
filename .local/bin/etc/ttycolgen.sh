@@ -8,7 +8,7 @@ bg=$(xrdb -query | grep "\*.background" | awk -F "#" '{ print $2 }')
 
 echo "Writing to '$HOME/bin/ttycol.sh'"
 (
-	echo '#!/usr/bin/env bash'
+	echo '#!/bin/bash'
 	echo 'export TERM=linux'
 	echo 'for tty in /dev/tty[0-9]; do'
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # Output locations. Unactivated progs should go to /dev/null.
 shell_shortcuts="$HOME/.config/zsh/shortcutrc"
 vifm_shortcuts="$HOME/.config/vifm/vifmshortcuts"
