@@ -1,5 +1,6 @@
 #!/bin/sh
 
+trap 'xsetroot -name " dwmbar dead "; exit' EXIT INT TERM HUP
 xsetroot -name " Welcome to $(hostname) "
 
 SEP='|'
