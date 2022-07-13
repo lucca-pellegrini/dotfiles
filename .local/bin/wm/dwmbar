@@ -4,6 +4,12 @@ trap 'xsetroot -name " dwmbar dead "; exit' EXIT INT TERM HUP
 xsetroot -name " Welcome to $(hostname) "
 
 SEP='|'
+unset NOPRINT
+
+case "$(tty)" in
+/dev/tty?)
+	NOPRINT=1
+esac
 
 battery() {
 	bat="$(cat /sys/class/power_supply/BAT?/capacity)"
@@ -103,6 +109,6 @@ torrents() {
 while :; do
 	name=" $(mpd)$(torrents)$(news) $(backlight) $SEP $(volume) $SEP $(battery) $SEP $(keymap) $SEP $(_date) "
 	xsetroot -name "$name"
-	printf '%s\n' "$name"
+	[ ! "$NOPRINT" ] && printf '%s\n' "$name"
 	sleep 1
 done
