@@ -54,4 +54,5 @@ dwmbar &
 /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 systemctl --user import-environment SSH_AGENT_PID SSH_AUTH_SOCK
 
+$X11PROGS &
 exec "$WM"
