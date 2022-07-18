@@ -85,6 +85,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tikhomirov/vim-glsl'       " OpenGL Shading Language runtime
 	Plug 'twh2898/vim-scarpet'       " Carpet mod script support
 	Plug 'vim-scripts/rcshell.vim'   " Plan 9 rc syntax
+	Plug 'PatrBal/vim-textidote'     " LaTeX linter
 
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus'
@@ -155,6 +156,8 @@ let g:lightline['active'] = {
 let g:lightline['component_function'] = {
 	\ 'gitbranch': 'FugitiveHead'
 \ }
+
+let g:textidote_jar = '/usr/share/java/textidote.jar'
 
 " Highlighting unwanted whitespaces
 augroup trailing_space
