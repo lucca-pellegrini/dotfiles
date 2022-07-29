@@ -40,8 +40,9 @@ then
 fi
 
 # WM
+unset QT_STYLE_OVERRIDE
+export QT_STYLE_OVERRIDE QT_QPA_PLATFORMTHEME=qt5ct
 export GTK_THEME=Materia-dark-compact
-export QT_STYLE_OVERRIDE=kvantum-dark
 /usr/lib/kdeconnectd &
 xdunst &
 if [ ! "$NOPICOM" ]; then
