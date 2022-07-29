@@ -49,6 +49,7 @@ augroup indentation
 	autocmd Filetype python setlocal expandtab ts=4 sts=4 sw=4 " and Python
 	" Haskell rules stolen from <http://dmwit.com/tabs/>
 	autocmd FileType haskell setlocal noet ci pi ts=8 sw=8 sts=0 " so on…
+	autocmd FileType julia setlocal noet ci pi ts=8 sts=8 sw=8
 	autocmd FileType lilypond setlocal expandtab ts=4 sts=4 sw=4
 	autocmd FileType sh setlocal noexpandtab ts=8 sts=8 sw=8
 	autocmd FileType tex setlocal expandtab ts=4 sts=4 sw=4
@@ -86,6 +87,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'twh2898/vim-scarpet'       " Carpet mod script support
 	Plug 'vim-scripts/rcshell.vim'   " Plan 9 rc syntax
 	Plug 'PatrBal/vim-textidote'     " LaTeX linter
+	Plug 'JuliaEditorSupport/julia-vim' " Julia support
 
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus'
