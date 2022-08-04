@@ -10,6 +10,7 @@ set message_cachedir = ~/.cache/mutt/disroot/bodies
 set smtp_url = 'smtp://thomist@disroot.org:587'
 set imap_pass = "`pass thomist@disroot.org`"
 set smtp_pass = "`pass thomist@disroot.org`"
+set pgp_default_key = "9E4675A65C408DBD546FF16B4F17FD38F79062FD"
 
 set mbox_type = Maildir
 set ssl_starttls = yes

@@ -10,6 +10,7 @@
 # vim: filetype=neomuttrc
 set mailcap_path = ~/.config/mutt/etc/mailcap
 source "$HOME/.config/mutt/accounts/e"
+source ~/.config/mutt/etc/gpg.rc
 
 set date_format="%y/%m/%d %I:%M%p"
 set index_format="%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
