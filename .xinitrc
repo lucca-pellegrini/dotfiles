@@ -1,6 +1,7 @@
 #!/bin/sh
 
 WM="${WM:-dwm}"
+[ ! "$NOLOCK" ] && slock
 
 # check for previously set theme
 WM_THEME_FILE="${XDG_CONFIG_HOME:-"$HOME/.config"}/wm_theme"
