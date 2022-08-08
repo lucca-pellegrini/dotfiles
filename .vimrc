@@ -88,6 +88,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-scripts/rcshell.vim'   " Plan 9 rc syntax
 	Plug 'PatrBal/vim-textidote'     " LaTeX linter
 	Plug 'JuliaEditorSupport/julia-vim' " Julia support
+	Plug 'ziglang/zig.vim'           " Zig support
 
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus'
