@@ -1654,8 +1654,8 @@ run(void)
 
 void
 run_autostart(void) {
-	system("cd ~/.config/dwm; ./autostart_blocking.sh");
-	system("cd ~/.config/dwm; ./autostart.sh &");
+	system("cd ~/.config/suckless/dwm; ./autostart_blocking.sh");
+	system("cd ~/.config/suckless/dwm; ./autostart.sh &");
 }
 
 void
