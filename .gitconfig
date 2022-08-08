@@ -33,6 +33,7 @@
 	smtpuser = luccapellegrini@e.email
 	smtpencryption = tls
 	smtpserverport = 587
+	confirm = auto
 [include]
 	path = ~/.gitconfig.secret
 [init]
