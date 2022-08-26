@@ -3,8 +3,8 @@
 # Change monitor settings
 #
 
-out='HDMI1'
-default='eDP1'
+out='HDMI-1'
+default='eDP-1'
 
 ans="$(printf " Single Monitor\n Extend to Left\n Extend to Right" |
 	$DMENU -i -p 'Monitor')"
