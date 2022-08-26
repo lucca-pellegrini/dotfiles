@@ -89,6 +89,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'PatrBal/vim-textidote'     " LaTeX linter
 	Plug 'JuliaEditorSupport/julia-vim' " Julia support
 	Plug 'ziglang/zig.vim'           " Zig support
+	Plug 'neomutt/neomutt.vim'       " neomuttrc syntax support
 
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus'
@@ -104,6 +105,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'cormacrelf/vim-colors-github'
 	Plug 'bluz71/vim-moonfly-colors'
+	Plug 'jeffkreeftmeijer/vim-dim'
 
 	Plug 'ryanoasis/vim-devicons' " Icons
 
@@ -146,6 +148,11 @@ elseif $VIM_COLOURS ==? 'moonfly'
 	let g:lightline = {'colorscheme': 'moonfly'}
 	colorscheme moonfly
 	set background=dark
+elseif $VIM_COLOURS ==? 'default'
+	set background=dark
+	colorscheme dim
+	set nocursorline nocursorcolumn
+	let g:lightline = {'colorscheme': '16color'}
 else
 	let g:lightline = {'colorscheme': 'iceberg'}
 	colorscheme iceberg
