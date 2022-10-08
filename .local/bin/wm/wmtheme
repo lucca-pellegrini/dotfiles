@@ -11,5 +11,7 @@ WM_THEME_FILE="${XDG_CONFIG_HOME:-"$HOME/.config"}/wm_theme"
 printf '%s' "$THEME" > "$WM_THEME_FILE"
 
 xrdb -merge -D"$THEME"_THEME ~/.config/xrdb/Xdefaults
+setsid dwmc xrdb &
+
 killall dunst
-dunst &
+setsid xdunst &
