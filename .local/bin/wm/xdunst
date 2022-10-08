@@ -2,4 +2,6 @@
 red=$(xgetres color1)
 fg=$(xgetres foreground)
 bg=$(xgetres background)
-/usr/bin/dunst -lf $fg -lb $bg -nf $fg -nb $bg -cf $red -cb $bg "$@"
+
+sed "s/XRDB_BG/$bg/g;s/XRDB_FG/$fg/g;s/XRDB_RED/$red/g" ~/.config/dunst/dunstrc |
+	/usr/bin/dunst -config - "$@"

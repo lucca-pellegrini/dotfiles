@@ -40,24 +40,18 @@
 	context = ctrl+shift+period
 
 [urgency_low]
-	background = "#161821"
-	foreground = "#d2d4de"
-	#background = "#e8e9ec"
-	#foreground = "#33374c"
+	background = "XRDB_BG"
+	foreground = "XRDB_FG"
 	timeout = 5
 
 [urgency_normal]
-	background = "#161821"
-	foreground = "#d2d4de"
-	#background = "#e8e9ec"
-	#foreground = "#33374c"
+	background = "XRDB_BG"
+	foreground = "XRDB_FG"
 	timeout = 5
 
 [urgency_critical]
-	background = "#161821"
-	foreground = "#e27878"
-	#background = "#e8e9ec"
-	#foreground = "#cc517a"
+	background = "XRDB_BG"
+	foreground = "XRDB_RED"
 	timeout = 10
 
 [history-ignore-brightness]
