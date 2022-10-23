@@ -90,6 +90,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'JuliaEditorSupport/julia-vim' " Julia support
 	Plug 'ziglang/zig.vim'           " Zig support
 	Plug 'neomutt/neomutt.vim'       " neomuttrc syntax support
+	Plug 'mileszs/ack.vim'           " Ack support
 
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus'
