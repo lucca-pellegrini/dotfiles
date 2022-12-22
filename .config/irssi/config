@@ -12,7 +12,7 @@ utf8 = "on";
 servers = (
   {
     address = "::1";
-    chatnet = "LiberaChat";
+    chatnet = "ZNC";
     port = "24365";
     use_tls = "no";
     tls_verify = "no";
@@ -79,4 +79,4 @@ statusbar = {
   };
 };
 logs = { };
-chatnets = { LiberaChat = { type = "IRC"; }; };
+chatnets = { ZNC = { type = "IRC"; }; };
