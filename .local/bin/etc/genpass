@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+#
+# Generate a base64 passphrase from /dev/random
+#
+
+pass="$(dd if=/dev/random of=/dev/stdout bs=24 count=1 2>/dev/null | base64)"
+
+if [ -z "$pass" ]; then
+	notify-send '🚫 Passphrase generation failed.' &
+	exit 1
+else
+	notify-send '🗝 Passphrase generated.' "$pass" &
+	printf '%s' "$pass" | xclip -sel clip 2>/dev/null
+	printf '%s\n' "$pass"
+	exit 0
+fi
