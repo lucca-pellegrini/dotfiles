@@ -3,7 +3,23 @@
 # Generate a base64 passphrase from /dev/random
 #
 
-pass="$(dd if=/dev/random of=/dev/stdout bs=24 count=1 2>/dev/null | base64)"
+set -e
+
+if [ "$1" = '-h' ] || [ "$1" = '--help' ]; then
+	printf 'Usage %s: [BYTES] [COMMAND...]\n' "$0"
+	printf 'Where BYTES is the number of bytes for the passphrase.\n'
+	printf '\tIf empty: default = 24\n'
+	printf 'and COMMAND is the command to format the passphrase.\n'
+	printf '\tIf empty: default = “base64 -w0”\n'
+	exit 0
+fi
+
+nbytes="${1:-24}"
+test $# -ge 1 && shift 1
+basecmd="${*:-base64 -w0}"
+
+pass="$(dd if=/dev/random of=/dev/stdout bs="$nbytes" count=1 2>/dev/null |
+	$basecmd)"
 
 if [ -z "$pass" ]; then
 	notify-send '🚫 Passphrase generation failed.' &
