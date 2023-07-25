@@ -134,7 +134,7 @@ alias fuck='pkill -9'
 alias installfont='sudo fc-cache -f -v'
 
 alias a=aria2c
-alias bat="bat --tabs 8"
+alias bat="bat --tabs 8 --theme=base16"
 alias j="jobs"
 alias q=qalc
 alias mpv="mpv --osd-fractions --fullscreen --loop"
