@@ -35,6 +35,7 @@ alias ab='abook -C "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_CONFIG_HOME
 
 # pacman
 alias pac="sudo pacman -Syu --needed"
+alias paci="sudo pacman -Su"
 alias pacins="sudo pacman -U"
 alias pacre="sudo pacman -Rs"
 alias pacrem="sudo pacman -Rns"
