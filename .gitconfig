@@ -42,3 +42,5 @@
 	rebase = false
 [diff]
 	algorithm = histogram
+[checkout]
+	defaultRemote = origin
