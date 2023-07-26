@@ -216,7 +216,7 @@ nmap <leader>r :set relativenumber!<CR>
 nmap <leader>w :set wrap!<CR>
 nmap <leader>l :call CycleListchars()<CR>
 nmap <leader>s :call CycleScl()<CR>
-nmap <leader>e :Lexplore \| vertical resize 25<CR>
+nmap <leader>e :NERDTree \| vertical resize 25<CR>
 nmap <leader>p :set paste!<CR>
 
 " ft-man-plugin mappings
