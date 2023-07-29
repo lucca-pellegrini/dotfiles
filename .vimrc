@@ -30,8 +30,18 @@ set virtualedit=block " Allow virtual editing in block mode.
 set display=lastline " Display as much of the last line as possible;.
 set nojoinspaces " Do not insert two spaces after ‘.’, ‘?’ or ‘!’ on join.
 set formatoptions=croqlj " See ':help fo-table'.
-set history=4096 " Increase history size.
 set guioptions=acgfit! " Set options for GVIM
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+	\,a:blinkwait700-blinkoff400-blinkon400-Cursor/lCursor
+	\,sm:block-blinkwait175-blinkoff150-blinkon150
+set title " Set window title.
+
+" NVim exclusives
+if has('nvim')
+	set mousescroll=ver:1,hor:1 " Scroll one line at a time with the mouse.
+	set pumblend=25 " Make the popup menu semi (pseudo) transparent.
+	set winblend=25 " Same, but for floating windows.
+endif
 
 " Stop bad editing habits
 set backspace=
@@ -178,6 +188,10 @@ augroup trailing_space
 	autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 	autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 augroup END
+
+" Highlight selection on yank
+au TextYankPost * silent! lua vim.highlight.on_yank
+	\ {higroup="IncSearch", timeout=250}
 
 " Always display lightline
 set laststatus=2
