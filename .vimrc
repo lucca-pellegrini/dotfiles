@@ -40,7 +40,7 @@ nnoremap <DEL> <Nop>| " ‘x’ easier to reach.
 "autocmd vimenter * NERDTree " Starts NERDTree when VIM starts.
 let g:NERDTreeDirArrowExpandable = ' ' " Changes arrow character
 let g:NERDTreeDirArrowCollapsible = ' '
-let g:NERDTreeWinSize=25 " Changes NERDTree width
+let g:NERDTreeWinSize=23 " Changes NERDTree width
 
 filetype plugin on " Writing of filetype-specific plugins.
 augroup indentation
@@ -216,7 +216,7 @@ nmap <leader>r :set relativenumber!<CR>
 nmap <leader>w :set wrap!<CR>
 nmap <leader>l :call CycleListchars()<CR>
 nmap <leader>s :call CycleScl()<CR>
-nmap <leader>e :NERDTree \| vertical resize 25<CR>
+nmap <leader>e :NERDTree \| vertical resize 23<CR>
 nmap <leader>p :set paste!<CR>
 
 " ft-man-plugin mappings
