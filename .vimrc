@@ -54,11 +54,11 @@ let g:NERDTreeWinSize=23 " Changes NERDTree width
 
 filetype plugin on " Writing of filetype-specific plugins.
 augroup indentation
-	autocmd FileType sh setlocal noexpandtab ts=8 sts=8 sw=8
-	autocmd Filetype c setlocal noexpandtab ts=8 sts=8 sw=8 " rules for C
-	autocmd Filetype python setlocal expandtab ts=4 sts=4 sw=4 " and Python
+	autocmd FileType sh setlocal noexpandtab ts=8 sts=8 sw=8 " Rules for Sh
+	autocmd Filetype c setlocal noexpandtab ts=8 sts=8 sw=8 " and for C
+	autocmd Filetype python setlocal expandtab ts=4 sts=4 sw=4 " etc.
 	" Haskell rules stolen from <http://dmwit.com/tabs/>
-	autocmd FileType haskell setlocal noet ci pi ts=8 sw=8 sts=0 " so on…
+	autocmd FileType haskell setlocal noet ci pi ts=8 sw=8 sts=0
 	autocmd FileType julia setlocal noet ci pi ts=8 sts=8 sw=8
 	autocmd FileType lilypond setlocal expandtab ts=4 sts=4 sw=4
 	autocmd FileType sh setlocal noexpandtab ts=8 sts=8 sw=8
@@ -72,7 +72,7 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Use different cursor shapes in different modes *for VTE compatible terminals)
+" Use different cursor shapes in different modes (for VTE compatible terminals)
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
