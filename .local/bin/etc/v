@@ -7,5 +7,5 @@ if [ ! "$1" ]; then
 elif [ ! -e "$1" ] || [ "$(stat -c '%U' "$1" 2>/dev/null)" = "$USER" ]; then
 	"$EDITOR" "$@"
 else
-	sudo "$EDITOR" "$@"
+	sudoedit "$@"
 fi
