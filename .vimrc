@@ -102,6 +102,11 @@ call plug#begin('~/.vim/plugged')
 	Plug 'neomutt/neomutt.vim'       " neomuttrc syntax support
 	Plug 'mileszs/ack.vim'           " Ack support
 
+	" NVim plugins
+	if has('nvim')
+		Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+	endif
+
 	" Colorschemes
 	Plug 'ajmwagar/vim-deus'
 	Plug 'nanotech/jellybeans.vim'
@@ -249,3 +254,7 @@ nmap <leader>m9 :Man 9<space>
 " netrw options
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3 " tree style listing
+
+if has('nvim') " toggleterm must be manually set up.
+	lua require("toggleterm").setup()
+endif
