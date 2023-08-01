@@ -125,7 +125,7 @@ rgbtohex() { printf "%02X%02X%02X\n" "$@"; }
 # custom vim modes
 function vhelp()
 {
-	vim -c "help $1" -c "only"
+	nvim -c "help $1" -c "only"
 }
 
 # other
