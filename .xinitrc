@@ -8,9 +8,10 @@ WM_THEME_FILE="${XDG_CONFIG_HOME:-"$HOME/.config"}/wm_theme"
 if [ -f "$WM_THEME_FILE" ]; then
 	WM_THEME="$(cat "$WM_THEME_FILE")"
 else
-	WM_THEME=DARK
+	WM_THEME=FALCON
 fi
 xrdb -merge -D"$WM_THEME"_THEME ~/.config/xrdb/Xdefaults # load Xdefaults
+xrdb -merge -D"$WM_THEME"_THEME ~/.config/xrdb/themes/"$(printf %s "$WM_THEME" | tr '[:upper:]' '[:lower:]')"
 
 setbg &                           # set the background with the `setbg` script
 setxkbmap br,apl -option grp:shift_caps_toggle,compose:rctrl & # set xkb opts

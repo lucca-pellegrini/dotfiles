@@ -10,7 +10,7 @@
 *.font: SauceCodePro Nerd Font:size=8.5
 
 ! Iceberg Light
-#ifdef LIGHT_THEME
+#ifdef ICEBERG_LIGHT_THEME
 
 #define bg	#e8e9ec
 #define fg	#33374c
@@ -53,7 +53,7 @@
 #endif
 
 ! Iceberg Dark
-#ifdef DARK_THEME
+#ifdef ICEBERG_THEME
 
 #define bg	#161821
 #define fg	#c6c8d1
@@ -138,6 +138,49 @@
 
 #endif
 
+! Falcon
+#ifdef FALCON_THEME
+
+#define bg	#020221
+#define fg	#b4b4b9
+
+! black
+#define ice00	#000004
+#define ice08	#020221
+
+! red
+#define ice01	#ff3600
+#define ice09	#ff8e78
+
+! green
+#define ice02	#718e3f
+#define ice0A	#b1bf75
+
+! yellow
+#define ice03	#e2a478
+#define ice0B	#e9b189
+
+! blue
+#define ice04	#635196
+#define ice0C	#99a4bc
+
+! orange
+#define ice05	#ff761a
+#define ice0D	#ffb07b
+
+! cyan
+#define ice06	#34bfa4
+#define ice0E	#8bccbf
+
+! white
+#define ice07	#b4b4b9
+#define ice0F	#f8f8ff
+
+! special
+#define accent	ice0c
+
+#endif
+
 *background:	bg
 *foreground:	fg
 *cursorColor:	fg
@@ -159,26 +202,26 @@
 *color14:	ice0E
 *color15:	ice0F
 
-dmenu.foreground:    fg
-dmenu.background:    bg
-dmenu.selforeground: bg
-dmenu.selbackground: accent
-
-dwm.normfgcolor:     fg
-dwm.normbgcolor:     bg
-dwm.normbordercolor: bg
-dwm.selfgcolor:      bg
-dwm.selbgcolor:      accent
-dwm.selbordercolor:  accent
-
-tabbed.normfgcolor:     fg
-tabbed.normbgcolor:     bg
-tabbed.selfgcolor:      bg
-tabbed.selbgcolor:      ice04
-
-slock.init:         bg
-slock.input:        accent
-slock.failed:       ice01
+! dmenu.foreground:    fg
+! dmenu.background:    bg
+! dmenu.selforeground: bg
+! dmenu.selbackground: accent
+!
+! dwm.normfgcolor:     fg
+! dwm.normbgcolor:     bg
+! dwm.normbordercolor: bg
+! dwm.selfgcolor:      bg
+! dwm.selbgcolor:      accent
+! dwm.selbordercolor:  accent
+!
+! tabbed.normfgcolor:     fg
+! tabbed.normbgcolor:     bg
+! tabbed.selfgcolor:      bg
+! tabbed.selbgcolor:      ice04
+!
+! slock.init:         bg
+! slock.input:        accent
+! slock.failed:       ice01
 
 Xcursor.theme:		Neutral
 Xcursor.size:		16

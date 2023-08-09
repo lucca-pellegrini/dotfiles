@@ -1,30 +1,23 @@
-! cherrry9 colorscheme
+! vim: ft=xdefaults
 
+! Colors
 *.background:  #161821
 *.foreground:  #c6c8d1
 *.cursorColor: #c6c8d1
-
 *.color0:      #22262e
 *.color8:      #6b7089
-
 *.color1:      #e27878
 *.color9:      #e98989
-
 *.color2:      #b4be82
 *.color10:     #c0ca8e
-
 *.color3:      #e2a478
 *.color11:     #e9b189
-
 *.color4:      #84a0c6
 *.color12:     #91acd1
-
 *.color5:      #a093c7
 *.color13:     #ada0d3
-
 *.color6:      #89b8c2
 *.color14:     #95c4ce
-
 *.color7:      #c6c8d1
 *.color15:     #d2d4de
 
@@ -42,9 +35,17 @@ dwm.selbordercolor:  #84a0c6
 dwm.selbgcolor:      #84a0c6
 dwm.selfgcolor:      #161821
 
+! tabbed
+tabbed.normfgcolor: #c6c8d1
+tabbed.normbgcolor: #161821
+tabbed.selfgcolor:  #161821
+tabbed.selbgcolor:  #84a0c6
+tabbed.urgfgcolor:  #161821
+tabbed.urgbgcolor:  #e27878
+
 ! slock
 slock.init:         #161821
-slock.input:        #91acd1
+slock.input:        #b4be82
 slock.failed:       #e98989
 
 ! wallpaper

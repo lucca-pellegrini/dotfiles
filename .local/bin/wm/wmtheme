@@ -10,7 +10,8 @@ THEME="$(printf '%s' "$1" | tr '[:lower:]' '[:upper:]')"
 WM_THEME_FILE="${XDG_CONFIG_HOME:-"$HOME/.config"}/wm_theme"
 printf '%s' "$THEME" > "$WM_THEME_FILE"
 
-xrdb -merge -D"$THEME"_THEME ~/.config/xrdb/Xdefaults
+xrdb -merge -D"$THEME"_THEME "${XDG_CONFIG_HOME:-"$HOME/.config"}/xrdb/Xdefaults"
+xrdb -merge -D"$THEME"_THEME "${XDG_CONFIG_HOME:-"$HOME/.config"}/xrdb/themes/$1"
 setsid dwmc xrdb &
 
 killall dunst
