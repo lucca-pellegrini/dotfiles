@@ -1,0 +1,54 @@
+! vim: ft=xdefaults
+
+! Colors
+*.background:	#020221
+*.foreground:	#b4b4b9
+*.color0:	#000004
+*.color8:	#020221
+*.color1:	#ff3600
+*.color9:	#ff8e78
+*.color2:	#718e3f
+*.color10:	#b1bf75
+*.color3:	#e2a478
+*.color11:	#e9b189
+*.color4:	#635196
+*.color12:	#99a4bc
+*.color5:	#ff761a
+*.color13:	#ffb07b
+*.color6:	#34bfa4
+*.color14:	#8bccbf
+*.color7:	#b4b4b9
+*.color15:	#f8f8ff
+
+! Special colors
+*.cursorcolor:		#ffe8c0
+*.selforeground:	#36363a
+*.selbackground:	#ddcfbf
+
+! dmenu
+dmenu.background:    #020221
+dmenu.foreground:    #b4b4b9
+dmenu.selbackground: #ddcfbf
+dmenu.selforeground: #36363a
+
+! dwm
+dwm.normbordercolor: #020221
+dwm.normbgcolor:     #020221
+dwm.normfgcolor:     #b4b4b9
+dwm.selbordercolor:  #ddcfbf
+dwm.selbgcolor:      #ddcfbf
+dwm.selfgcolor:      #36363a
+
+! tabbed
+tabbed.normfgcolor: #b4b4b9
+tabbed.normbgcolor: #020221
+tabbed.selfgcolor:  #36363a
+tabbed.selbgcolor:  #ddcfbf
+
+! slock
+slock.init:         #020221
+slock.input:        #b1bf75
+slock.failed:       #ff3600
+
+! wallpaper
+wallpaper: falcon.jpg
