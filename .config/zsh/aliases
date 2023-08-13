@@ -123,10 +123,8 @@ hextorgb() { printf "%d %d %d\n" "0x${1:0:2}" "0x${1:2:2}" "0x${1:4:2}"; }
 rgbtohex() { printf "%02X%02X%02X\n" "$@"; }
 
 # custom vim modes
-function vhelp()
-{
-	nvim -c "help $1" -c "only"
-}
+function vhelp() { nvim -c "help $1" -c "only"; }
+alias vim='nvim'
 
 # other
 alias hc='history -c'
