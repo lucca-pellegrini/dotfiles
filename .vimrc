@@ -195,7 +195,7 @@ augroup trailing_space
 augroup END
 
 " Highlight selection on yank
-au TextYankPost * silent! lua vim.highlight.on_yank
+autocmd TextYankPost * silent! lua vim.highlight.on_yank
 	\ {higroup="IncSearch", timeout=250}
 
 " Always display lightline
