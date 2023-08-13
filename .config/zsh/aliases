@@ -136,6 +136,10 @@ alias a=aria2c
 alias bat="bat --tabs 8 --theme=base16"
 alias j="jobs"
 alias q=qalc
+alias s=systemctl
+alias u='systemctl --user'
+alias jn=journalctl
+alias ju='journalctl --user'
 alias mpv="mpv --osd-fractions --fullscreen --loop"
 alias calibre='calibre --no-update-check'
 
