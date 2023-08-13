@@ -43,6 +43,9 @@ tabbed.selbgcolor:  #84a0c6
 tabbed.urgfgcolor:  #161821
 tabbed.urgbgcolor:  #e27878
 
+! tmux
+tmux.theme: iceberg
+
 ! slock
 slock.init:         #161821
 slock.input:        #b4be82

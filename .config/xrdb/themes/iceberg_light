@@ -35,6 +35,17 @@ dwm.selbordercolor:  #2d539e
 dwm.selbgcolor:      #2d539e
 dwm.selfgcolor:      #e8e9ec
 
+! tabbed
+tabbed.normfgcolor: #33374c
+tabbed.normbgcolor: #e8e9ec
+tabbed.selfgcolor:  #e8e9ec
+tabbed.selbgcolor:  #2d539e
+tabbed.urgfgcolor:  #e8e9ec
+tabbed.urgbgcolor:  #cc3768
+
+! tmux
+tmux.theme: iceberg_light
+
 ! slock
 slock.init:         #e8e9ec
 slock.input:        #22478e

@@ -35,20 +35,28 @@ dmenu.selforeground: #36363a
 dwm.normbordercolor: #020221
 dwm.normbgcolor:     #020221
 dwm.normfgcolor:     #b4b4b9
-dwm.selbordercolor:  #ddcfbf
-dwm.selbgcolor:      #ddcfbf
-dwm.selfgcolor:      #36363a
+dwm.selbordercolor:  #2a2a4a
+dwm.selbgcolor:      #2a2a4a
+dwm.selfgcolor:      #b4b4b9
 
 ! tabbed
 tabbed.normfgcolor: #b4b4b9
 tabbed.normbgcolor: #020221
-tabbed.selfgcolor:  #36363a
-tabbed.selbgcolor:  #ddcfbf
+tabbed.selfgcolor:  #b4b4b9
+tabbed.selbgcolor:  #2a2a4a
+tabbed.urgfgcolor:  #f8f8ff
+tabbed.urgbgcolor:  #ff3600
+
+! tmux
+tmux.theme: falcon
 
 ! slock
 slock.init:         #020221
 slock.input:        #b1bf75
 slock.failed:       #ff3600
+
+! st
+st.color8: #393959
 
 ! wallpaper
 wallpaper: falcon.jpg
