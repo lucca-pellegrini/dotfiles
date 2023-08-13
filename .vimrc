@@ -39,8 +39,8 @@ set title " Set window title.
 " NVim exclusives
 if has('nvim')
 	set mousescroll=ver:1,hor:1 " Scroll one line at a time with the mouse.
-	set pumblend=25 " Make the popup menu semi (pseudo) transparent.
-	set winblend=25 " Same, but for floating windows.
+	set pumblend=10 " Make the popup menu semi (pseudo) transparent.
+	set winblend=10 " Same, but for floating windows.
 endif
 
 " Stop bad editing habits
