@@ -1,0 +1,3 @@
+[submodule ".local/share/tpm"]
+	path = .local/share/tpm
+	url = https://github.com/tmux-plugins/tpm
