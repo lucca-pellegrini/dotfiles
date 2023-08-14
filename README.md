@@ -47,6 +47,12 @@ $ rm -rf LICENSE README.md .gitignore
 ```
 You can revert this later with `--no-assume-unchanged` flag.
 
+## NeoVim configuration
+Create a symbolic link to your NeoVim configuration:
+```sh
+ln -s ~/.config/NvChad ~/.config/nvim/lua/custom
+```
+
 ## Build and install suckless programs
 ```sh
 for d in ~/.config/suckless/*; do
