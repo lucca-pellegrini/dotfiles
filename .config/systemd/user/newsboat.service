@@ -1,0 +1,13 @@
+[Unit]
+Description=Fetch RSS feeds
+Wants=network-online.target
+After=network-online.target multi-user.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+Restart=on-failure
+ExecStart=/usr/bin/newsboat -x reload
+
+[Install]
+WantedBy=default.target

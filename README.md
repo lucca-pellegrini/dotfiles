@@ -71,7 +71,7 @@ To display colorful emoji in dmenu you need `libxft-bgra`.
 ## Enable systemd user units
 ```sh
 systemctl --user daemon-reload
-systemctl --user enable checkupdates.timer
+systemctl --user enable {checkupdates,newsboat}.timer
 ```
 
 ## Finished
