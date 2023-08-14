@@ -11,8 +11,12 @@ local sources = {
   -- Lua
   b.formatting.stylua,
 
-  -- cpp
-  b.formatting.clang_format,
+  -- C
+  b.formatting.clang_format.with {
+    extra_args = { -- Use my custom config by default
+      "--style=file:" .. os.getenv("XDG_CONFIG_HOME") .. "/NvChad/configs/clang-format",
+    },
+  },
 }
 
 null_ls.setup {
