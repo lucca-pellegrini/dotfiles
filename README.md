@@ -10,6 +10,7 @@ Download dotfiles
 $ git clone --bare git@gitlab.com:dull_unicorn/dotfiles.git ~/.config/dots-git
 $ alias dots='git --git-dir=$HOME/.config/dots-git/ --work-tree=$HOME'
 $ dots checkout
+$ dots submodule update --init --recursive
 ```
 If it fails and shows message like this:
 ```
