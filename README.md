@@ -62,6 +62,12 @@ $ make all
 ```
 To display colorful emoji in dmenu you need `libxft-bgra`.
 
+## Enable systemd user units
+```sh
+systemctl --user daemon-reload
+systemctl --user enable checkupdates.timer
+```
+
 ## Finished
 That's it, dotfiles are ready! It is recommended to restart your computer. Now you can type `dots up` to update dotfiles or use regular git commands:
 ```sh

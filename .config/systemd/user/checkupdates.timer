@@ -1,0 +1,13 @@
+[Unit]
+Description=Check for Arch package updates every hour and on boot
+Wants=network-online.target
+After=network-online.target multi-user.target
+
+[Timer]
+OnActiveSec=2min
+OnUnitInactiveSec=1h
+RandomizedDelaySec=10m
+Persistent=false
+
+[Install]
+WantedBy=timers.target

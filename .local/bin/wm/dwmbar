@@ -75,6 +75,26 @@ news() {
 	[ "$news" -gt 0 ] && printf "  %s %s" "$news" "$SEP"
 }
 
+updates() {
+	# Set this to your current kernel package
+	# (e.g.: linux, linux-hardened, linux-zen…)
+	krnlpkg='linux'
+
+	fn=~/.cache/checkupdates
+	[ ! -f "$fn" ] && setsid sh -c 'checkupdates > "$fn"' >/dev/null 2>&1
+
+	n="$(wc -l "$fn" | awk '{print $1}')"
+	[ "$n" -eq 0 ] && return
+
+	if [ -n "$(awk '$1 == "'"$krnlpkg"'"' "$fn")" ]; then
+		# Display a penguin if there's a Kernel update available, which
+		# might require a reboot.
+		printf "  %s  %s" "$n" "$SEP"
+	else
+		printf "  %s %s" "$n" "$SEP"
+	fi
+}
+
 torrents() {
 	data=$(transmission-remote -l 2>/dev/null | grep -E "%|n/a")
 	[ "$data" ] || return
@@ -107,7 +127,7 @@ torrents() {
 }
 
 while :; do
-	name=" $(mpd)$(torrents)$(news) $(backlight) $SEP $(volume) $SEP $(battery) $SEP $(keymap) $SEP $(_date) "
+	name=" $(mpd)$(torrents)$(news)$(updates) $(backlight) $SEP $(volume) $SEP $(battery) $SEP $(keymap) $SEP $(_date) "
 	xsetroot -name "$name"
 	[ ! "$NOPRINT" ] && printf '%s\n' "$name"
 	sleep 1
