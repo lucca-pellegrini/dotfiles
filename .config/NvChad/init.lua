@@ -1,6 +1,6 @@
 local opt = vim.opt
 local api = vim.api
--- local g = vim.g
+local g = vim.g
 -- local config = require("core.utils").load_config()
 
 -------------------------------------- options ------------------------------------------
@@ -34,6 +34,11 @@ opt.title = true -- Set window title to 'titlestring'
 
 -- Stop bad editing habits
 opt.backspace = 'indent' -- Only allow backspacing over autoindent
+
+-- Load custom options for Neovide
+if g.neovide then
+  require("custom.configs.neovide")
+end
 
 -------------------------------------- autocmds ------------------------------------------
 -- Highlight selection on yank
