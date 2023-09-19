@@ -1,0 +1,50 @@
+# vim: filetype=neomuttrc
+set realname = "Lucca Pellegrini"
+set from = "lmapellegrini@sga.pucminas.br"
+alias me Lucca Pellegrini <lmapellegrini@sga.pucminas.br>
+set sendmail = "msmtp -a "
+set folder = "imaps://imap.gmail.com/"
+set imap_user = "lmapellegrini@sga.pucminas.br"
+set header_cache = ~/.cache/mutt/puc/headers
+set message_cachedir = ~/.cache/mutt/puc/bodies
+set smtp_url = 'smtp://lmapellegrini@sga.pucminas.br@smtp.gmail.com:587'
+set imap_pass = "`pass pucmail`"
+set smtp_pass = "`pass pucmail`"
+set pgp_default_key = "7452AFA7E8CE7D1C9273FAEF9B5FD5558C38FA1D"
+
+set mbox_type = Maildir
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+bind index,pager gg noop
+bind index,pager g noop
+bind index,pager M noop
+bind index,pager C noop
+bind index gg first-entry
+unmailboxes *
+
+set spoolfile = "+INBOX"
+set record = "+[Gmail]/E-mails enviados"
+set postponed = "+[Gmail]/Rascunhos"
+set trash = "+[Gmail]/Lixeira"
+mailboxes "=[Gmail]/Spam" "=[Gmail]/E-mails enviados" "=Archive" "=[Gmail]/Lixeira" "=[Gmail]/Rascunhos" "=INBOX"
+macro index,pager gi "<change-folder>=INBOX<enter>" "go to inbox"
+macro index,pager Mi ";<save-message>=INBOX<enter>" "move mail to inbox"
+macro index,pager Ci ";<copy-message>=INBOX<enter>" "copy mail to inbox"
+macro index,pager gs "<change-folder>=[Gmail]/E-mails enviados<enter>" "go to sent"
+macro index,pager Ms ";<save-message>=[Gmail]/E-mails enviados<enter>" "move mail to sent"
+macro index,pager Cs ";<copy-message>=[Gmail]/E-mails enviados<enter>" "copy mail to sent"
+macro index,pager gd "<change-folder>=[Gmail]/Rascunhos<enter>" "go to drafts"
+macro index,pager Md ";<save-message>=[Gmail]/Rascunhos<enter>" "move mail to drafts"
+macro index,pager Cd ";<copy-message>=[Gmail]/Rascunhos<enter>" "copy mail to drafts"
+macro index,pager gt "<change-folder>=[Gmail]/Lixeira<enter>" "go to trash"
+macro index,pager Mt ";<save-message>=[Gmail]/Lixeira<enter>" "move mail to trash"
+macro index,pager Ct ";<copy-message>=[Gmail]/Lixeira<enter>" "copy mail to trash"
+macro index,pager gj "<change-folder>=[Gmail]/Spam<enter>" "go to spam"
+macro index,pager Mj ";<save-message>=[Gmail]/Spam<enter>" "move mail to spam"
+macro index,pager Cj ";<copy-message>=[Gmail]/Spam<enter>" "copy mail to spam"
+macro index,pager ga "<change-folder>=Archive<enter>" "go to archive"
+macro index,pager Ma ";<save-message>=Archive<enter>" "move mail to archive"
+macro index,pager Ca ";<copy-message>=Archive<enter>" "copy mail to archive"
+
+set imap_check_subscribed = yes
