@@ -61,7 +61,7 @@ api.nvim_create_autocmd({"FileType"}, {
 	command = "setlocal et ts=4 sts=4 sw=4" -- Spaces, 4
 })
 api.nvim_create_autocmd({"FileType"}, {
-	pattern = {"lisp", "lua"},
+	pattern = {"html", "lisp", "lua", "javascriptreact"},
 	command = "setlocal et ts=2 sts=2 sw=2" -- Spaces, 2
 })
 api.nvim_create_autocmd({"FileType"}, {
