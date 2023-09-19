@@ -44,3 +44,5 @@
 	algorithm = histogram
 [checkout]
 	defaultRemote = origin
+[stash]
+	showPatch = true
