@@ -35,6 +35,9 @@ opt.title = true -- Set window title to 'titlestring'
 -- Stop bad editing habits
 opt.backspace = 'indent' -- Only allow backspacing over autoindent
 
+-- Allow positioning cursor where there's no character on blockwise visual
+opt.virtualedit = 'block'
+
 -- Load custom options for Neovide
 if g.neovide then
   require("custom.configs.neovide")
