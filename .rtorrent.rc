@@ -133,4 +133,7 @@ method.insert = pyro.extended, value|const, 1
 ui.color.footer.set      = "bright 123 on 202"
 ui.color.title.set       = "bold bright white on 202"
 
+################################ Custom Options ###############################
+throttle.global_up.max_rate.set_kb = 1024
+
 # vim: ft=conf
