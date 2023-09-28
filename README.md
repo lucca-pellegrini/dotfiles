@@ -7,7 +7,7 @@ sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool xdg-user-dir
 ## Setup dotfiles
 Download dotfiles
 ```sh
-git clone --bare git@gitlab.com:dull_unicorn/dotfiles.git ~/.config/dots-git
+git clone --bare https://git.verticordia.com:11680/pellegrini/dotfiles.git ~/.config/dots-git
 alias dots='git --git-dir=$HOME/.config/dots-git/ --work-tree=$HOME'
 dots checkout
 dots submodule update --init --recursive
