@@ -10,6 +10,7 @@ M.treesitter = {
     "typescript",
     "tsx",
     "c",
+    "go",
     "markdown",
     "markdown_inline",
   },
@@ -37,6 +38,12 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    -- Go
+    "gopls",
+    "gofumpt",
+    "goimports_reviser",
+    "golines",
   },
 }
 
