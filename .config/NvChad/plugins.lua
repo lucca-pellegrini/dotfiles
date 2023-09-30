@@ -36,6 +36,21 @@ local plugins = {
     end
   },
 
+  -- Language-specific plugins
+
+  -- Go tooling support
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function(_, opts)
+      require("gopher").setup(opts)
+      require("core.utils").load_mappings("gopher")
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]] -- Install dependencies
+    end,
+  },
+
   -- Override plugin definition options
 
   {
