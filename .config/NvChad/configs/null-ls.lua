@@ -17,6 +17,22 @@ local sources = {
       "--style=file:" .. os.getenv("XDG_CONFIG_HOME") .. "/NvChad/configs/clang-format",
     },
   },
+
+  -- Go
+  b.formatting.gofumpt,
+  b.formatting.goimports_reviser.with {
+    extra_args = {
+      "-rm-unused",
+      "-set-alias",
+      "-use-cache",
+    }
+  },
+  b.formatting.golines.with {
+    extra_args = {
+      "--max-len=" .. 80,
+      "--tab-len=" .. 2, -- This is our current setting in init.lua
+    }
+  },
 }
 
 null_ls.setup {

@@ -15,6 +15,27 @@ local plugins = {
     lazy = false
   },
 
+  -- Debugger integration
+
+  -- Debug Adapter Protocol client
+  {
+    "mfussenegger/nvim-dap",
+    init = function()
+      require("core.utils").load_mappings("dap")
+    end
+  },
+
+  -- Delve (Go debugger) integration
+  {
+    "leoluz/nvim-dap-go",
+    ft = "go",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function(_, opts)
+      require("dap-go").setup(opts)
+      require("core.utils").load_mappings("dap_go")
+    end
+  },
+
   -- Override plugin definition options
 
   {
