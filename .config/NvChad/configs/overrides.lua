@@ -44,6 +44,7 @@ M.mason = {
     "gofumpt",
     "goimports_reviser",
     "golines",
+    "delve",
   },
 }
 
