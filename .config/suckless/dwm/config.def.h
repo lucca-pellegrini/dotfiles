@@ -279,3 +279,5 @@ static Signal signals[] = {
 	{ "xrdb",           xrdb },
 	{ "zoom",           zoom },
 };
+
+// vim: ft=ch
