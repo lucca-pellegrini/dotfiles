@@ -32,8 +32,8 @@ network.port_random.set = no
 
 ## Tracker-less torrent and UDP tracker support
 ## (conservative settings for 'private' trackers, change for 'public')
-dht.mode.set = disable
-protocol.pex.set = no
+# dht.mode.set = disable
+# protocol.pex.set = no
 
 trackers.use_udp.set = no
 
@@ -134,6 +134,29 @@ ui.color.footer.set      = "bright 123 on 202"
 ui.color.title.set       = "bold bright white on 202"
 
 ################################ Custom Options ###############################
+## Throttling
 throttle.global_up.max_rate.set_kb = 1024
+
+## Enable Distributed Hash Table and Peer Exchange
+dht.mode.set = auto
+protocol.pex.set = yes
+
+## Set a default tracker and DHT node
+# Default tracker
+method.insert = d.add_tracker, simple|private, "d.tracker.insert=\"10\",\
+	\"udp://tracker.opentrackr.org:1337/announce\""
+
+# Default DHT node
+method.insert = d.add_node, simple|private,\
+	"dht.add_node=dht.libtorrent.org:25401"
+
+# Add default tracker to new torrents
+method.set_key = event.download.inserted_new, tracker_insert, ((d.add_tracker))
+
+# Schedule addition of default dht node
+schedule2 = dht_add_node, 15, 0, ((d.add_node))
+
+## Enable XML-RPC
+#scgi_port = localhost:5000
 
 # vim: ft=conf
