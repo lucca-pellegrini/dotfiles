@@ -7,7 +7,7 @@ After=network-online.target multi-user.target
 Type=oneshot
 RemainAfterExit=no
 Restart=on-failure
-ExecStart=/usr/bin/newsboat -x reload
+ExecStart=sh -c 'newsboat -x print-unread | awk '{ print $1 }' >~/.cache/news_unread'
 
 [Install]
 WantedBy=default.target
