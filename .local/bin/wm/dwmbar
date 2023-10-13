@@ -66,7 +66,7 @@ volume() {
 mpd() {
 	mpc | grep -q paused && return
 	music="$(mpc current -f "%artist% - %title%")"
-	[ "$music" ] && printf " %s %s" "$music" "$SEP"
+	[ "$music" ] && printf "🎜  %s %s" "$music" "$SEP"
 }
 
 news() {
