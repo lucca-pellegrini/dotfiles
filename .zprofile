@@ -16,7 +16,7 @@ export TERMINAL="st"
 export READER="zathura"
 export FILE="vifm"
 #export BROWSER="surf"
-export BROWSER="qutebrowser"
+export BROWSER="librewolf"
 export DMENU_RUN="dmenu_run -w 245 -x 10 -y 30 -i"
 export DMENU="dmenu -w 245 -x 10 -y 30 -i"
 
