@@ -59,7 +59,7 @@ volume() {
 	else
 		ico=""
 	fi
-	amixer get Master | grep -q '\[off\]' && ico="婢"
+	amixer get Master | grep -q '\[off\]' && ico="󰝟"
 	printf "%s %s%%" "$ico" "$vol"
 }
 
