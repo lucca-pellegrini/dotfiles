@@ -89,7 +89,7 @@ updates() {
 	if [ -n "$(awk '$1 == "'"$krnlpkg"'"' "$fn")" ]; then
 		# Display a penguin if there's a Kernel update available, which
 		# might require a reboot.
-		printf "  %s  %s" "$n" "$SEP"
+		printf "  %s %s" "$n" "$SEP"
 	else
 		printf "  %s %s" "$n" "$SEP"
 	fi
