@@ -36,8 +36,9 @@ M.mason = {
     "prettier",
 
     -- c/cpp stuff
-    "clangd",
     "clang-format",
+    "clangd",
+    "codelldb",
 
     -- Go
     "gopls",
