@@ -27,43 +27,44 @@ local plugins = {
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
-      "nvim-neotest/nvim-nio"
+			"nvim-neotest/nvim-nio",
 		},
 		init = function()
 			require("core.utils").load_mappings("dap")
-      require("custom.configs.dap")
+			require("custom.configs.dap")
 		end,
 	},
 
 	-- CodeLLDB (C/C++ debugger) integration
 	{
 		"jay-babu/mason-nvim-dap.nvim",
-    ft = "c",
+		ft = "c",
 		dependencies = {
 			"williamboman/mason.nvim",
 			"mfussenegger/nvim-dap",
 		},
 		config = function()
 			require("mason-nvim-dap").setup()
-    end,
+		end,
 		options = {
 			handlers = {},
 		},
-	}, {
+	},
+	{
 		"rcarriga/nvim-dap-ui",
 		event = "VeryLazy",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
-      dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function ()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function ()
-        dapui.close()
-      end
-    end
+		dependencies = "mfussenegger/nvim-dap",
+		config = function()
+			local dap = require("dap")
+			local dapui = require("dapui")
+			dapui.setup()
+			dap.listeners.after.event_initialized["dapui_config"] = function()
+				dapui.open()
+			end
+			dap.listeners.before.event_terminated["dapui_config"] = function()
+				dapui.close()
+			end
+		end,
 	},
 
 	-- Delve (Go debugger) integration

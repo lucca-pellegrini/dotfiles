@@ -1,4 +1,4 @@
-local specs = require "specs"
+local specs = require("specs")
 
 specs.setup({
 	show_jumps = true,
