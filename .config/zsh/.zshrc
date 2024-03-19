@@ -163,7 +163,7 @@ GIT_PROMPT() {
 }
 
 precmd() { # Use two line prompt when $PWD is long
-	if [ ${#PWD} -ge 50 ]; then
+	if [ ${#PWD} -ge 20 ]; then
 		PROMPT='${USER_LEVEL}┌%(?..[%F{red}%?${USER_LEVEL}]-)[${COLOR_NORMAL}%~${USER_LEVEL}]$(GIT_PROMPT)'$'\n''${USER_LEVEL}└─ ─ %f'
 	else
 		PROMPT='${USER_LEVEL}%(?..[%F{red}%?${USER_LEVEL}]-)[${COLOR_NORMAL}%~${USER_LEVEL}]$(GIT_PROMPT)── ─ %f'
