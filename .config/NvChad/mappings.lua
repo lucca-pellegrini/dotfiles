@@ -11,6 +11,9 @@ M.general = {
 		["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "Window up" },
 		["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "Window right" },
 
+		-- Fix NvChad overriding jumplist navigation
+		["<C-i>"] = { "<C-i>", opts = { noremap = true } },
+
 		-- Binding to show LSP Diagnostics
 		["<leader>e"] = {
 			function()
