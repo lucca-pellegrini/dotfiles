@@ -1,0 +1,14 @@
+[Unit]
+Description=Find broken library links on your system
+After=multi-user.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+Restart=on-failure
+; %C points to ${XDG_CACHE_HOME}. See systemd.unit(5) for details.
+Environment=LDDD_F=%C/lddd.log
+ExecStart=sh -c 'lddd | tee /tmp/lddd; mv /tmp/lddd $LDDD_F'
+
+[Install]
+WantedBy=default.target
