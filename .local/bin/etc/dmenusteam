@@ -1,0 +1,87 @@
+#!/usr/bin/env sh
+#
+# Run Steam games from the command line.
+# If Steam is not running, it will start and close on game exit.
+#
+
+
+### Settings
+
+# Shell options
+set -xe
+
+# dmenu-like command for game selection
+DMENU="${DMENU:-'dmenu -i'}"
+
+# Egrep regex for titles to filter out
+EXCLUDE_REGEX='(Proton ([0-9]+\.[0-9]+|Experimental)|Steam Linux|Steamworks)'
+
+
+steam_exit()    { steam -shutdown; }
+steam_running() { test -d /proc/"$(cat ~/.steampid)"; }
+
+steam_run()
+{
+	title_id="$1"
+	shift 1
+
+	steam -silent "$@" steam://rungameid/"${title_id}"
+}
+
+is_steam_child()
+{
+	proc="$1"
+	if pstree -Tp "$(cat ~/.steampid)" |
+		grep -Eq -- '-+'"${proc}"'\([0-9]+\)'
+	then
+		return 0
+	else
+		return 1
+	fi
+}
+
+game_id="$(
+	for dir in \
+		/mnt/media/SteamLibrary/steamapps \
+		~/.steam/steam/steamapps
+	do
+		find "$dir" -maxdepth 1 -type f -name '*.acf' -exec awk \
+			-F '"' '/"appid|name/{ printf $4 "|" } \
+			END { print "" }' {} \;
+	done |
+		column -t -s '|' | sort -k 2 | uniq | 
+		grep -vE "$EXCLUDE_REGEX" |
+		sed 's/[[:space:]]\+$//' |
+		$DMENU | awk '{print $1}'
+)"
+
+if steam_running; then
+	2>&1 echo "Steam is already running. Will not exit."
+	steam_run "$game_id"
+	exit $?
+fi
+
+2>&1 echo "Starting managed Steam process"
+steam_run "$game_id" &
+
+# Wait for steam to start
+while ! steam_running; do
+	sleep 1
+done
+2>&1 echo "Steam has started"
+
+# Wait for the reaper process to start
+while ! is_steam_child 'reaper'; do
+	sleep 1
+done
+2>&1 echo "Reaper process has started"
+
+# Wait for the reaper process to end (game has exited)
+while is_steam_child 'reaper'; do
+	sleep 1
+done
+2>&1 echo "Reaper process has exited. Shutting down..."
+
+# Shut down steam
+steam_exit &
+wait
