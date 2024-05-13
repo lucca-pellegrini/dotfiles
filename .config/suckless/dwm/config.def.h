@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <stdlib.h>
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 20;       /* gaps between windows */
@@ -153,9 +155,11 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_g,      spawn,          SHCMD("genpass '' bex base58 -w0") },
 	{ MODKEY|ControlMask,           XK_c,      spawn,          SHCMD("dmenucloak") },
 	{ MODKEY|ControlMask,           XK_a,      spawn,          SHCMD("dmenuaudio") },
+	{ MODKEY,                       XK_F12,    spawn,          SHCMD("dmenusteam") },
+	{ MODKEY|ShiftMask,             XK_F12,    spawn,          SHCMD("steam -shutdown") },
 
 	/* media */
-	{ NULL,                         XF86XK_AudioMute, spawn,   SHCMD("amixer sset Master toggle") },
+	{ (unsigned int)NULL,           XF86XK_AudioMute, spawn,   SHCMD("amixer sset Master toggle") },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("mpc toggle") },
 
 	{ MODKEY,                       XK_comma,  spawn,          SHCMD("mpc prev; dunstify \"$(mpc current)\"") },
@@ -171,12 +175,12 @@ static Key keys[] = {
 	/* volume */
 	{ MODKEY|ShiftMask,             XK_equal,                spawn, SHCMD("volume mpc up")  },
 	{ MODKEY|ShiftMask,             XK_minus,                spawn, SHCMD("volume mpc down")  },
-	{ NULL,                         XF86XK_AudioRaiseVolume, spawn, SHCMD("volume alsa up") },
-	{ NULL,                         XF86XK_AudioLowerVolume, spawn, SHCMD("volume alsa down") },
+	{ (unsigned int)NULL,           XF86XK_AudioRaiseVolume, spawn, SHCMD("volume alsa up") },
+	{ (unsigned int)NULL,           XF86XK_AudioLowerVolume, spawn, SHCMD("volume alsa down") },
 
 	/* backlight */
-	{ NULL,                         XF86XK_MonBrightnessUp,   spawn, SHCMD("brightness up")   },
-	{ NULL,                         XF86XK_MonBrightnessDown, spawn, SHCMD("brightness down") },
+	{ (unsigned int)NULL,           XF86XK_MonBrightnessUp,   spawn, SHCMD("brightness up")   },
+	{ (unsigned int)NULL,           XF86XK_MonBrightnessDown, spawn, SHCMD("brightness down") },
 
 	/* workspaces */
 	TAGKEYS(                        XK_1,                      0)
