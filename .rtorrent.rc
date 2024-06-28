@@ -148,6 +148,18 @@ ui.color.progress120.set="bold bright green"
 ui.color.footer.set      = "bright black on 222"
 ui.color.title.set       = "bold black on bright 222"
 
+# Show traffic of the last hour
+network.history.depth.set = 112
+schedule = network_history_sampling,1,32, network.history.sample=
+method.insert = network.history.auto_scale.toggle, simple|private, \
+    "branch=network.history.auto_scale=, \
+        \"network.history.auto_scale.set=0\", \
+        \"network.history.auto_scale.set=1\""
+method.insert = network.history.auto_scale.ui_toggle, simple|private, \
+    "network.history.auto_scale.toggle= ;network.history.refresh="
+branch=pyro.extended=,"schedule = bind_auto_scale,0,0, \
+    \"ui.bind_key=download_list,=,network.history.auto_scale.ui_toggle=\""
+
 ################################ Custom Options ###############################
 ## Throttling
 throttle.global_up.max_rate.set_kb = 1024
