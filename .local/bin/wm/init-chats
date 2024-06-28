@@ -1,0 +1,2 @@
+#!/usr/bin/env zsh
+setsid whatsapp-nativefier >/dev/null 2>&1 & setsid signal-desktop >/dev/null 2>&1 & setsid telegram-desktop >/dev/null 2>&1 & setsid element-desktop >/dev/null 2>&1 & disown; disown; disown; disown
