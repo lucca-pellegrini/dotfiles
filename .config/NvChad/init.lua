@@ -39,6 +39,9 @@ opt.backspace = "indent" -- Only allow backspacing over autoindent
 -- Allow positioning cursor where there's no character on blockwise visual
 opt.virtualedit = "block"
 
+-- Set custom virtual characters
+opt.fillchars = opt.fillchars + 'diff:╱'
+
 -- Load custom options for Neovide
 if g.neovide then
 	require("custom.configs.neovide")
