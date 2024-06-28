@@ -3,6 +3,8 @@
 # Take screenshot
 #
 
+set -x
+
 m() { ${DMENU:-dmenu} "$@"; }
 
 # dmenu prompts
