@@ -74,7 +74,8 @@ done
 while ! is_steam_child 'reaper'; do
 	sleep 1
 done
-2>&1 echo "Reaper process has started"
+2>&1 echo "Reaper process has started. Waiting..."
+sleep 180
 
 # Wait for the reaper process to end (game has exited)
 while is_steam_child 'reaper'; do
