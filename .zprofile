@@ -103,4 +103,5 @@ if [ "$TERM" = "linux" ]; then
 fi
 
 # Start graphical server on tty1 if not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null &&
+	exec env NOLOCK=1 startx
