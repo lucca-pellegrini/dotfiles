@@ -49,4 +49,7 @@ lspconfig.gopls.setup({
 			},
 		},
 	},
+-- Bash Language Server
+lspconfig.bashls.setup({
+  filetypes = {"sh", "bash", "zsh"}
 })
