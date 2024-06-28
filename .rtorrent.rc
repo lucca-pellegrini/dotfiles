@@ -166,6 +166,7 @@ throttle.global_up.max_rate.set_kb = 1024
 
 ## Enable Distributed Hash Table and Peer Exchange
 dht.mode.set = auto
+dht.port.set = 6886
 protocol.pex.set = yes
 
 ## Set a default tracker and DHT node
