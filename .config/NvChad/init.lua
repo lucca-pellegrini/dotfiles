@@ -64,11 +64,11 @@ api.nvim_create_autocmd({ "FileType" }, {
 	command = "setlocal noet ts=4 sts=4 sw=4", -- Tabs, 4
 })
 api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "python", "lilypond" },
+	pattern = { "python", "lilypond", "java", "cs" },
 	command = "setlocal et ts=4 sts=4 sw=4", -- Spaces, 4
 })
 api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "html", "lisp", "lua", "javascriptreact" },
+	pattern = { "html", "css", "typescript", "lisp", "lua", "javascriptreact" },
 	command = "setlocal et ts=2 sts=2 sw=2", -- Spaces, 2
 })
 api.nvim_create_autocmd({ "FileType" }, {
