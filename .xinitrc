@@ -14,7 +14,7 @@ xrdb -merge -D"$WM_THEME"_THEME ~/.config/xrdb/Xdefaults # load Xdefaults
 xrdb -merge -D"$WM_THEME"_THEME ~/.config/xrdb/themes/"$(printf %s "$WM_THEME" | tr '[:upper:]' '[:lower:]')"
 
 setbg &                           # set the background with the `setbg` script
-setxkbmap br,apl -option grp:shift_caps_toggle,compose:rctrl & # set xkb opts
+setxkbmap br,apl -option grp:shift_caps_toggle,compose:menu  & # set xkb opts
 xset s off -dpms                  # do not blank screen automatically
 unclutter --timeout 3 -jitter 50 --ignore-scrolling & # Remove mouse when idle
 
