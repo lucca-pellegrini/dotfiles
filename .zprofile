@@ -8,7 +8,7 @@
 # ░░      ░░░     ░░░░░░    ░░   ░░ ░░░  ░░░░░░
 
 # Adds `~/.local/bin` to $PATH
-export PATH="$HOME/.config/fzf/fzf/bin/:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$PATH"
+export PATH="$HOME/.config/fzf/fzf/bin/:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):/usr/lib/ccache/bin:$PATH"
 
 # Default programs:
 export EDITOR="nvim"
