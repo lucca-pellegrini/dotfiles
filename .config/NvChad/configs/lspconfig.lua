@@ -9,47 +9,49 @@ local util = require("lspconfig.util")
 local servers = { "html", "cssls", "tsserver", "texlab", "ltex", "rust_analyzer", "pyright" }
 
 for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
+  lspconfig[lsp].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
 end
 
 -- Overrides for clangd
 lspconfig.clangd.setup({
-	on_attach = function(client, buffer)
-		client.server_capabilities.signatureHelpProvider = false
-		on_attach(client, buffer)
-	end,
-	capabilities = capabilities,
+  on_attach = function(client, buffer)
+    client.server_capabilities.signatureHelpProvider = false
+    on_attach(client, buffer)
+  end,
+  capabilities = capabilities,
 })
 
 -- Go
 lspconfig.gopls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	cmd = { "gopls" },
-	filetypes = { "go", "gomod", "gowork", "gotmpl" },
-	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-	settings = {
-		gopls = {
-			completeUnimported = true,
-			usePlaceholders = true,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
 
-			gofumpt = true,
-			staticcheck = true,
+      gofumpt = true,
+      staticcheck = true,
 
-			analyses = {
-				unusedparameters = true,
+      analyses = {
+        unusedparameters = true,
 
-				nilness = true,
-				unusedvariable = true,
-				unusedwrite = true,
-				useany = true,
-			},
-		},
-	},
+        nilness = true,
+        unusedvariable = true,
+        unusedwrite = true,
+        useany = true,
+      },
+    },
+  },
+})
+
 -- Bash Language Server
 lspconfig.bashls.setup({
-  filetypes = {"sh", "bash", "zsh"}
+  filetypes = { "sh", "bash", "zsh" },
 })
