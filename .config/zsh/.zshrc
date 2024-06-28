@@ -86,28 +86,28 @@ source "$FZF_DIR/fzf.zsh" 2>/dev/null
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
 ZSH_HIGHLIGHT_STYLES[default]='none'
-ZSH_HIGHLIGHT_STYLES[links]='none'
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
-ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=blue'
-ZSH_HIGHLIGHT_STYLES[alias]='fg=blue'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=blue'
-ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
-ZSH_HIGHLIGHT_STYLES[command]='fg=blue'
+ZSH_HIGHLIGHT_STYLES[links]='fg=magenta,underline'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red,bold'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta,bold'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=green,bold,underline'
+ZSH_HIGHLIGHT_STYLES[function]='fg=cyan,bold,underline'
+ZSH_HIGHLIGHT_STYLES[command]='fg=cyan,bold'
 ZSH_HIGHLIGHT_STYLES[precommand]='none'
 ZSH_HIGHLIGHT_STYLES[commandseparator]='none'
-ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=blue'
-ZSH_HIGHLIGHT_STYLES[path]='none'
-ZSH_HIGHLIGHT_STYLES[path_prefix]='none'
+ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=white,bold'
+ZSH_HIGHLIGHT_STYLES[path]='fg=white,bold'
+ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=red,underline'
 ZSH_HIGHLIGHT_STYLES[path_approx]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[globbing]='fg=green'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=magenta'
 ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=green'
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=green'
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=green'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=magenta'
 ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='none'
 ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=cyan'
-ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan'
-ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan,bold'
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=magenta'
 ZSH_HIGHLIGHT_STYLES[assign]='none'
 
 #
@@ -130,7 +130,7 @@ ICO_BEHIND="%F{yellow}↓"
 ICO_DIVERGED="%F{red}!"
 
 COLOR_ROOT="%F{red}"
-COLOR_USER="%F{blue}"
+COLOR_USER="%F{cyan}"
 COLOR_NORMAL="%F{white}"
 PROMPT_STYLE="classic"
 
