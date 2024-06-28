@@ -66,7 +66,6 @@ export FZF_ALT_C_COMMAND='find . -mindepth 1 -type d 2>/dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Other program settings
-PROG=tea _CLI_ZSH_AUTOCOMPLETE_HACK=1 source "$XDG_CONFIG_HOME/tea/autocomplete.zsh"
 export SXHKD_SHELL="/bin/sh"
 export MPD_HOST="$XDG_CONFIG_HOME/mpd/socket"
 export GOPATH="$XDG_DATA_HOME/go"
