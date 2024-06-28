@@ -1,0 +1,15 @@
+import = [
+    "~/.config/alacritty/themes/themes/carbonfox.toml"
+]
+
+[window]
+dynamic_padding = true
+opacity = 0.95
+blur = true
+
+[scrolling]
+history = 100000
+multiplier = 1
+
+[font]
+size = 8
