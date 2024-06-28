@@ -24,6 +24,7 @@ opt.wrap = false
 -- Scrolling
 opt.scrolloff = 10
 opt.sidescrolloff = 10
+opt.mousescroll = "ver:1"
 
 -- Pseudo-transparency
 opt.pumblend = 10 -- For the popup menu
