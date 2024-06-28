@@ -11,7 +11,7 @@
 set -xe
 
 # dmenu-like command for game selection
-DMENU="${DMENU:-'dmenu -i'}"
+DMENU="${DMENU:-'dmenu -i'} -w 512 -l 32"
 
 # Egrep regex for titles to filter out
 EXCLUDE_REGEX='(Proton ([0-9]+\.[0-9]+|Experimental)|Steam Linux|Steamworks)'
