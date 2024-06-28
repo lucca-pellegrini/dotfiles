@@ -32,9 +32,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class         instance    title       tags mask    iscentered    isfloating    isterminal    noswallow    monitor */
-	{ "qutebrowser", NULL,       NULL,       1 << 2,      0,            0,            0,           -1,           -1 },
-	{ "st",          NULL,       NULL,            0,      0,            0,            1,           -1,           -1 },
-	{ NULL,   "keepassxc",       NULL,       1 << 8,      0,            0,            0,           -1,           -1 },
+	{ "LibreWolf",   NULL,       NULL,       1 << 2,      0,            0,            0,           -1,           -1 },
+	{ "Element",     NULL,       NULL,       1 << 7,      0,            0,            0,           -1,           -1 },
+	{ "Signal",      NULL,       NULL,       1 << 7,      0,            0,            0,           -1,           -1 },
+	{ "Telegram",    NULL,       NULL,       1 << 7,      0,            0,            0,           -1,           -1 },
+	{ "WhatsApp",    NULL,       NULL,       1 << 7,      0,            0,            0,           -1,           -1 },
+	{ "KeePassXC",   NULL,       NULL,       1 << 8,      0,            0,            0,           -1,           -1 },
 	{ NULL,       "float",       NULL,            0,      1,            1,            0,            1,           -1 },
 };
 
