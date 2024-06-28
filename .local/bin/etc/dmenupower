@@ -9,12 +9,19 @@ kill_xorg() {
 	kill "$pid"
 }
 
-ANS="$(cat <<-\! | $DMENU -i -p ' System'
+reboot_to() {
+	systemctl reboot --boot-loader-entry="$*"
+}
+
+ANS="$(cat <<-\! | $DMENU -i -p ' Power'
 	 Lock
 	 Exit
 	 Suspend
 	 Hibernate
 	 Reboot
+	 Reboot to Arch Netboot
+	 Reboot to Windows
+	 Reboot to Firmware
 	 Shutdown
 !
 )"
@@ -25,5 +32,8 @@ case "$ANS" in
 	' Suspend') slock & systemctl suspend;;
 	' Hibernate') systemctl hibernate;;
 	' Reboot') reboot;;
+	' Reboot to Arch Netboot') reboot_to arch_netboot;;
+	' Reboot to Windows') reboot_to auto-windows;;
+	' Reboot to Firmware') reboot_to auto-reboot-to-firmware-setup;;
 	' Shutdown') shutdown now;;
 esac
