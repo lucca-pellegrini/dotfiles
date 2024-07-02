@@ -47,10 +47,16 @@ rm -rf LICENSE README.md .gitignore
 ```
 You can revert this later with `--no-assume-unchanged` flag.
 
-## NeoVim configuration
+## NeoVim's configuration
 Create a symbolic link to your NeoVim configuration:
 ```sh
 ln -s ~/.config/NvChad ~/.config/nvim/lua/custom
+```
+
+## Tmux's configuration
+Install all Tmux plugins:
+```sh
+~/.local/share/tpm/bin/install_plugins
 ```
 
 ## Build and install suckless programs
