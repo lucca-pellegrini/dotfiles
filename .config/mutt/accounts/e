@@ -8,8 +8,8 @@ set imap_user = "luccapellegrini@e.email"
 set header_cache = ~/.cache/mutt/e/headers
 set message_cachedir = ~/.cache/mutt/e/bodies
 set smtp_url = 'smtp://luccapellegrini@e.email@mail.ecloud.global:587'
-set imap_pass = "`pass e`"
-set smtp_pass = "`pass e`"
+set imap_pass = "`pass net/email/e`"
+set smtp_pass = "`pass net/email/e`"
 set pgp_default_key = "2CAEDEBD407FA54F816C139550D458344399D7D8"
 
 set mbox_type = Maildir

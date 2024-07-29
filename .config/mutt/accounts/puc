@@ -8,8 +8,8 @@ set imap_user = "lmapellegrini@sga.pucminas.br"
 set header_cache = ~/.cache/mutt/puc/headers
 set message_cachedir = ~/.cache/mutt/puc/bodies
 set smtp_url = 'smtp://lmapellegrini@sga.pucminas.br@smtp.gmail.com:587'
-set imap_pass = "`pass pucmail`"
-set smtp_pass = "`pass pucmail`"
+set imap_pass = "`pass net/email/pucmail`"
+set smtp_pass = "`pass net/email/pucmail`"
 set pgp_default_key = "7452AFA7E8CE7D1C9273FAEF9B5FD5558C38FA1D"
 
 set mbox_type = Maildir

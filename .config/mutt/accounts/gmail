@@ -8,8 +8,8 @@ set imap_user = "luccapellegrini@gmail.com"
 set header_cache = ~/.cache/mutt/gmail/headers
 set message_cachedir = ~/.cache/mutt/gmail/bodies
 set smtp_url = 'smtp://luccapellegrini@gmail.com@smtp.gmail.com:587'
-set imap_pass = "`pass gmail`"
-set smtp_pass = "`pass gmail`"
+set imap_pass = "`pass net/email/gmail`"
+set smtp_pass = "`pass net/email/gmail`"
 set pgp_default_key = "00683A4B550AC2E4B194B6C07B7766CE7EA43D44"
 
 set mbox_type = Maildir

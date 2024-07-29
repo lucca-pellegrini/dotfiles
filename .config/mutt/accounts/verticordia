@@ -8,8 +8,8 @@ set imap_user = "luccapellegrini@e.email"
 set header_cache = ~/.cache/mutt/e/headers
 set message_cachedir = ~/.cache/mutt/e/bodies
 set smtp_url = 'smtp://lucca@mail.smtp2go.com:2525/'
-set imap_pass = "`pass e`"
-set smtp_pass = "`pass smtp2go`"
+set imap_pass = "`pass net/email/e`"
+set smtp_pass = "`pass net/email/smtp2go`"
 set pgp_default_key = "CAF77466F2FF620EAE937B899AC2AAA7E7C254FC"
 
 set mbox_type = Maildir
