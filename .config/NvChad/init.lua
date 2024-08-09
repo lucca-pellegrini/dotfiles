@@ -29,8 +29,8 @@ opt.fillchars = opt.fillchars + "diff:╱" -- Set custom virtual characters
 opt.colorcolumn = { 80 } -- Highlight the 80th column
 api.nvim_set_hl(0, "ColorColumn", { ctermbg = "black" }) -- Set color to black
 opt.title = true -- Set window title to 'titlestring'
-opt.titlestring = "NeoVim (%n) %f %y %03l:%02c --%p%%-- %m%r%q"
-opt.titlelen = 50
+opt.titlestring = "NeoVim (%n) %f %y %03l:%02c --%p%%-- %m%r%q" -- Window title
+opt.titlelen = 50 -- Maximum length of window title
 opt.cmdheight = 0 -- Hide command line when not in use
 
 -- Load custom options for Neovide
