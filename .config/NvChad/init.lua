@@ -31,6 +31,7 @@ api.nvim_set_hl(0, "ColorColumn", { ctermbg = "black" }) -- Set color to black
 opt.title = true -- Set window title to 'titlestring'
 opt.titlestring = "NeoVim (%n) %f %y %03l:%02c --%p%%-- %m%r%q"
 opt.titlelen = 50
+opt.cmdheight = 0 -- Hide command line when not in use
 
 -- Load custom options for Neovide
 if g.neovide then
