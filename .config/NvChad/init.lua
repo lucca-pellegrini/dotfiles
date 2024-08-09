@@ -34,44 +34,44 @@ opt.titlelen = 50
 
 -- Load custom options for Neovide
 if g.neovide then
-	require("custom.configs.neovide")
+  require("custom.configs.neovide")
 end
 
 -------------------------------------- autocmds ------------------------------------------
 -- Highlight selection on yank
 api.nvim_create_autocmd({ "TextYankPost" }, {
-	callback = function()
-		vim.highlight.on_yank({
-			higroup = "IncSearch",
-			timeout = 250,
-		})
-	end,
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = "IncSearch",
+      timeout = 250,
+    })
+  end,
 })
 
 -- Filetype rules
 api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "tex" },
-	command = "setlocal noet ts=4 sts=4 sw=4", -- Tabs, 4
+  pattern = { "tex" },
+  command = "setlocal noet ts=4 sts=4 sw=4", -- Tabs, 4
 })
 api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "python", "lilypond", "java", "cs" },
-	command = "setlocal et ts=4 sts=4 sw=4", -- Spaces, 4
+  pattern = { "python", "lilypond", "java", "cs" },
+  command = "setlocal et ts=4 sts=4 sw=4", -- Spaces, 4
 })
 api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "html", "css", "typescript", "lisp", "lua", "javascriptreact" },
-	command = "setlocal et ts=2 sts=2 sw=2", -- Spaces, 2
+  pattern = { "html", "css", "typescript", "lisp", "lua", "javascriptreact" },
+  command = "setlocal et ts=2 sts=2 sw=2", -- Spaces, 2
 })
 api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "haskell" }, -- Haskell rules from <http://dmwit.com/tabs/>
-	command = "setlocal noet ci pi ts=8 sts=8 sw=8 sts=0",
+  pattern = { "haskell" }, -- Haskell rules from <http://dmwit.com/tabs/>
+  command = "setlocal noet ci pi ts=8 sts=8 sw=8 sts=0",
 })
 
 -------------------------------------- LSP ----------------------------------------------
 -- Auto-show diagnostics on hover
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-	virtual_text = true,
-	underline = true,
-	signs = true,
+  virtual_text = true,
+  underline = true,
+  signs = true,
 })
 
 -- If we hold the cursor for one second on a line, show diagnostics

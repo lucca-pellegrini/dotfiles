@@ -34,13 +34,13 @@ M.mappings = require("custom.mappings")
 -- Re-enable some disabled plugins
 -- based on <https://github.com/NvChad/NvChad/issues/1949>
 M.lazy_nvim = {
-	performance = {
-		rtp = {
-			disabled_plugins = vim.tbl_filter(function(name)
-				return string.sub(name, 1, 5) ~= "netrw"
-			end, require("plugins.configs.lazy_nvim").performance.rtp.disabled_plugins),
-		},
-	},
+  performance = {
+    rtp = {
+      disabled_plugins = vim.tbl_filter(function(name)
+        return string.sub(name, 1, 5) ~= "netrw"
+      end, require("plugins.configs.lazy_nvim").performance.rtp.disabled_plugins),
+    },
+  },
 }
 
 return M

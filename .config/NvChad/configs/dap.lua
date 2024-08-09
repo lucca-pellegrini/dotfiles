@@ -2,25 +2,25 @@ local dap = require("dap")
 local mr = require("mason-registry")
 
 dap.adapters.codelldb = {
-	type = "executable",
-	name = "codelldb",
-	-- path = mr.get_package("codelldb"):get_install_path() .. "/codelldb", --"/extension/adapter/codelldb",
-	command = "lldb-vscode",
+  type = "executable",
+  name = "codelldb",
+  -- path = mr.get_package("codelldb"):get_install_path() .. "/codelldb", --"/extension/adapter/codelldb",
+  command = "lldb-vscode",
 }
 
 dap.configurations.c = {
-	{
-		type = "codelldb",
-		request = "launch",
-		name = "Launch",
-		--program = "${input:program}",
-		program = function()
-			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-		end,
-		cwd = "${workspaceFolder}",
-		console = "integratedTerminal",
-		stopOnEntry = false,
-	},
+  {
+    type = "codelldb",
+    request = "launch",
+    name = "Launch",
+    --program = "${input:program}",
+    program = function()
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    end,
+    cwd = "${workspaceFolder}",
+    console = "integratedTerminal",
+    stopOnEntry = false,
+  },
 }
 
 --[[ dap.adapters.cpp = {
