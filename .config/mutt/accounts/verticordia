@@ -3,13 +3,13 @@ set realname = "Lucca Pellegrini"
 set from = "lucca@verticordia.com"
 alias me Lucca Pellegrini <lucca@verticordia.com>
 set sendmail = "msmtp -a "
-set folder = "imaps://luccapellegrini@e.email@mail.ecloud.global:993"
-set imap_user = "luccapellegrini@e.email"
+set folder = "imaps://lucca@verticordia.com@imappro.zoho.com:993"
+set imap_user = "lucca@verticordia.com"
 set header_cache = ~/.cache/mutt/e/headers
 set message_cachedir = ~/.cache/mutt/e/bodies
-set smtp_url = 'smtp://lucca@mail.smtp2go.com:2525/'
-set imap_pass = "`pass net/email/e`"
-set smtp_pass = "`pass net/email/smtp2go`"
+set smtp_url = 'smtp://lucca@verticordia.com@smtppro.zoho.com:587/'
+set imap_pass = "`pass net/email/verticordia`"
+set smtp_pass = "`pass net/email/verticordia`"
 set pgp_default_key = "CAF77466F2FF620EAE937B899AC2AAA7E7C254FC"
 
 set mbox_type = Maildir
@@ -27,7 +27,7 @@ set spoolfile = "+INBOX"
 set record = "+Sent"
 set postponed = "+Drafts"
 set trash = "+Trash"
-mailboxes "=Spam" "=Sent" "=Archive" "=Trash" "=Drafts" "=INBOX"
+mailboxes "=Spam" "=Sent" "=Archived" "=Trash" "=Drafts" "=INBOX"
 macro index,pager gi "<change-folder>=INBOX<enter>" "go to inbox"
 macro index,pager Mi ";<save-message>=INBOX<enter>" "move mail to inbox"
 macro index,pager Ci ";<copy-message>=INBOX<enter>" "copy mail to inbox"
@@ -43,8 +43,8 @@ macro index,pager Ct ";<copy-message>=Trash<enter>" "copy mail to trash"
 macro index,pager gj "<change-folder>=Spam<enter>" "go to spam"
 macro index,pager Mj ";<save-message>=Spam<enter>" "move mail to spam"
 macro index,pager Cj ";<copy-message>=Spam<enter>" "copy mail to spam"
-macro index,pager ga "<change-folder>=Archive<enter>" "go to archive"
-macro index,pager Ma ";<save-message>=Archive<enter>" "move mail to archive"
-macro index,pager Ca ";<copy-message>=Archive<enter>" "copy mail to archive"
+macro index,pager ga "<change-folder>=Archived<enter>" "go to archive"
+macro index,pager Ma ";<save-message>=Archived<enter>" "move mail to archive"
+macro index,pager Ca ";<copy-message>=Archived<enter>" "copy mail to archive"
 
-set imap_check_subscribed = no
+set imap_check_subscribed = yes

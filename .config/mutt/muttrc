@@ -77,11 +77,11 @@ macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "ma
 macro index \cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search term to find with notmuch: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;s/\^id:// for@a;$,=\"|\";print@a' | perl -le '@a=<>; chomp@a; s/\\+/\\\\+/ for@a;print@a' \`\"<enter>" "show only messages matching a notmuch pattern"
 macro index A "<limit>all\n" "show all messages (undo limit)"
 
-macro index,pager i- '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/e<enter><change-folder>!<enter>;<check-stats>' "switch to /e/"
 macro index,pager i1 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/verticordia<enter><change-folder>!<enter>;<check-stats>' "switch to Verticordia"
 macro index,pager i2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/gmail<enter><change-folder>!<enter>;<check-stats>' "switch to gmail"
-macro index,pager i3 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/disroot<enter><change-folder>!<enter>;<check-stats>' "switch to disroot"
-macro index,pager i4 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/puc<enter><change-folder>!<enter>;<check-stats>' "switch to PUC"
+macro index,pager i3 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/e<enter><change-folder>!<enter>;<check-stats>' "switch to /e/"
+macro index,pager i4 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/disroot<enter><change-folder>!<enter>;<check-stats>' "switch to disroot"
+macro index,pager i5 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/puc<enter><change-folder>!<enter>;<check-stats>' "switch to PUC"
 
 # Sidebar mappings
 set sidebar_visible = yes
