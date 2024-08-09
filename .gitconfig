@@ -8,10 +8,11 @@
 	branch = auto
 	interactive = auto
 	ui = true
-	pager = true
+	pager = no
 [core]
 	quotepath = false
 	commitGraph = true
+	pager = nvim -R
 [gc]
 	writeCommitGraph = true
 [alias]
