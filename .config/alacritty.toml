@@ -12,4 +12,5 @@ history = 100000
 multiplier = 1
 
 [font]
-size = 8
+normal = { family = "JetBrainsMono Nerd Font Propo", style = "Regular" }
+size = 11.5
