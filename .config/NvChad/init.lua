@@ -11,36 +11,26 @@ opt.smartindent = true
 opt.tabstop = 8
 opt.softtabstop = 8
 
--- Numbers
-opt.relativenumber = true
-
--- Highlighting
-opt.colorcolumn = { 80 }
-api.nvim_set_hl(0, "ColorColumn", { ctermbg = "black" })
-
--- Text wrapping
-opt.wrap = false
-
 -- Scrolling
 opt.scrolloff = 10
 opt.sidescrolloff = 10
 opt.mousescroll = "ver:1"
 
--- Pseudo-transparency
-opt.pumblend = 10 -- For the popup menu
-opt.winblend = 10 -- For floating windows
+-- Practical enhancements
+opt.virtualedit = "block" -- Allow virtual editing on blockwise visual
+opt.backspace = "indent"  -- Only allow backspacing over autoindent
 
--- Window title
+-- Visual enhancements
+opt.pumblend = 10 -- Pseudo-transparency for the popup menu
+opt.winblend = 10 -- Pseudo-transparency for floating windows
+opt.relativenumber = true -- Set line numbers to relative by default
+opt.wrap = false -- Disable text wapping by default
+opt.fillchars = opt.fillchars + "diff:╱" -- Set custom virtual characters
+opt.colorcolumn = { 80 } -- Highlight the 80th column
+api.nvim_set_hl(0, "ColorColumn", { ctermbg = "black" }) -- Set color to black
 opt.title = true -- Set window title to 'titlestring'
-
--- Stop bad editing habits
-opt.backspace = "indent" -- Only allow backspacing over autoindent
-
--- Allow positioning cursor where there's no character on blockwise visual
-opt.virtualedit = "block"
-
--- Set custom virtual characters
-opt.fillchars = opt.fillchars + 'diff:╱'
+opt.titlestring = "NeoVim (%n) %f %y %03l:%02c --%p%%-- %m%r%q"
+opt.titlelen = 50
 
 -- Load custom options for Neovide
 if g.neovide then
