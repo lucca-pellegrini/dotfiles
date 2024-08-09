@@ -5,11 +5,25 @@ local M = {}
 local highlights = require("custom.highlights")
 
 M.ui = {
-	theme = "oxocarbon",
-	theme_toggle = { "oxocarbon", "oxocarbon" },
+  theme = "oxocarbon",
+  theme_toggle = { "one_light", "oxocarbon" },
 
-	hl_override = highlights.override,
-	hl_add = highlights.add,
+  hl_override = highlights.override,
+  hl_add = highlights.add,
+
+  statusline = {
+    theme = "vscode_colored", -- default/vscode/vscode_colored/minimal
+    -- default/round/block/arrow separators work only for default statusline theme
+    -- round and block will work for minimal theme only
+    separator_style = "block",
+    overriden_modules = nil,
+  },
+
+  tabufline = {
+    enabled = true,
+    lazyload = true,
+    order = { "treeOffset", "buffers", "tabs", "btns" },
+  },
 }
 
 M.plugins = "custom.plugins"
