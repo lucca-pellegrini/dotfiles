@@ -27,6 +27,25 @@ M.general = {
   },
 }
 
+-- Bindings for the Lspsaga plugin
+M.lspsaga = {
+  plugin = true,
+  n = {
+    ["<leader>ca"] = {
+      "<cmd> Lspsaga code_action <CR>",
+      "List code actions",
+    },
+    ["<leader>dn"] = {
+      "<cmd> Lspsaga diagnostic_jump_next <CR>",
+      "Jump to next diagnostic",
+    },
+    ["<leader>dp"] = {
+      "<cmd> Lspsaga diagnostic_jump_prev <CR>",
+      "Jump to previous diagnostic",
+    },
+  },
+}
+
 -- Key bindings for the Debug Adapter Protocol client
 M.dap = {
   plugin = true,
@@ -80,6 +99,48 @@ M.gopher = {
     ["<leader>gsy"] = {
       "<cmd> GoTagAdd yaml <CR>",
       "Add yaml struct tags",
+    },
+  },
+}
+
+-- Bindings for Trouble
+M.trouble = {
+  plugin = true,
+  n = {
+    ["<leader>tl"] = {
+      "<cmd>Trouble diagnostics toggle<cr>",
+      "Toggle diagnostics list",
+    },
+    ["<leader>tb"] = {
+      "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+      "Toggle diagnostics list for this buffer",
+    },
+    ["<leader>ts"] = {
+      "<cmd>Trouble symbols toggle focus=false<cr>",
+      "Toggle symbols list",
+    },
+    --[[ ["<leader>cl"] = {
+      "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+      "LSP Definitions / references / ... (Trouble)",
+    },
+    ["<leader>xL"] = {
+      "<cmd>Trouble loclist toggle<cr>",
+      "Location List (Trouble)",
+    }, ]]
+    ["<leader>tq"] = {
+      "<cmd>Trouble qflist toggle<cr>",
+      "Toggle quickfix list",
+    },
+  },
+}
+
+-- Bindings for the Vimtex plugin
+M.vimtex = {
+  plugin = true,
+  n = {
+    ["<leader>tc"] = {
+      "<cmd> VimtexTocToggle <CR>",
+      "Toggle table of contents",
     },
   },
 }

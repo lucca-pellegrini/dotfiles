@@ -34,44 +34,51 @@ local plugins = {
     lazy = false,
   },
 
-  --[[ -- Custom diagnostics loclist
+  -- LSP Integration
+
+  -- Diagnostics, callhierarchy, renaming, finder
+  {
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup({
+        symbol_in_winbar = {
+          enable = false,
+        },
+        ui = {
+          code_action = "",
+          virtual_text = false,
+        },
+        require("core.utils").load_mappings("lspsaga"),
+        -- require("custom.configs.lspsaga")
+      })
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+
+  -- Custom diagnostics loclist
   {
     "folke/trouble.nvim",
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    lazy = true,
+    event = "LspAttach",
     cmd = "Trouble",
-    keys = {
-      {
-        "<leader>xx",
-        "<cmd>Trouble diagnostics toggle<cr>",
-        desc = "Diagnostics (Trouble)",
-      },
-      {
-        "<leader>xX",
-        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-        desc = "Buffer Diagnostics (Trouble)",
-      },
-      {
-        "<leader>cs",
-        "<cmd>Trouble symbols toggle focus=false<cr>",
-        desc = "Symbols (Trouble)",
-      },
-      {
-        "<leader>cl",
-        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-        desc = "LSP Definitions / references / ... (Trouble)",
-      },
-      {
-        "<leader>xL",
-        "<cmd>Trouble loclist toggle<cr>",
-        desc = "Location List (Trouble)",
-      },
-      {
-        "<leader>xQ",
-        "<cmd>Trouble qflist toggle<cr>",
-        desc = "Quickfix List (Trouble)",
-      },
+    config = function()
+      require("trouble").setup()
+      require("core.utils").load_mappings("trouble")
+    end,
+  },
+
+  -- Breadcrumbs navigation
+  {
+    "Bekaboo/dropbar.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
     },
-  }, ]]
+  },
 
   -- Debugger integration
 
