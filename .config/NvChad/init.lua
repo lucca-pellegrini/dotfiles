@@ -17,9 +17,9 @@ opt.sidescrolloff = 10
 opt.mousescroll = "ver:1"
 
 -- Practical enhancements
-opt.virtualedit = "block" -- Allow virtual editing on blockwise visual
+opt.virtualedit = "block"      -- Allow virtual editing on blockwise visual
 opt.backspace = "start,indent" -- Backspacing rules
-opt.textwidth = 79 -- By default, lines must be less than 80 columns wide
+opt.textwidth = 79             -- By default, lines must be less than 80 columns wide
 
 -- Visual enhancements
 opt.pumblend = 10 -- Pseudo-transparency for the popup menu
@@ -32,6 +32,8 @@ api.nvim_set_hl(0, "ColorColumn", { ctermbg = "black" }) -- Set color to black
 opt.title = true -- Set window title to 'titlestring'
 opt.titlestring = "NeoVim (%n) %f %y %03l:%02c --%p%%-- %m%r%q" -- Window title
 opt.titlelen = 50 -- Maximum length of window title
+opt.guicursor =
+"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- Load custom options for Neovide
 if g.neovide then
