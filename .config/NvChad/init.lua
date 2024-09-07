@@ -19,6 +19,7 @@ opt.mousescroll = "ver:1"
 -- Practical enhancements
 opt.virtualedit = "block" -- Allow virtual editing on blockwise visual
 opt.backspace = "start,indent" -- Backspacing rules
+opt.textwidth = 79 -- By default, lines must be less than 80 columns wide
 
 -- Visual enhancements
 opt.pumblend = 10 -- Pseudo-transparency for the popup menu
