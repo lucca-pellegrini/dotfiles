@@ -18,7 +18,7 @@ opt.mousescroll = "ver:1"
 
 -- Practical enhancements
 opt.virtualedit = "block" -- Allow virtual editing on blockwise visual
-opt.backspace = "indent"  -- Only allow backspacing over autoindent
+opt.backspace = "start,indent" -- Backspacing rules
 
 -- Visual enhancements
 opt.pumblend = 10 -- Pseudo-transparency for the popup menu
