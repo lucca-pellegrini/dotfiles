@@ -216,6 +216,16 @@ local plugins = {
     end,
   },
 
+  -- Additional vimdoc features
+  {
+    "OXY2DEV/helpview.nvim",
+    ft = "help",
+
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
+
   -- Override plugin definition options
 
   {
