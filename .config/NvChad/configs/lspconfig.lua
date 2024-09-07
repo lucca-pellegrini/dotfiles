@@ -7,14 +7,14 @@ local util = require("lspconfig.util")
 
 -- if you just want default config for the servers then put them in a table
 local servers = {
-  "html",
+  "ast_grep",
   "cssls",
-  "tsserver",
-  "texlab",
-  "ltex",
-  "rust_analyzer",
-  "pyright",
+  "html",
   "jdtls",
+  "pyright",
+  "rust_analyzer",
+  "texlab",
+  "tsserver",
 }
 
 for _, lsp in ipairs(servers) do
@@ -56,6 +56,24 @@ lspconfig.gopls.setup({
         unusedwrite = true,
         useany = true,
       },
+    },
+  },
+})
+
+-- LTeX Language Server
+lspconfig.ltex.setup({
+  capabilities = capabilities,
+  on_attach = function()
+    require("ltex_extra").setup({
+      load_langs = { "en-US", "en-GB" },
+      init_check = true,
+      path = "", -- project root or current working directory
+      log_level = "none",
+    })
+  end,
+  settings = {
+    ltex = {
+      language = "auto",
     },
   },
 })

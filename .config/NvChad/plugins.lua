@@ -145,28 +145,56 @@ local plugins = {
     end,
   },
 
-  -- LaTeX plugin
+  -- LaTeX plugins
+
   {
-    "barreiroleo/ltex_extra.nvim",
+    "lervag/vimtex",
+    lazy = true,
+    ft = { "latex", "tex" },
+    config = function()
+      vim.g.vimtex_view_method = "zathura"
+      vim.g.vimtex_compiler_method = "tectonic"
+      require("core.utils").load_mappings("vimtex")
+    end,
+  },
+  --[[ {
+    "vigoux/ltex-ls.nvim",
+    event = "LspAttach",
     ft = { "markdown", "tex" },
+    config = function()
+      require("ltex-ls").setup({
+        use_spellfile = true,
+        filetypes = { "latex", "tex", "bib", "markdown", "gitcommit", "text" },
+      })
+    end,
     dependencies = {
       "neovim/nvim-lspconfig",
     },
-    --[[ -- yes, you can use the opts field, just I'm showing the setup explicitly
-      config = function()
-          require("ltex_extra").setup {
-              -- your_ltex_extra_opts,
-              server_opts = {
-                  -- capabilities = your_capabilities,
-                  on_attach = function(client, bufnr)
-                      -- your on_attach process
-                  end,
-                  settings = {
-                      -- ltex = { your settings }
-                  }
-              },
-          }
-      end ]]
+  }, ]]
+  {
+    "barreiroleo/ltex_extra.nvim",
+    event = "LspAttach",
+    ft = { "latex", "tex", "bib", "markdown", "gitcommit", "text" },
+    -- config = function()
+    --   require("ltex_extra").setup({
+    --     load_langs = { "en-US", "en-GB" },
+    --     init_check = true,
+    --     path = "", -- project root or current working directory
+    --     log_level = "none",
+    --     --[[ server_opts = {
+    --       -- capabilities = your_capabilities,
+    --       on_attach = function(client, bufnr)
+    --         -- your on_attach process
+    --       end,
+    --       -- settings = {
+    --       --   ltex = { your settings }
+    --       -- }
+    --     }, ]]
+    --   })
+    -- end,
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
   },
 
   -- Pkl language support
