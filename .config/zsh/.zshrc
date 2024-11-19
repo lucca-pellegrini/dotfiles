@@ -229,6 +229,10 @@ export GPG_TTY=$(tty)
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
+# Load asdf-vm completion
+if [ -f /opt/asdf-vm/asdf.sh ]; then
+	source /opt/asdf-vm/asdf.sh
+fi
 
 # Add and initialize the pure prompt
 fpath+=("${ZDOTDIR}/pure")
