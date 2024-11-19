@@ -17,6 +17,7 @@ setbg &                           # set the background with the `setbg` script
 setxkbmap br,apl -option grp:shift_caps_toggle,compose:menu  & # set xkb opts
 xset s off -dpms                  # do not blank screen automatically
 unclutter --timeout 3 -jitter 50 --ignore-scrolling & # Remove mouse when idle
+warpinator -a & # Autostart warpinator if configured
 
 # synaptics touchpad options
 synclient TapButton1=1
