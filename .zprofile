@@ -49,7 +49,6 @@ export LESS_TERMCAP_se="$(printf '\033[0m')"
 export LESS_TERMCAP_so="$(printf "\033[0;46;30m")"
 export LESS_TERMCAP_ue="$(printf '\033[0m')"
 export LESS_TERMCAP_us="$(printf '\033[0;92m')"
-export PAGER=nvimpager # Substitute for less
 
 # Fzf
 export FZF_DEFAULT_OPTS='
