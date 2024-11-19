@@ -7,3 +7,6 @@
 [submodule ".config/alacritty/themes"]
 	path = .config/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme
+[submodule ".config/zsh/pure"]
+	path = .config/zsh/pure
+	url = https://github.com/sindresorhus/pure.git

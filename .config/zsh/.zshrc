@@ -121,57 +121,57 @@ setopt hist_ignore_dups   # Ignore duplicated commands history list
 setopt share_history      # Share command history data
 setopt histignorespace    # Ignore commands prepended with a space
 
+# #
+# #   PROMPT
+# #
+# ICO_DIRTY="%F{red}•"
+# ICO_AHEAD="%F{green}↑"
+# ICO_BEHIND="%F{yellow}↓"
+# ICO_DIVERGED="%F{red}!"
 #
-#   PROMPT
+# COLOR_ROOT="%F{red}"
+# COLOR_USER="%F{cyan}"
+# COLOR_NORMAL="%F{white}"
+# PROMPT_STYLE="classic"
 #
-ICO_DIRTY="%F{red}•"
-ICO_AHEAD="%F{green}↑"
-ICO_BEHIND="%F{yellow}↓"
-ICO_DIVERGED="%F{red}!"
-
-COLOR_ROOT="%F{red}"
-COLOR_USER="%F{cyan}"
-COLOR_NORMAL="%F{white}"
-PROMPT_STYLE="classic"
-
-# allow functions in the prompt
-setopt PROMPT_SUBST
-autoload -Uz colors && colors
-
-# colors for permissions
-[ "$EUID" -ne "0" ] &&
-	USER_LEVEL="${COLOR_USER}" ||
-	USER_LEVEL="${COLOR_ROOT}"
-
-# git prompt
-GIT_PROMPT() {
-	ref=$(git symbolic-ref --quiet --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null) || exit
-
-	[ "$(git rev-parse --is-bare-repository 2>&1)" = "false" ] && {
-		[[ $(git status --short | wc -l) -ne 0 ]] && dirty=$ICO_DIRTY || dirty=""
-
-		stat=$(git status | sed -n 2p)
-
-		case "$stat" in
-		*ahead*) stat=$ICO_AHEAD ;;
-		*behind*) stat=$ICO_BEHIND ;;
-		*diverged*) stat=$ICO_DIVERGED ;;
-		*) stat="" ;;
-		esac
-	}
-	echo "${USER_LEVEL}─[${COLOR_NORMAL}${ref}${dirty}${stat}${USER_LEVEL}]"
-}
-
-precmd() { # Use two line prompt when $PWD is long
-	if [ ${#PWD} -ge 20 ]; then
-		PROMPT='${USER_LEVEL}┌%(?..[%F{red}%?${USER_LEVEL}]-)[${COLOR_NORMAL}%~${USER_LEVEL}]$(GIT_PROMPT)'$'\n''${USER_LEVEL}└─ ─ %f'
-	else
-		PROMPT='${USER_LEVEL}%(?..[%F{red}%?${USER_LEVEL}]-)[${COLOR_NORMAL}%~${USER_LEVEL}]$(GIT_PROMPT)── ─ %f'
-	fi
-
-	# Set window title
-	printf '\033]0;%s\007' "$PWD"
-}
+# # allow functions in the prompt
+# setopt PROMPT_SUBST
+# autoload -Uz colors && colors
+#
+# # colors for permissions
+# [ "$EUID" -ne "0" ] &&
+# 	USER_LEVEL="${COLOR_USER}" ||
+# 	USER_LEVEL="${COLOR_ROOT}"
+#
+# # git prompt
+# GIT_PROMPT() {
+# 	ref=$(git symbolic-ref --quiet --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null) || exit
+#
+# 	[ "$(git rev-parse --is-bare-repository 2>&1)" = "false" ] && {
+# 		[[ $(git status --short | wc -l) -ne 0 ]] && dirty=$ICO_DIRTY || dirty=""
+#
+# 		stat=$(git status | sed -n 2p)
+#
+# 		case "$stat" in
+# 		*ahead*) stat=$ICO_AHEAD ;;
+# 		*behind*) stat=$ICO_BEHIND ;;
+# 		*diverged*) stat=$ICO_DIVERGED ;;
+# 		*) stat="" ;;
+# 		esac
+# 	}
+# 	echo "${USER_LEVEL}─[${COLOR_NORMAL}${ref}${dirty}${stat}${USER_LEVEL}]"
+# }
+#
+# precmd() { # Use two line prompt when $PWD is long
+# 	if [ ${#PWD} -ge 20 ]; then
+# 		PROMPT='${USER_LEVEL}┌%(?..[%F{red}%?${USER_LEVEL}]-)[${COLOR_NORMAL}%~${USER_LEVEL}]$(GIT_PROMPT)'$'\n''${USER_LEVEL}└─ ─ %f'
+# 	else
+# 		PROMPT='${USER_LEVEL}%(?..[%F{red}%?${USER_LEVEL}]-)[${COLOR_NORMAL}%~${USER_LEVEL}]$(GIT_PROMPT)── ─ %f'
+# 	fi
+#
+# 	# Set window title
+# 	printf '\033]0;%s\007' "$PWD"
+# }
 
 #
 #   VI MODE
@@ -227,16 +227,11 @@ zle -N egs; bindkey "^g" egs
 # Interactive program options
 export GPG_TTY=$(tty)
 
-# Set vim colorscheme according to Xresources
-if [ "$DISPLAY" ] && [ "$UID" -ne 0 ]; then
-	case "$(xgetres foreground)" in
-	'#33374c')
-		export VIM_COLOURS=light
-		;;
-	'#b2b2b2')
-		export VIM_COLOURS=moonfly
-		;;
-	esac
-fi
-
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
+
+
+# Add and initialize the pure prompt
+fpath+=("${ZDOTDIR}/pure")
+autoload -U promptinit; promptinit
+prompt pure
+zstyle :prompt:pure:git:stash show yes
