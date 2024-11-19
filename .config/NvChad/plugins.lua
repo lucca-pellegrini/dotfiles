@@ -104,6 +104,60 @@ local plugins = {
     end,
   },
 
+  -- Custom icon provider
+  {
+    "echasnovski/mini.nvim",
+    lazy = false,
+    version = false,
+    config = function()
+      require("mini.align").setup()
+      -- require("mini.animate").setup()
+      -- require("mini.base16").setup()
+      -- require("mini.basics").setup()
+      require("mini.bracketed").setup()
+      -- require("mini.bufremove").setup()
+      -- require("mini.clue").setup()
+      -- require("mini.colors").setup()
+      -- require("mini.comment").setup()
+      -- require("mini.completion").setup()
+      require("mini.cursorword").setup()
+      -- require("mini.deps").setup()
+      -- require("mini.diff").setup()
+      -- require("mini.doc").setup()
+      -- require("mini.extra").setup()
+      -- require("mini.files").setup()
+      -- require("mini.fuzzy").setup()
+      -- require("mini.git").setup()
+      -- require("mini.hipatterns").setup()
+      -- require("mini.hues").setup()
+      require("mini.icons").setup()
+      require("mini.indentscope").setup({
+        options = {
+          indent_at_cursor = false
+        },
+        symbol = "│"
+      })
+      require("mini.jump").setup()
+      require("mini.jump2d").setup()
+      -- require("mini.map").setup()
+      -- require("mini.misc").setup()
+      require("mini.move").setup()
+      -- require("mini.notify").setup()
+      -- require("mini.operators").setup()
+      -- require("mini.pairs").setup()
+      -- require("mini.pick").setup()
+      -- require("mini.sessions").setup()
+      require("mini.splitjoin").setup()
+      -- require("mini.starter").setup()
+      -- require("mini.statusline").setup()
+      -- require("mini.surround").setup()
+      -- require("mini.tabline").setup()
+      -- require("mini.test").setup()
+      require("mini.trailspace").setup()
+      -- require("mini.visits").setup()
+    end,
+  },
+
   -- Breadcrumbs navigation
   {
     "Bekaboo/dropbar.nvim",
