@@ -1,13 +1,14 @@
-uniform float opacity;
-uniform bool invert_color;
-uniform sampler2D tex;
+#version 330
+in vec2 texcoord;
 
-void main() {
-	vec4 c = texture2D(tex, gl_TexCoord[0].xy);
-	float g = (c.r + c.g + c.b) / 3.0;	// EDIT1: Average.
-	c = vec4(vec3(g), c.a);			// EDIT2: Color.
-	if (invert_color)
-		c = vec4(vec3(c.a, c.a, c.a) - vec3(c), c.a);
-	c *= opacity;
-	gl_FragColor = c;
+uniform sampler2D tex;
+uniform float opacity;
+
+vec4 default_post_processing(vec4 c);
+
+vec4 window_shader() {
+	vec4 c = default_post_processing(texelFetch(tex, ivec2(texcoord), 0));
+	float y = dot(c.rgb, vec3(0.2126, 0.7152, 0.0722));
+	c = opacity*vec4(y, y, y, c.a);
+	return c;
 }

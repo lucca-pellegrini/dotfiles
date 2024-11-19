@@ -1,7 +1,9 @@
 #!/bin/sh
 
+set -xe
+
 cp "$(xdg-user-dir PICTURES)"/wallpaper /tmp/wallpaper.bak
-convert /tmp/wallpaper.bak -colorspace gray /tmp/wallpaper
+magick /tmp/wallpaper.bak -colorspace gray /tmp/wallpaper
 setbg /tmp/wallpaper && rm /tmp/wallpaper
 
 reset()
