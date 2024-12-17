@@ -1,7 +1,6 @@
 #!/bin/sh
 
 WM="${WM:-dwm}"
-[ ! "$NOLOCK" ] && slock
 
 # check for previously set theme
 WM_THEME_FILE="${XDG_CONFIG_HOME:-"$HOME/.config"}/wm_theme"
@@ -18,6 +17,7 @@ setxkbmap br,apl -option grp:shift_caps_toggle,compose:menu  & # set xkb opts
 xset s off -dpms                  # do not blank screen automatically
 unclutter --timeout 3 -jitter 50 --ignore-scrolling & # Remove mouse when idle
 warpinator -a & # Autostart warpinator if configured
+[ ! "$NOLOCK" ] && slock
 
 # synaptics touchpad options
 synclient TapButton1=1
