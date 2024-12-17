@@ -188,8 +188,8 @@ local plugins = {
         },
         symbol = "│"
       })
-      require("mini.jump").setup()
-      require("mini.jump2d").setup()
+      -- require("mini.jump").setup() -- Disabled because it breaks `,`
+      -- require("mini.jump2d").setup()
       -- require("mini.map").setup()
       -- require("mini.misc").setup()
       require("mini.move").setup()
