@@ -13,7 +13,7 @@ M.general = {
     ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "Window right" },
 
     -- Fix NvChad overriding jumplist navigation
-    ["<C-i>"] = { "<C-i>", opts = { noremap = true } },
+    ["<C-i>"] = { "<C-i>", "Jumplist forward" },
 
     -- Binding to show LSP Diagnostics
     ["<leader>e"] = {
