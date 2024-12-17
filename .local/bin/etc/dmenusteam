@@ -49,7 +49,7 @@ game_id="$(
 			-F '"' '/"appid|name/{ printf $4 "|" } \
 			END { print "" }' {} \;
 	done |
-		column -t -s '|' | sort -k 2 | uniq | 
+		column -t -s '|' | sort -k 2 | uniq |
 		grep -vE "$EXCLUDE_REGEX" |
 		sed 's/[[:space:]]\+$//' |
 		$DMENU | awk '{print $1}'
