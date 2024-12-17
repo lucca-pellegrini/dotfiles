@@ -4,6 +4,7 @@ local M = {}
 M.general = {
   n = {
     ["<leader>mk"] = { ":make<CR>", "Run GNU Make" },
+    ["<leader>mt"] = { ":!ctags -R .<CR>", "Make ctags" },
 
     -- Fix NvChad overriding vim-tmux-navigator bindings
     ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "Window left" },
