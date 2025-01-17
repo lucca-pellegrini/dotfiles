@@ -34,6 +34,30 @@ local plugins = {
     end,
   },
 
+  -- For case coersion
+  {
+    "tpope/vim-abolish",
+    lazy = false,
+  },
+
+  -- For working with dates
+  {
+    "tpope/vim-speeddating",
+    lazy = false,
+  },
+
+  -- For automatic session management
+  {
+    "tpope/vim-obsession",
+    lazy = false,
+  },
+
+  -- For handling line and column numbers
+  {
+    "wsdjeg/vim-fetch",
+    lazy = false,
+  },
+
   -- Git wrapper
   {
     "tpope/vim-fugitive",
