@@ -21,6 +21,7 @@ opt.virtualedit = "block"      -- Allow virtual editing on blockwise visual
 opt.backspace = "start,indent" -- Backspacing rules
 opt.textwidth = 79             -- By default, lines must be less than 80 columns wide
 opt.path = opt.path + "**"     -- Search all subdirectories recursively with :find
+opt.mousemoveevent = true      -- Enable mouse move events
 
 -- Visual enhancements
 opt.pumblend = 10 -- Pseudo-transparency for the popup menu
