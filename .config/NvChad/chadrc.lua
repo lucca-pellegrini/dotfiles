@@ -16,7 +16,20 @@ M.ui = {
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
     separator_style = "block",
-    overriden_modules = nil,
+
+    overriden_modules = function(modules)
+      local custom_modules = require("custom.configs.statusline")
+
+      -- Iterate over the custom modules
+      for name, func in pairs(custom_modules) do
+        -- Replace the corresponding function in the modules table
+        for i, module in ipairs(modules) do
+          if module:find(name) then
+            modules[i] = func()
+          end
+        end
+      end
+    end,
   },
 
   tabufline = {
