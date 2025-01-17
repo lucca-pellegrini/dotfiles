@@ -9,7 +9,7 @@ Y="${XY#*x}"
 
 NAME="$(xdg-user-dir PICTURES)"/genwall-"$(date +%G-%m-%d_%s.png)"
 
-convert -size "$X"x"$Y" canvas:"$1" -separate -seed 1000 \
+magick -size "$X"x"$Y" canvas:"$1" -separate -seed 1000 \
     -attenuate 0.5 +noise Laplacian -combine -colorspace sRGB "$NAME"
 
 hsetroot -fill "$NAME"
