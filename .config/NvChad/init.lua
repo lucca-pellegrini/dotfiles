@@ -34,8 +34,7 @@ api.nvim_set_hl(0, "ColorColumn", { ctermbg = "black" }) -- Set color to black
 opt.title = true -- Set window title to 'titlestring'
 opt.titlestring = "%{ObsessionStatus()}%m%r%q NeoVim (%n) %f %y %03l:%02c --%p%%--" -- Window title
 opt.titlelen = 50 -- Maximum length of window title
-opt.guicursor =
-"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 g.man_hardwrap = 0 -- Enable dynamic width for :Man pages (may break tables)
 
 -- Enable code folding with Treesitter
