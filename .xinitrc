@@ -28,20 +28,6 @@ synclient CircularScrolling=1 # For greater speed and precision
 synclient VertScrollDelta=-47 # Because it makes more sense
 synclient HorizScrollDelta=-47
 
-# SSH agent
-SSH_EVAL_FILE="${XDG_RUNTIME_DIR:-"$HOME/.cache"}/ssh_agent_eval"
-
-if [ -f "$SSH_EVAL_FILE" ]; then
-	eval "$(cat "$SSH_EVAL_FILE")"
-fi
-
-if [ ! -S "$SSH_AUTH_SOCK" ] \
-	|| [ ! -d "/proc/$SSH_AGENT_PID" ] \
-	|| ! ssh-add -l
-then
-	eval "$(ssh-agent | tee "$SSH_EVAL_FILE")"
-fi
-
 # WM
 unset QT_STYLE_OVERRIDE
 export QT_STYLE_OVERRIDE QT_QPA_PLATFORMTHEME=qt5ct

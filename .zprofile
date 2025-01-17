@@ -79,3 +79,17 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 # Start graphical server on tty1 if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null &&
 	exec env NOLOCK=1 startx
+
+# Start SSH Agent
+SSH_EVAL_FILE="${XDG_RUNTIME_DIR:-"$HOME/.cache"}/ssh_agent_eval"
+
+if [ -f "$SSH_EVAL_FILE" ]; then
+	eval "$(cat "$SSH_EVAL_FILE")"
+fi
+
+if [ ! -S "$SSH_AUTH_SOCK" ] \
+	|| [ ! -d "/proc/$SSH_AGENT_PID" ] \
+	|| ! ssh-add -l
+then
+	eval "$(ssh-agent | tee "$SSH_EVAL_FILE")"
+fi
