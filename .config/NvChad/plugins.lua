@@ -185,7 +185,7 @@ local plugins = {
     lazy = false,
     version = false,
     config = function()
-      require("mini.align").setup()
+      -- require("mini.align").setup() -- Disabled temorarily because I need `ga`
       -- require("mini.animate").setup()
       -- require("mini.base16").setup()
       -- require("mini.basics").setup()
