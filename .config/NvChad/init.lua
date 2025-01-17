@@ -77,6 +77,18 @@ api.nvim_create_autocmd({ "FileType" }, {
   command = "setlocal noet ci pi ts=8 sts=8 sw=8 sts=0",
 })
 
+----------------------------------- Providers -------------------------------------------
+-- Python
+g.python3_host_prog = '/usr/bin/python'
+g.loaded_python3_provider = 1
+
+-- Node.js
+g.node_host_prog = os.getenv("XDG_DATA_HOME")
+  .. "/nvm/versions/node/"
+  .. io.popen("node -v"):read("*a"):gsub("\n", "")
+  .. "/bin/neovim-node-host"
+g.loaded_node_provider = 1
+
 -------------------------------------- LSP ----------------------------------------------
 -- Auto-show diagnostics on hover
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
