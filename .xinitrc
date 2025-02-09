@@ -43,6 +43,7 @@ dwmbar &
 # set environment for user systemd units
 /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 systemctl --user import-environment SSH_AGENT_PID SSH_AUTH_SOCK
+systemctl --user restart sunshine
 
 $X11PROGS &
 exec "$WM"
