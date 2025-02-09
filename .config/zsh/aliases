@@ -11,19 +11,20 @@ alias mv='mv -iv'
 alias rm='rm -v'
 alias mkd='mkdir -pv'
 
-alias ls='ls --color=always'
-alias l="ls -lFh"          # Size, type, human readable.
-alias la="ls -lAFh"        # Long list, show almost all, type, human readable.
-alias lr="ls -tRFh"        # Sort by date, recursive, type, human readable.
-alias lt="ls -ltFh"        # Long list, sort by date, type, human readable.
-alias ll="ls -l"           # Long list.
-alias ldot="ls -ld .*"     # Dotfiles.
-alias lS="ls -1FSsh"       # Show size, name. Sort by size.
-alias lart="ls -1Fcart"    # All files, oldest first.
-alias lrt="ls -1Fcrt"      # Oldest first.
-alias ltree="ls -lFhR"     # Similar to 'l', but recursive.
-alias lltree="tree -pFCsh" # Similar to ltree, but prettier
-alias latree="ls -lAFhR"   # Similar to 'la', but recursive.
+alias ls='eza'
+alias l="ls -lF always"              # Size, type.
+alias la="ls -lAF always"            # Long list, show almost all, type.
+alias lr="ls -RF always --sort=date" # Sort by date, recursive, type.
+alias lt="ls -lF --sort=date"        # Long list, sort by date, type.
+alias ll="ls -l"                     # Long list.
+function ldot() {                    # Dotfiles
+	test $# -lt 1 && set .
+	for d; do echo "${d}"/.*; done | xargs eza -ldF always
+}
+alias l.=ldot
+alias lS="ls -lF always --sort=size --total-size" # Show size, name. Sort by size.
+alias ltree="l -R --tree"                         # Similar to 'l', but recursive.
+alias latree="la -R --tree"                       # Similar to 'la', but recursive.
 
 # programs
 alias ir='irssi --home "$XDG_CONFIG_HOME"/irssi'
