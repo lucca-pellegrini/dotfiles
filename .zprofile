@@ -77,10 +77,6 @@ export EZA_ICONS_AUTO=1
 
 [ ! -f ~/.config/zsh/shortcutrc ] && shortcuts >/dev/null 2>&1
 
-# Start graphical server on tty1 if not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null &&
-	exec env NOLOCK=1 startx
-
 # Start SSH Agent
 SSH_EVAL_FILE="${XDG_RUNTIME_DIR:-"$HOME/.cache"}/ssh_agent_eval"
 
@@ -90,7 +86,12 @@ fi
 
 if [ ! -S "$SSH_AUTH_SOCK" ] \
 	|| [ ! -d "/proc/$SSH_AGENT_PID" ] \
-	|| ! ssh-add -l
+	|| [ "$(ssh-add -l > /dev/null 2>&1; echo $?)" -eq 2 ]
 then
-	eval "$(ssh-agent | tee "$SSH_EVAL_FILE")"
+	eval "$(ssh-agent | grep -v echo | tee "$SSH_EVAL_FILE")"
+fi
+
+# Start graphical server on tty1 if not already running.
+if [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null; then
+	exec env NOLOCK=1 startx #-- -config /etc/X11/xorg.conf.d/10-monitor.conf
 fi
