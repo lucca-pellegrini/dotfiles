@@ -45,5 +45,10 @@ dwmbar &
 systemctl --user import-environment SSH_AGENT_PID SSH_AUTH_SOCK
 systemctl --user restart sunshine
 
+# Uncomment the lines below to start Gnome
+# export XDG_SESSION_TYPE=x11
+# export GDK_BACKEND=x11
+# exec gnome-session
+
 $X11PROGS &
 exec "$WM"
