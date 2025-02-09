@@ -2,7 +2,12 @@
 ## Install dependencies
 Packages from official arch repositories:
 ```sh
-sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool xdg-user-dirs sxiv urxvt vifm tmux neomutt abook neovim zathura zathura-pdf-mupdf mpd mpc ncmpcpp alsa-utils pulseaudio pulseaudio-alsa ffmpeg maim transmission-cli zsh zsh-syntax-highlighting xorg-xinit xorg-server xorg-ssetroot lsof unclutter pacman-contrib pipewire-{alsa,jack,pulse} alsa-utils xwallpaper
+sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool         \
+    xdg-user-dirs sxiv urxvt vifm tmux neomutt abook neovim zathura         \
+    zathura-pdf-mupdf mpd mpc ncmpcpp alsa-utils pulseaudio pulseaudio-alsa \
+    ffmpeg maim transmission-cli zsh zsh-syntax-highlighting xorg-xinit     \
+    xorg-server xorg-ssetroot lsof unclutter pacman-contrib                 \
+    pipewire-{alsa,jack,pulse} alsa-utils xwallpaper eza
 ```
 ## Setup dotfiles
 Download dotfiles
