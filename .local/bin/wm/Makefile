@@ -1,12 +1,12 @@
+BIN = getxkbmap
+
 CC = c99
 CFLAGS = -Wall -Wextra -pedantic
+LDFLAGS = -lX11 -lxkbfile
 
 .PHONY: all
-all: getxkbmap
+all: $(BIN)
 
 .PHONY: clean
 clean:
-	$(RM) getxkbmap
-
-getxkbmap: getxkbmap.c
-	$(CC) $(CFLAGS) -o getxkbmap -lX11 -lxkbfile getxkbmap.c
+	$(RM) $(BIN)
