@@ -51,7 +51,7 @@ bindkey -M vicmd '/' history-incremental-search-forward
 #
 setopt NO_NOMATCH        # disable globbing
 setopt complete_in_word
-autoload -U compinit && compinit -u
+# autoload -U compinit && compinit -u
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 zstyle ':completion:*' special-dirs true
@@ -234,8 +234,35 @@ if [ -f /opt/asdf-vm/asdf.sh ]; then
 	source /opt/asdf-vm/asdf.sh
 fi
 
-# Add and initialize the pure prompt
-fpath+=("${ZDOTDIR}/pure")
-autoload -U promptinit; promptinit
-prompt pure
-zstyle :prompt:pure:git:stash show yes
+# Load vnm
+export NVM_DIR="${XDG_DATA_HOME:-$HOME/.local/share}"/nvm
+# source /usr/share/nvm/init-nvm.sh
+# source "${ZDOTDIR}/nvm/zsh-nvm.plugin.zsh"
+
+# # Add and initialize the pure prompt
+# fpath+=("${ZDOTDIR}/pure")
+# autoload -U promptinit; promptinit
+# prompt pure
+# zstyle :prompt:pure:git:stash show yes
+
+### Zim Framework
+
+# Zim installation and config location
+ZIM_CONFIG_FILE="$ZDOTDIR/zimrc"
+ZIM_HOME="$ZDOTDIR/zim"
+
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+	curl -fsSL --create-dirs -o "${ZIM_HOME}/zimfw.zsh" \
+		'https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh'
+fi
+
+# Install missing modules and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
+	source "${ZIM_HOME}/zimfw.zsh" init
+fi
+
+# Initialize modules.
+source "${ZIM_HOME}/init.zsh"
+
+MNML_USER_CHAR='$'
