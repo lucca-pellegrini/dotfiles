@@ -9,6 +9,13 @@ sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool         \
     xorg-server xorg-ssetroot lsof unclutter pacman-contrib                 \
     pipewire-{alsa,jack,pulse} alsa-utils xwallpaper eza rustup
 ```
+
+## Install Cargo programs
+```sh
+rustup default stable
+cargo install broot skim
+```
+
 ## Setup dotfiles
 Download dotfiles
 ```sh
@@ -83,11 +90,6 @@ To display colorful emoji in dmenu you need `libxft-bgra`.
 ```sh
 systemctl --user daemon-reload
 systemctl --user enable {checkupdates,newsboat}.timer
-```
-
-## Install Cargo programs
-```sh
-cargo install broot skim
 ```
 
 ## Finished
