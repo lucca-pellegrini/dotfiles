@@ -5,8 +5,8 @@ local M = {}
 local highlights = require("custom.highlights")
 
 M.ui = {
-  theme = "vscode_dark",
-  theme_toggle = { "one_light", "vscode_dark" },
+  theme = "pastelbeans",
+  theme_toggle = { "one_light", "pastelbeans" },
 
   hl_override = highlights.override,
   hl_add = highlights.add,
