@@ -12,7 +12,7 @@
 [core]
 	quotepath = false
 	commitGraph = true
-	pager = nvim -R
+	pager = less -F -+X
 [gc]
 	writeCommitGraph = true
 [alias]
