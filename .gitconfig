@@ -13,6 +13,8 @@
 	quotepath = false
 	commitGraph = true
 	pager = less -F -+X
+	fsmonitor = true
+	untrackedCache = true
 [gc]
 	writeCommitGraph = true
 [alias]
@@ -24,10 +26,13 @@
 	helper = store
 [commit]
 	gpgsign = true
+	verbose = true
 [tag]
 	gpgSign = true
+	sort = version:refname
 [push]
 	followTags = true
+	autoSetupRemote = true
 [sendemail]
 	smtpserver = mail.ecloud.global
 	smtpuser = luccapellegrini@e.email
@@ -42,7 +47,18 @@
 	rebase = false
 [diff]
 	algorithm = histogram
+	colorMoved = plain
+	mnemonicprefix = true
+	renames = copy
 [checkout]
 	defaultRemote = origin
 [stash]
 	showPatch = true
+[column]
+	ui = auto
+[branch]
+	sort = committerdate
+[help]
+	autocorrect = 20
+[merge]
+	conflictstyle = zdiff3
