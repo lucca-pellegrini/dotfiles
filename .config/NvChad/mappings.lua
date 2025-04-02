@@ -67,6 +67,34 @@ M.dap = {
       end,
       "Open debugging sidebar",
     },
+    ["<leader>dlp"] = {
+      function()
+        require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+      end,
+      "Add log point at line",
+    },
+    ["<leader>dcp"] = {
+      function()
+        require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+      end,
+      "Add conditional breakpoint at line",
+    },
+    ["<F5>"] = {
+      "<cmd> DapContinue <CR>",
+      "Start or continue debugger",
+    },
+    ["<F10>"] = {
+      "<cmd> DapStepOver <CR>",
+      "Step Over",
+    },
+    ["<F11>"] = {
+      "<cmd> DapStepInto <CR>",
+      "Step Into",
+    },
+    ["<F12>"] = {
+      "<cmd> DapStepOut <CR>",
+      "Step Out",
+    },
   },
 }
 
