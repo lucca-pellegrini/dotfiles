@@ -7,12 +7,12 @@ sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool         \
     zathura-pdf-mupdf mpd mpc ncmpcpp alsa-utils pulseaudio pulseaudio-alsa \
     ffmpeg maim transmission-cli zsh zsh-syntax-highlighting xorg-xinit     \
     xorg-server xorg-ssetroot lsof unclutter pacman-contrib                 \
-    pipewire-{alsa,jack,pulse} alsa-utils xwallpaper eza
+    pipewire-{alsa,jack,pulse} alsa-utils xwallpaper eza rustup
 ```
 ## Setup dotfiles
 Download dotfiles
 ```sh
-git clone --bare https://git.verticordia.com:11680/pellegrini/dotfiles.git ~/.config/dots-git
+git clone --bare https://github.com/lucca-pellegrini/dotfiles.git ~/.config/dots-git
 alias dots='git --git-dir=$HOME/.config/dots-git/ --work-tree=$HOME'
 dots checkout
 dots submodule update --init --recursive
@@ -83,6 +83,11 @@ To display colorful emoji in dmenu you need `libxft-bgra`.
 ```sh
 systemctl --user daemon-reload
 systemctl --user enable {checkupdates,newsboat}.timer
+```
+
+## Install Cargo programs
+```sh
+cargo install broot skim
 ```
 
 ## Finished
