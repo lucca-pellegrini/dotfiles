@@ -8,7 +8,7 @@
 	branch = auto
 	interactive = auto
 	ui = true
-	pager = no
+	pager = true
 [core]
 	quotepath = false
 	commitGraph = true
