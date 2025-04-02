@@ -161,6 +161,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_a,      spawn,          SHCMD("dmenuaudio") },
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("dmenusteam") },
 	{ MODKEY|ShiftMask,             XK_F12,    spawn,          SHCMD("steam -shutdown") },
+	{ MODKEY,                       XK_Pause,  spawn,          SHCMD("nyrna --toggle") },
 
 	/* media */
 	{ (unsigned int)NULL,           XF86XK_AudioMute, spawn,   SHCMD("amixer sset Master toggle") },
