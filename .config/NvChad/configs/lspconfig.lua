@@ -10,6 +10,7 @@ local servers = {
   "ast_grep",
   "cssls",
   "html",
+  "lemminx",
   "pyright",
   "rust_analyzer",
   "texlab",
