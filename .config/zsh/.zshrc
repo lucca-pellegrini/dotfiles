@@ -266,3 +266,5 @@ fi
 source "${ZIM_HOME}/init.zsh"
 
 MNML_USER_CHAR='$'
+
+source /home/luc/.config/broot/launcher/bash/br
