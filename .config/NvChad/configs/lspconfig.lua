@@ -10,7 +10,6 @@ local servers = {
   "ast_grep",
   "cssls",
   "html",
-  "jdtls",
   "pyright",
   "rust_analyzer",
   "texlab",
@@ -81,4 +80,24 @@ lspconfig.ltex.setup({
 -- Bash Language Server
 lspconfig.bashls.setup({
   filetypes = { "sh", "bash", "zsh" },
+})
+
+-- -- Java Language Server
+lspconfig.jdtls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "java" },
+  settings = {
+    java = {
+      configuration = {
+        runtimes = {
+          {
+            name = "JavaSE-23",
+            path = "/usr/lib/jvm/java-23-openjdk",
+            default = true,
+          },
+        }
+      }
+    }
+  }
 })

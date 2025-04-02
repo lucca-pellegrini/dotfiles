@@ -61,11 +61,11 @@ api.nvim_create_autocmd({ "TextYankPost" }, {
 
 -- Filetype rules
 api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "tex" },
+  pattern = { "tex", "java" },
   command = "setlocal noet ts=4 sts=4 sw=4", -- Tabs, 4
 })
 api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "python", "lilypond", "java", "cs" },
+  pattern = { "python", "lilypond", "cs" },
   command = "setlocal et ts=4 sts=4 sw=4", -- Spaces, 4
 })
 api.nvim_create_autocmd({ "FileType" }, {

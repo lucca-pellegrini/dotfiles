@@ -299,7 +299,122 @@ local plugins = {
     end,
   },
 
+  -- Java debugger and integration
+  {
+    "nvim-java/nvim-java",
+    lazy = false,
+    dependencies = {
+      "nvim-java/lua-async-await",
+      "nvim-java/nvim-java-core",
+      "nvim-java/nvim-java-dap",
+      "nvim-java/nvim-java-refactor",
+      "nvim-java/nvim-java-test",
+      "MunifTanjim/nui.nvim",
+      "neovim/nvim-lspconfig",
+      "mfussenegger/nvim-dap",
+      {
+        "williamboman/mason.nvim",
+        opts = {
+          registries = {
+            "github:nvim-java/mason-registry",
+            "github:mason-org/mason-registry",
+          },
+        },
+      },
+    },
+    config = function()
+      require("java").setup({
+        jdk = {
+          auto_install = false,
+          version = "23.0.2",
+        },
+        jdtls = {
+          version = "v1.44.0",
+        },
+      })
+      require("lspconfig").jdtls.setup({
+        on_attach = require("plugins.configs.lspconfig").on_attach,
+        capabilities = require("plugins.configs.lspconfig").capabilities,
+        filetypes = { "java" },
+        settings = {
+          java = {
+            configuration = {
+              runtimes = {
+                {
+                  name = "JavaSE-23",
+                  path = "/usr/lib/jvm/java-23-openjdk",
+                  default = true,
+                },
+              },
+            },
+          },
+        },
+      })
+    end,
+  },
+
+  --[[ {
+    "mfussenegger/nvim-jdtls",
+    ft = "java",
+    event = "LspAttach",
+  }, ]]
+
   -- Language-specific plugins
+
+  -- SonarLint support
+  {
+    "https://gitlab.com/schrieveslaach/sonarlint.nvim",
+    ft = {
+      "js",
+      "ts",
+      "css",
+      "html",
+      "python",
+      "php",
+      "go",
+      "ruby",
+      "kotlin",
+      "cobol",
+      "c",
+      "cs",
+      "python",
+      "cpp",
+      "java",
+    },
+    config = function()
+      require("sonarlint").setup({
+        server = {
+          cmd = {
+            "sonarlint-language-server",
+            -- Ensure that sonarlint-language-server uses stdio channel
+            "-stdio",
+            "-analyzers",
+            -- paths to the analyzers you need, using those for python and java in this example
+            vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarpython.jar"),
+            vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarcfamily.jar"),
+            vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
+          },
+        },
+        filetypes = {
+          "js",
+          "ts",
+          "css",
+          "html",
+          "python",
+          "php",
+          "go",
+          "ruby",
+          "kotlin",
+          "cobol",
+          "c",
+          "cs",
+          "python",
+          "cpp",
+          "java",
+        },
+      })
+    end,
+  },
 
   -- Go tooling support
   {

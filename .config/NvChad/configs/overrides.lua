@@ -48,6 +48,9 @@ M.mason = {
     -- "goimports_reviser",
     "golines",
     "delve",
+
+    -- Java
+    "sonarlint-language-server",
   },
 }
 
