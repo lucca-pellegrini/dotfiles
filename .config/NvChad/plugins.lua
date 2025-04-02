@@ -481,6 +481,30 @@ local plugins = {
     },
   },
 
+  -- Flutter support
+  {
+    "nvim-flutter/flutter-tools.nvim",
+    ft = "dart",
+    config = function()
+      require("flutter-tools").setup({
+        debugger = {
+          enabled = true,
+        },
+        dev_log = {
+          enabled = true,
+        },
+        dev_tools = {
+          autostart = true,
+        },
+        lsp = {
+          color = {
+            enabled = true,
+          },
+        },
+      })
+    end,
+  },
+
   -- Pkl language support
   {
     "apple/pkl-neovim",
