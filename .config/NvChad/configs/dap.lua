@@ -1,6 +1,13 @@
 local dap = require("dap")
 local mr = require("mason-registry")
 
+-- Set icons and colors
+vim.fn.sign_define('DapBreakpoint', { text='', texthl='DiagnosticSignError', numhl='DiagnosticSignError' })
+vim.fn.sign_define('DapBreakpointCondition', { text='', texthl='DiagnosticSignInfo', numhl='DiagnosticSignInfo' })
+vim.fn.sign_define('DapBreakpointRejected', { text='', texthl='DiagnosticSignWarn', numhl= 'DiagnosticSignWarn' })
+vim.fn.sign_define('DapLogPoint', { text='', texthl='DiagnosticSignHint', numhl= 'DiagnosticSignHint' })
+vim.fn.sign_define('DapStopped', { text='', texthl='DiagnosticWARNReverse', linehl='DiagnosticWARNReverse', numhl= 'DiagnosticWARNReverse' })
+
 dap.adapters.codelldb = {
   type = "executable",
   name = "codelldb",
