@@ -94,7 +94,7 @@ local plugins = {
     opts = {
       provider = "openai",
       openai = {
-        api_key_name = {"pass", "net/api/openai"},
+        api_key_name = { "pass", "net/api/openai" },
       },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
@@ -105,9 +105,9 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "hrsh7th/nvim-cmp",          -- autocompletion for avante commands and mentions
+      "hrsh7th/nvim-cmp",         -- autocompletion for avante commands and mentions
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua",    -- for providers='copilot'
+      "zbirenbaum/copilot.lua",   -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
@@ -127,7 +127,7 @@ local plugins = {
       },
       {
         -- Make sure to set this up properly if you have lazy=true
-        'MeanderingProgrammer/render-markdown.nvim',
+        "MeanderingProgrammer/render-markdown.nvim",
         opts = {
           file_types = { "markdown", "Avante" },
         },
@@ -208,9 +208,9 @@ local plugins = {
       require("mini.icons").setup()
       require("mini.indentscope").setup({
         options = {
-          indent_at_cursor = false
+          indent_at_cursor = false,
         },
-        symbol = "│"
+        symbol = "│",
       })
       -- require("mini.jump").setup() -- Disabled because it breaks `,`
       -- require("mini.jump2d").setup()
