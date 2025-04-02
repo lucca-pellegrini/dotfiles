@@ -12,7 +12,7 @@ dap.adapters.codelldb = {
   type = "executable",
   name = "codelldb",
   -- path = mr.get_package("codelldb"):get_install_path() .. "/codelldb", --"/extension/adapter/codelldb",
-  command = "lldb-vscode",
+  command = "codelldb",
 }
 
 dap.configurations.c = {
