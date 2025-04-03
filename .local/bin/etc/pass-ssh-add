@@ -1,0 +1,38 @@
+#!/usr/bin/expect -f
+
+# Check for the correct number of arguments
+if {[llength $argv] != 2} {
+    puts "Usage: $argv0 <key_path> <pass_entry>"
+    exit 1
+}
+
+# Check SSH agent connection
+if {
+	![file exists $env(SSH_AUTH_SOCK)]
+	|| [string compare [file type $env(SSH_AUTH_SOCK)] "socket"] != 0
+	|| ![file exists "/proc/$env(SSH_AGENT_PID)"]
+	|| [catch {exec ssh-add -l} result] && $result == 2
+} {
+	puts "Error: Failed to connect to ssh-agent. Please make sure it's running and the correct environment variables are set."
+	exit 1
+}
+
+# Get the arguments
+set key_path [lindex $argv 0]
+set pass_entry [lindex $argv 1]
+
+# Retrieve the passphrase using the pass command
+set passphrase [exec pass show $pass_entry]
+
+# Start the ssh-add command
+spawn ssh-add $key_path
+
+# Look for the passphrase prompt and send the passphrase
+expect {
+    "Enter passphrase for $key_path:" {
+        send "$passphrase\r"
+    }
+}
+
+# Interact allows ssh-add to continue running
+interact
