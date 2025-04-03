@@ -1,0 +1,27 @@
+#!/usr/bin/env expect
+
+# Disable logging to prevent echoing
+log_user 0
+
+# Set the password and file path variables
+set password [exec pass root]
+set file_path "$env(HOME)/Documents/Passwords.kdbx"
+
+# Start the keepassxc-cli command
+spawn keepassxc-cli open $file_path
+
+# Look for the password prompt and send the password
+expect "Enter password to unlock $file_path: "
+send "$password\r"
+
+# Send any additional arguments to the keepassxc-cli session
+if {[llength $argv] > 0} {
+	foreach arg $argv {
+		send "$arg\r"
+	}
+
+	send "exit\r"
+}
+
+# Interact with the keepassxc-cli session
+interact

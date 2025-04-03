@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+~/.local/bin/etc/kpcli "show -s \"$*\"" |
+	awk '$1 == "Password:" { print substr($0, index($0, $2)) }'
