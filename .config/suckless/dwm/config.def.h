@@ -157,6 +157,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("passmenu2 --type") },
 	{ MODKEY|ShiftMask,             XK_g,      spawn,          SHCMD("genpass") },
 	{ MODKEY|ControlMask,           XK_g,      spawn,          SHCMD("genpass '' bex base58 -w0") },
+	{ MODKEY|ALTKEY,                XK_g,      spawn,          SHCMD("gendicewarepass") },
 	{ MODKEY|ControlMask,           XK_c,      spawn,          SHCMD("dmenucloak") },
 	{ MODKEY|ControlMask,           XK_a,      spawn,          SHCMD("dmenuaudio") },
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("dmenusteam") },

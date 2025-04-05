@@ -1,0 +1,46 @@
+#!/usr/bin/env sh
+#
+# Generate a diceware passphrase
+#
+
+set -e
+
+if [ "$1" = '-h' ] || [ "$1" = '--help' ]; then
+	printf 'Usage %s: <NUM_WORDS> [SEPARATOR [THRESHOLD]]\n' "$0"
+	printf 'Where NUM_WORDS is the number of words for the passphrase.\n'
+	printf 'SEPARATOR is the string used to separate words, PascalCase if empty.\n'
+	printf '\tDefault: "-"\n'
+	printf 'and THRESHOLD is the minimum frequency of words to be considered.\n'
+	printf '\tDefault = 1000000 (one million)\n'
+	exit 0
+fi
+
+nwords="${1:-5}"
+test $# -ge 1 && shift 1
+separator="${1:--}"
+test $# -ge 1 && shift 1
+threshold="${*:-1000000}"
+
+tmpf="$(mktemp "/tmp/$(basename "$0").XXXXXXXXXXXXXXXX.seed")"
+dd if=/dev/urandom bs=40k count=1 2>/dev/null |
+		tr -cd '0-9' |
+		tr -d '\n' |
+		awk '{print substr($0, 1, 9)}' > "$tmpf" # Log10(2^32-1) = 9.632
+cat "$tmpf"
+
+pass="$(diceware 1 "$nwords" "$separator" "$threshold" "$tmpf")"
+
+rm "$tmpf"
+
+if [ -z "$pass" ]; then
+	notify-send '🚫 Passphrase generation failed.' &
+	exit 1
+else
+	notify-send '🗝 Passphrase generated.' "$pass" &
+	if [ -n "$DISPLAY" ]; then
+		printf '%s' "$pass" | xclip -sel clip 2>/dev/null
+	fi
+	printf '%s\n' "$pass"
+	exit 0
+fi
+
