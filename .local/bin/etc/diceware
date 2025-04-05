@@ -1,0 +1,144 @@
+#!/usr/bin/awk -f
+
+# Function to capitalize the first letter of a word
+function capitalize(word) {
+	return toupper(substr(word, 1, 1)) substr(word, 2);
+}
+
+# Function to concatenate words with a specified separator
+function concatenate_words(words, separator, num_words) {
+	result = "";
+	for (k = 1; k <= num_words; k++) {
+		if (k > 1) {
+			result = result separator;
+		}
+		result = result words[k];
+	}
+	return result;
+}
+
+BEGIN {
+	# Constants
+	file = "/tmp/wordsFreq.json"
+	url = "https://github.com/harshnative/words-dataset/raw/19950c3/wordsFreq.json"
+	expected_b3sum = "eabf5cfc581bba099aa62ed2cad49345e520a86c61e39ac6f0e33777ba2d33b2"
+
+	# Check if the file already exists
+	if (system("stat " file " > /dev/null 2>&1") != 0) {
+		print "File not present. Downloading..." > "/dev/stderr"
+		# Download the file if it does not exist
+		if (system("curl -Lso " file " " url) != 0) {
+			print "Failed to download wordsFreq.json" > "/dev/stderr"
+			exit 1
+		}
+
+		# Verify the file
+		print "Validating checksum..." > "/dev/stderr"
+		"b3sum " file "" | getline actual_b3sum
+		close("b3sum " file)
+
+		if (actual_b3sum !~ expected_b3sum) {
+			print "b3sum verification failed!" > "/dev/stderr"
+			exit 1
+		}
+	}
+
+	# Check if the correct number of arguments is provided
+	if (ARGC < 3) {
+		print "Usage: " ARGV[0] " <numPasswords> <N> [threshold_freq] [separator]" > "/dev/stderr"
+		exit 1
+	}
+
+	numPasswords = ARGV[1]; # Read the number of passwords from the first argument
+	N = ARGV[2]; # Read N from the second argument
+
+	# Check if separator is provided
+	if (ARGC > 3) {
+		separator = ARGV[3]; # Read separator from the fourth argument
+		delete ARGV[3];
+	} else {
+		separator = ""; # Default to empty string
+	}
+
+	# Check if threshold_freq is provided, otherwise use default
+	if (ARGC > 4) {
+		threshold_freq = ARGV[4]; # Read threshold_freq from the third argument
+		delete ARGV[4];
+	} else {
+		threshold_freq = 1000000; # Default threshold frequency
+	}
+
+	if (ARGC > 5) {
+		# Read the seed from the file specified by ARGV[5]
+		seed_file = ARGV[5];
+		if ((getline seed < seed_file) > 0) {
+			srand(int(seed));
+		} else {
+			print "Failed to read seed from file: " seed_file > "/dev/stderr";
+			exit 1;
+		}
+		close(seed_file);
+		delete ARGV[5];
+		delete ARGV[5];
+	} else {
+		srand();
+	}
+
+	# Remove the first and second arguments from ARGV so they don't interfere with getline
+	delete ARGV[1];
+	delete ARGV[2];
+
+	print "Initiating procedure..." > "/dev/stderr"
+
+	# Check if the processed words file exists
+	processed_file = "/tmp/processedWords_" threshold_freq ".txt"
+	if (system("stat " processed_file " > /dev/null 2>&1") != 0) {
+		print "Processing words..." > "/dev/stderr"
+		# Open the file for reading
+		while ((getline < file) > 0) {
+			# Parse the JSON and extract words and frequencies
+			match($0, /"([^"]+)": ([0-9]+)/, arr);  # Match the key-value pairs
+			word = arr[1];  # The word
+			freq = arr[2];  # The frequency
+
+			if (freq > threshold_freq) {
+				wordArray[++total_lines] = word;  # Store the word if above threshold
+			}
+
+			# Clear the array for the next line
+			delete arr;
+		}
+		close(file)
+
+		# Write the processed words to a file
+		print "Writing processed words to file..." > "/dev/stderr"
+		for (i = 1; i <= total_lines; i++) {
+			print wordArray[i] > processed_file
+		}
+		close(processed_file)
+		print "Lines processed..." > "/dev/stderr"
+	} else {
+		print "Reading processed words from file..." > "/dev/stderr"
+		# Read the processed words from the file
+		while ((getline word < processed_file) > 0) {
+			wordArray[++total_lines] = word
+		}
+		close(processed_file)
+	}
+
+	print "Generating passwords..." > "/dev/stderr"
+
+	# Generate phrases
+	for (i = 1; i <= numPasswords; i++) {
+		phrase = "";
+		for (j = 1; j <= N; j++) {
+			rand_index = int(rand() * total_lines) + 1;  # Generate a random index
+			word = wordArray[rand_index];  # Select a word
+			if (separator == "") {
+				word = capitalize(word);  # Capitalize the first letter of the word if no separator
+			}
+			phraseArray[j] = word;  # Store the word in the phrase array
+		}
+		print concatenate_words(phraseArray, separator, N);
+	}
+}
