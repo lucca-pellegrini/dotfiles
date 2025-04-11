@@ -155,6 +155,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_w,      spawn,          SHCMD("blaze -s") },
 	{ MODKEY|ControlMask,           XK_Delete, spawn,          SHCMD("dmenureload") },
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("passmenu2 --type") },
+	{ MODKEY|ControlMask,           XK_k,      spawn,          SHCMD("keepassmenu") },
 	{ MODKEY|ShiftMask,             XK_g,      spawn,          SHCMD("genpass") },
 	{ MODKEY|ControlMask,           XK_g,      spawn,          SHCMD("genpass '' bex base58 -w0") },
 	{ MODKEY|ALTKEY,                XK_g,      spawn,          SHCMD("gendicewarepass") },

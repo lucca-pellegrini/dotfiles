@@ -1,0 +1,72 @@
+#!/usr/bin/env sh
+
+# Configuration
+CACHE_DIR="${XDG_RUNTIME_DIR:-$HOME/.cache}"
+CACHE_FILE="$CACHE_DIR/kpcli_cache.txt"
+DB_FILE="$HOME/Documents/Passwords.kdbx"
+CACHE_MAX_AGE=3600
+
+# Ensure the cache directory exists
+mkdir -p "$CACHE_DIR"
+
+# Function to refresh the cache
+refresh_cache() {
+	notify-send "$(basename "$0")" "$(echo "Updating password listing..." | tee /dev/stderr)" &
+
+	kpcli 'ls -R' | perl -ne '
+		BEGIN { @path = (); }
+		# Remove carriage returns and control sequences
+		s/\r//g;
+		s/\e\[[0-9;]*[a-zA-Z]//g;  # Remove ANSI escape sequences
+		s/\e\][^\a]*\a//g;         # Remove OSC (Operating System Command) sequences
+		# s/[^\x20-\x7E]//g;         # Remove any remaining non-printable characters
+
+		# Skip lines that are part of the command prompt or exit
+		next if /^Passwords>/ || /^exit$/ || /^(Recycle Bin|Templates)\// || /\[empty\]/;
+
+		# Match lines with indentation
+		if (/^(\s*)(\S.*)$/) {
+		    my $level = length($1) / 2;  # Calculate the level based on indentation
+		    $path[$level] = $2;          # Set the current level in the path
+		    $#path = $level;             # Truncate deeper levels
+		    my $full_path = join("/", @path);
+		    $full_path =~ s|//+|/|g;     # Replace multiple slashes with a single slash
+		    print "$full_path\n";
+		}
+	' | grep -vE '(ls -R|Passwords>|Passwords$|^[^a-zA-Z]*$|^.*\[.*l$|.*/$)' > "$CACHE_FILE"
+}
+
+# Check cache validity
+if [ -f "$CACHE_FILE" ]; then
+	CACHE_AGE=$(( $(date +%s) - $(stat -c %Y "$CACHE_FILE") ))
+	DB_MOD_TIME=$(stat -c %Y "$DB_FILE")
+	CACHE_MOD_TIME=$(stat -c %Y "$CACHE_FILE")
+
+	if [ "$CACHE_AGE" -gt "$CACHE_MAX_AGE" ] || [ "$DB_MOD_TIME" -gt "$CACHE_MOD_TIME" ]; then
+		refresh_cache
+	fi
+else
+    # Cache file doesn't exist, create it
+    refresh_cache
+fi
+
+# Read entries from cache
+entries=$(cat "$CACHE_FILE")
+
+# Use dmenu to let the user select an entry
+selected_entry=$(printf '%s\n' "$entries" | $DMENU -w 768)
+
+# Exit if no entry is selected
+[ -z "$selected_entry" ] && exit
+
+# Get the password for the selected entry
+entry="$(kpcli "show -s \"$selected_entry\"")"
+username=$(printf %s "$entry" | perl -ne 's/^UserName:\s*// && s/[\r\n]+$// && print;')
+password=$(printf %s "$entry" | perl -ne 's/^Password:\s*// && s/[\r\n]+$// && print;')
+
+# Copy the password to the clipboard
+printf %s "$username" | xclip -sel prim -r
+printf %s "$password" | xclip -sel clip -r
+
+# Notify the user
+notify-send "Password copied to clipboard" "$selected_entry"
