@@ -3,6 +3,7 @@
 # Configuration
 CACHE_DIR="${XDG_RUNTIME_DIR:-$HOME/.cache}"
 CACHE_FILE="$CACHE_DIR/kpcli_cache.txt"
+LAST_ENTRY_FILE="$CACHE_DIR/kpcli_last_entry.txt"
 DB_FILE="$HOME/Documents/Passwords.kdbx"
 CACHE_MAX_AGE=3600
 
@@ -60,9 +61,18 @@ selected_entry=$(printf '%s\n' "$entries" | $DMENU -w 768)
 [ -z "$selected_entry" ] && exit
 
 # Get the password for the selected entry
-entry="$(kpcli "show -s \"$selected_entry\"")"
+entry="$(kpcli "show --all -s \"$selected_entry\"")"
 username=$(printf %s "$entry" | perl -ne 's/^UserName:\s*// && s/[\r\n]+$// && print;')
 password=$(printf %s "$entry" | perl -ne 's/^Password:\s*// && s/[\r\n]+$// && print;')
+
+
+# If there's OTP set up, save entry name to a temporary file, for `keepassotp`
+if printf '%s' "$entry" | grep -qE '^otp:\s'; then
+	printf %s "$selected_entry" > "$LAST_ENTRY_FILE"
+else
+	# If there isn't, remove the file
+	test -f "$LAST_ENTRY_FILE" && rm "$LAST_ENTRY_FILE"
+fi
 
 # Copy the password to the clipboard
 printf %s "$username" | xclip -sel prim -r

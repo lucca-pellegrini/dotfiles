@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+# Configuration
+CACHE_DIR="${XDG_RUNTIME_DIR:-$HOME/.cache}"
+LAST_ENTRY_FILE="$CACHE_DIR/kpcli_last_entry.txt"
+
+if [ ! -f "$LAST_ENTRY_FILE" ]; then
+	notify-send "🚫 $(echo "Last entry has no OTP" | tee /dev/stderr)"
+	exit
+fi
+
+
+entry="$(cat "$LAST_ENTRY_FILE")"
+kpcli "show -t \"$entry\"" | grep -oE '[0-9]{6}' | xclip -sel clip -r
+notify-send "  OTP copied to clipboard" "$entry"
