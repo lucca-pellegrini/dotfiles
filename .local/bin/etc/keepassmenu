@@ -11,7 +11,7 @@ mkdir -p "$CACHE_DIR"
 
 # Function to refresh the cache
 refresh_cache() {
-	notify-send "$(basename "$0")" "$(echo "Updating password listing..." | tee /dev/stderr)" &
+	notify-send "$(basename "$0")" "  $(echo "Updating password listing..." | tee /dev/stderr)" &
 
 	kpcli 'ls -R' | perl -ne '
 		BEGIN { @path = (); }
@@ -69,4 +69,4 @@ printf %s "$username" | xclip -sel prim -r
 printf %s "$password" | xclip -sel clip -r
 
 # Notify the user
-notify-send "Password copied to clipboard" "$selected_entry"
+notify-send "  Password copied to clipboard" "$selected_entry"
