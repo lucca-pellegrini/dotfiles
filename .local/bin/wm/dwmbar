@@ -152,7 +152,7 @@ updates() {
 	krnlpkg='linux'
 
 	fn=~/.cache/checkupdates
-	[ ! -f "$fn" ] && setsid sh -c 'checkupdates > "$fn"' >/dev/null 2>&1
+	[ ! -f "$fn" ] && setsid sh -c "checkupdates > '$fn'" >/dev/null 2>&1
 
 	n="$(wc -l "$fn" | awk '{print $1}')"
 	[ "$n" -eq 0 ] && return
