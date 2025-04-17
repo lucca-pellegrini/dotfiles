@@ -215,6 +215,7 @@ printf '\e[6 q' # Use beam shape cursor on startup.
 set -k                  # Allow comments in shell
 setopt shwordsplit      # Split words on variable substitution (like in sh)
 setopt auto_cd          # cd by just typing the directory name
+setopt auto_pushd       # Use the directory stack when using cd
 unsetopt flowcontrol    # Disable Ctrl-S + Ctrl-Q
 source "$ZDOTDIR/aliases" 2>/dev/null
 source "$ZDOTDIR/shortcutrc" 2>/dev/null
