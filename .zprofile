@@ -93,5 +93,6 @@ fi
 
 # Start graphical server on tty1 if not already running.
 if [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null; then
+	SHLVL=0 # Reset shell level
 	exec env NOLOCK=1 startx #-- -config /etc/X11/xorg.conf.d/10-monitor.conf
 fi
