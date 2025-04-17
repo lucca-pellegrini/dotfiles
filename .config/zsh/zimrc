@@ -13,8 +13,10 @@ zmodule duration-info
 zmodule git-info
 # Exposes to prompts formatted path to the current working directory.
 zmodule prompt-pwd
-# Show info when there's no command in the command line
+# Show info when there's no command in the command line.
 zmodule magic-enter
+
+# Themes. Please choose one.
 # zmodule Ansimorph/oblong
 zmodule minimal
 
