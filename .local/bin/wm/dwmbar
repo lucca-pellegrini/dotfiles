@@ -12,6 +12,8 @@ case "$(tty)" in
 	NOPRINT=1
 esac
 
+i=0
+
 battery() {
 	bat="$(cat /sys/class/power_supply/BAT?/capacity)"
 	status="$(cat /sys/class/power_supply/BAT?/status)"
@@ -128,6 +130,7 @@ torrents() {
 }
 
 while :; do
+	i=$((i+1))
 	name=" $(mpd)$(torrents)$(news)$(updates) $(volume) $SEP $(keymap) $SEP $(_date) "
 	xsetroot -name "$name"
 	[ ! "$NOPRINT" ] && printf '%s\n' "$name"
