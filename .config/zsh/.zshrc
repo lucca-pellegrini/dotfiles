@@ -207,6 +207,10 @@ preexec() {
 	printf '\e[1 q'
 }
 
+precmd() {
+ 	printf '\033]0;%s\007' "$PWD"
+}
+
 printf '\e[6 q' # Use beam shape cursor on startup.
 
 #
