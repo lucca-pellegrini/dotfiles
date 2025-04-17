@@ -120,6 +120,9 @@ setopt extended_history   # Record timestamp of command in HISTFILE
 setopt hist_ignore_dups   # Ignore duplicated commands history list
 setopt share_history      # Share command history data
 setopt histignorespace    # Ignore commands prepended with a space
+setopt hist_fcntl_lock    # Use `fcntl(3p)` to lock HISTFILE
+setopt hist_reduce_blanks # Remove superfluous whitespace
+setopt hist_verify        # Don't execute history expansion immediately
 
 # #
 # #   PROMPT
