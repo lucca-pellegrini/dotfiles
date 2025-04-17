@@ -18,7 +18,13 @@ zmodule magic-enter
 
 # Themes. Please choose one.
 # zmodule Ansimorph/oblong
-zmodule minimal
+# zmodule minimal
+# zmodule s1ck94
+# zmodule sorin
+# zmodule steeef
+# zmodule https://gitlab.com/Spriithy/basher.git
+# zmodule gitster
+zmodule asciiship
 
 #
 # Completion
