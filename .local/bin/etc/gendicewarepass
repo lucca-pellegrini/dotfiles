@@ -28,6 +28,10 @@ dd if=/dev/urandom bs=40k count=1 2>/dev/null |
 		awk '{print substr($0, 1, 9)}' > "$tmpf" # Log10(2^32-1) = 9.632
 cat "$tmpf"
 
+if [ ! -f "/tmp/wordsFreq.json" ]; then
+	notify-send '  Downloading words file...'
+fi
+
 pass="$(diceware 1 "$nwords" "$separator" "$threshold" "$tmpf")"
 
 rm "$tmpf"

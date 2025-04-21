@@ -120,6 +120,9 @@ setopt extended_history   # Record timestamp of command in HISTFILE
 setopt hist_ignore_dups   # Ignore duplicated commands history list
 setopt share_history      # Share command history data
 setopt histignorespace    # Ignore commands prepended with a space
+setopt hist_fcntl_lock    # Use `fcntl(3p)` to lock HISTFILE
+setopt hist_reduce_blanks # Remove superfluous whitespace
+setopt hist_verify        # Don't execute history expansion immediately
 
 # #
 # #   PROMPT
@@ -204,6 +207,10 @@ preexec() {
 	printf '\e[1 q'
 }
 
+precmd() {
+ 	printf '\033]0;%s\007' "$PWD"
+}
+
 printf '\e[6 q' # Use beam shape cursor on startup.
 
 #
@@ -212,6 +219,7 @@ printf '\e[6 q' # Use beam shape cursor on startup.
 set -k                  # Allow comments in shell
 setopt shwordsplit      # Split words on variable substitution (like in sh)
 setopt auto_cd          # cd by just typing the directory name
+setopt auto_pushd       # Use the directory stack when using cd
 unsetopt flowcontrol    # Disable Ctrl-S + Ctrl-Q
 source "$ZDOTDIR/aliases" 2>/dev/null
 source "$ZDOTDIR/shortcutrc" 2>/dev/null

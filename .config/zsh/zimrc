@@ -11,12 +11,22 @@ zmodule zsh-users/zsh-syntax-highlighting
 zmodule duration-info
 # Exposes git repository status information to prompts, used by asciiship.
 zmodule git-info
+# Exposes to prompts how long the last command took to execute.
+zmodule duration-info
 # Exposes to prompts formatted path to the current working directory.
 zmodule prompt-pwd
-# Show info when there's no command in the command line
+# Show info when there's no command in the command line.
 zmodule magic-enter
+
+# Themes. Please choose one.
 # zmodule Ansimorph/oblong
-zmodule minimal
+# zmodule minimal
+# zmodule s1ck94
+# zmodule sorin
+# zmodule steeef
+# zmodule https://gitlab.com/Spriithy/basher.git
+# zmodule gitster
+zmodule asciiship
 
 #
 # Completion

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 trap 'xsetroot -name " dwmbar dead "; exit' EXIT INT TERM HUP
-xsetroot -name " Welcome to ${HOST} "
+xsetroot -name " Welcome to $(hostname) "
 sleep 5
 
 SEP='|'
@@ -11,6 +11,8 @@ case "$(tty)" in
 /dev/tty?)
 	NOPRINT=1
 esac
+
+i=0
 
 battery() {
 	bat="$(cat /sys/class/power_supply/BAT?/capacity)"
@@ -64,10 +66,78 @@ volume() {
 	printf "%s %s%%" "$ico" "$vol"
 }
 
+# Global variables for `mpd()`
+max_mpd_length=50
+mpd_iterations_before_roll=20
+end_hold_iterations=20
+
+# Files to store values where global variables don't work.
+roll_begin_f="$XDG_RUNTIME_DIR/.dwmbar-music-rollbegin"
+musf="$XDG_RUNTIME_DIR/.dwmbar-music"
+rm -f -- "$musf" "$roll_begin_f" # Remove the files before starting
+
 mpd() {
-	mpc | grep -q paused && return
-	music="$(mpc current -f "%artist% - %title%")"
-	[ "$music" ] && printf "🎜  %s %s" "$music" "$SEP"
+	test "$(mpc | wc -l)" -lt 2 && return
+	mpc | grep -q 'paused' && return
+	current_music="$(mpc current -f "%artist% - %title%")"
+
+	# Update music if it's different from the last known
+	if [ "$current_music" != "$(cat "$musf")" ] || [ ! -f "$roll_begin_f" ]; then
+		printf %s "$current_music" >"$musf"
+		len="$(<"$musf" wc -c)"
+		roll_begin=$((i + mpd_iterations_before_roll))
+		printf %d "$roll_begin" > "$roll_begin_f"
+	else
+		roll_begin="$(cat "$roll_begin_f")"
+	fi
+
+	# If music is set, proceed to display it
+	if [ -f "$musf" ]; then
+		len=$(awk '{print length}' "$musf")
+
+		if [ "$len" -le "$max_mpd_length" ]; then
+			printf "🎜  %s %s" "$(cat "$musf")" "$SEP"
+			return
+		fi
+
+		# If we haven't started rolling, display the first portion
+		if [ "$i" -lt "$roll_begin" ]; then
+			printf "🎜  %.${max_mpd_length}s... %s" "$(cat "$musf")" "$SEP"
+		else
+			# Calculate the effective displacement for rolling
+			displacement=$((i - roll_begin))
+			# Use Perl to roll the text and get the substring
+			display_string=$(<"$musf" perl -e '
+			my ($n, $displacement) = @ARGV;
+			my $input = <STDIN>;
+			chomp($input);
+			print substr($input, $displacement, $n), "\n" if $displacement < length($input);
+			' $max_mpd_length $displacement)
+
+			if [ "${#display_string}" -lt $max_mpd_length ]; then
+			display_string="$(tail -c $max_mpd_length "$musf")   "
+			else
+			padding="..."
+			fi
+
+			# Print the rolled string with padding
+			printf "🎜  %s%s %s" "$display_string" "$padding" "$SEP"
+		fi
+
+		# Check if we need to hold the end of the string
+		if [ "$i" -ge "$roll_begin" ]; then
+			# Hold the end of the string for end_hold_iterations
+			if [ "$((i - roll_begin))" -lt "$((len - max_mpd_length + end_hold_iterations))" ]; then
+				# Print the end of the string
+				display_string=$(<"$musf" tail -c $max_mpd_length)
+				padding=""
+			else
+				# Reset roll begin point after holding the end
+				roll_begin=$((i + mpd_iterations_before_roll))
+				printf %d "$roll_begin" > "$roll_begin_f"
+			fi
+		fi
+	fi
 }
 
 news() {
@@ -82,7 +152,7 @@ updates() {
 	krnlpkg='linux'
 
 	fn=~/.cache/checkupdates
-	[ ! -f "$fn" ] && setsid sh -c 'checkupdates > "$fn"' >/dev/null 2>&1
+	[ ! -f "$fn" ] && setsid sh -c "checkupdates > '$fn'" >/dev/null 2>&1
 
 	n="$(wc -l "$fn" | awk '{print $1}')"
 	[ "$n" -eq 0 ] && return
@@ -128,8 +198,9 @@ torrents() {
 }
 
 while :; do
+	i=$((i+1))
 	name=" $(mpd)$(torrents)$(news)$(updates) $(volume) $SEP $(keymap) $SEP $(_date) "
 	xsetroot -name "$name"
 	[ ! "$NOPRINT" ] && printf '%s\n' "$name"
-	sleep 1
+	sleep .1
 done
