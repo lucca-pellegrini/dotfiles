@@ -10,7 +10,7 @@ multiplier = 1
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font Propo", style = "Regular" }
-size = 11.5
+size = 9
 
 [general]
 import = [

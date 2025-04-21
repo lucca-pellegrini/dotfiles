@@ -199,7 +199,7 @@ torrents() {
 
 while :; do
 	i=$((i+1))
-	name=" $(mpd)$(torrents)$(news)$(updates) $(volume) $SEP $(keymap) $SEP $(_date) "
+	name=" $(mpd)$(torrents)$(news)$(updates) $(backlight) $SEP $(volume) $SEP $(battery) $SEP $(keymap) $SEP $(_date) "
 	xsetroot -name "$name"
 	[ ! "$NOPRINT" ] && printf '%s\n' "$name"
 	sleep .1

@@ -25,7 +25,7 @@
 [credential]
 	helper = store
 [commit]
-	gpgsign = true
+	gpgsign = false
 	verbose = true
 [tag]
 	gpgSign = true

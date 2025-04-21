@@ -7,7 +7,7 @@
 !  ██   ░░██░░██████░░██████  ░██  ░░████████░░██████ ███  ░░██  ██████
 ! ░░     ░░  ░░░░░░  ░░░░░░   ░░    ░░░░░░░░  ░░░░░░ ░░░    ░░  ░░░░░░
 
-*.font: JetBrainsMono Nerd Font Mono:size=8.5
+*.font: JetBrainsMono Nerd Font Mono:size=10
 
 ! ! Iceberg Light
 ! #ifdef ICEBERG_LIGHT_THEME
@@ -223,7 +223,7 @@
 ! slock.input:        accent
 ! slock.failed:       ice01
 
-dwm.font: SauceCodePro Nerd Font:size=10
+dwm.font: JetBrainsMono Nerd Font Mono:size=12
 
 Xcursor.theme:		Neutral
 Xcursor.size:		16
