@@ -1,0 +1,3 @@
+clear Control
+	keycode 105 = slash question degree
+	add Control = Control_L Control_R
