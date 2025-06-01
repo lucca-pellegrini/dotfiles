@@ -26,6 +26,9 @@ alias lS="ls -lF always --sort=size --total-size" # Show size, name. Sort by siz
 alias ltree="l -R --tree"                         # Similar to 'l', but recursive.
 alias latree="la -R --tree"                       # Similar to 'la', but recursive.
 
+# dotfiles
+alias dots='git --git-dir="$HOME/.config/dots-git/" --work-tree="$HOME"'
+
 # programs
 alias ir='irssi --home "$XDG_CONFIG_HOME"/irssi'
 alias irssi='irssi --home "$XDG_CONFIG_HOME"/irssi'
