@@ -11,8 +11,12 @@ local servers = {
   "cssls",
   "html",
   "lemminx",
+  "postgres_lsp",
   "pyright",
   "rust_analyzer",
+  "sqlls",
+  -- "sqls",
+  "sqruff",
   "texlab",
   "ts_ls",
 }

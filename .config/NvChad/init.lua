@@ -65,7 +65,7 @@ api.nvim_create_autocmd({ "FileType" }, {
   command = "setlocal noet ts=4 sts=4 sw=4", -- Tabs, 4
 })
 api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "python", "lilypond", "cs" },
+  pattern = { "python", "lilypond", "cs", "sql" },
   command = "setlocal et ts=4 sts=4 sw=4", -- Spaces, 4
 })
 api.nvim_create_autocmd({ "FileType" }, {
