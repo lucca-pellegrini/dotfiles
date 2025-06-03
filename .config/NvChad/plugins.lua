@@ -88,6 +88,7 @@ local plugins = {
   -- Generative AI integration
   {
     "yetone/avante.nvim",
+    tag = 'v0.0.23',
     event = "VeryLazy",
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
@@ -236,6 +237,7 @@ local plugins = {
   -- Breadcrumbs navigation
   {
     "Bekaboo/dropbar.nvim",
+    tag = 'v12.0.2',
     lazy = false,
     dependencies = {
       "nvim-telescope/telescope-fzf-native.nvim",
@@ -364,6 +366,7 @@ local plugins = {
   -- SonarLint support
   {
     "https://gitlab.com/schrieveslaach/sonarlint.nvim",
+    commit = "cd7276e9d741492e2de149c98c4f406c2984640c",
     ft = {
       "js",
       "ts",
