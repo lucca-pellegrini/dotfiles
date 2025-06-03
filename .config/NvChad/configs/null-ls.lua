@@ -36,6 +36,10 @@ local sources = {
 
   -- Python
   b.formatting.blue,
+
+  -- SQL
+  b.formatting.sqruff,
+  b.formatting.pg_format,
 }
 
 null_ls.setup({

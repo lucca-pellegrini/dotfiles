@@ -508,6 +508,15 @@ local plugins = {
     end,
   },
 
+  -- SQL support
+  {
+    "Xemptuous/sqlua.nvim",
+    cmd = "SQLua",
+    config = function()
+      require("sqlua").setup()
+    end,
+  },
+
   -- Pkl language support
   {
     "apple/pkl-neovim",
