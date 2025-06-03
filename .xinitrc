@@ -31,6 +31,10 @@ chkboot-desktopalert & # Warn about changes to /boot
 	synclient HorizScrollDelta=-47
 ) &
 
+# Fix for JavaFX apps, which assumes most WMs are reparenting
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolkit
+
 # WM
 unset QT_STYLE_OVERRIDE
 export QT_STYLE_OVERRIDE QT_QPA_PLATFORMTHEME=qt5ct
