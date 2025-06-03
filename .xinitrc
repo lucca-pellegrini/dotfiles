@@ -38,7 +38,8 @@ export AWT_TOOLKIT=MToolkit
 # WM
 unset QT_STYLE_OVERRIDE
 export QT_STYLE_OVERRIDE QT_QPA_PLATFORMTHEME=qt5ct
-export GTK_THEME=Materia-dark-compact
+export GTK_THEME=Adwaita:dark
+export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 /usr/lib/kdeconnectd &
 xdunst &
 if [ ! "$NOPICOM" ]; then
