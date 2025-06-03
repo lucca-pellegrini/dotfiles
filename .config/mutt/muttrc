@@ -81,7 +81,6 @@ macro index,pager i1 '<sync-mailbox><enter-command>source $HOME/.config/mutt/acc
 macro index,pager i2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/gmail<enter><change-folder>!<enter>;<check-stats>' "switch to gmail"
 macro index,pager i3 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/e<enter><change-folder>!<enter>;<check-stats>' "switch to /e/"
 macro index,pager i4 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/disroot<enter><change-folder>!<enter>;<check-stats>' "switch to disroot"
-macro index,pager i5 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/puc<enter><change-folder>!<enter>;<check-stats>' "switch to PUC"
 
 # Sidebar mappings
 set sidebar_visible = yes
