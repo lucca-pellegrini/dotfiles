@@ -543,6 +543,7 @@ local plugins = {
   -- Additional vimdoc features
   {
     "OXY2DEV/helpview.nvim",
+    submodules = false,
     ft = "help",
 
     dependencies = {
