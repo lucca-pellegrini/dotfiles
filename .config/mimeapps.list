@@ -64,3 +64,5 @@ audio/flac=mpv.desktop;
 x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
 x-scheme-handler/fleet=jetbrains-fleet.desktop
+application/x-djvu=zathura.desktop
+image/vnd.djvu=org.pwmt.zathura.desktop
