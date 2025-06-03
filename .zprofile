@@ -76,6 +76,7 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 export EZA_ICONS_AUTO=1
 
 [ ! -f ~/.config/zsh/shortcutrc ] && shortcuts >/dev/null 2>&1
+[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 
 # Start SSH Agent
 SSH_EVAL_FILE="${XDG_RUNTIME_DIR:-"$HOME/.cache"}/ssh_agent_eval"
