@@ -484,6 +484,17 @@ local plugins = {
     },
   },
 
+  -- Markdown preview support
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
+
   -- Flutter support
   {
     "nvim-flutter/flutter-tools.nvim",
