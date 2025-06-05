@@ -35,6 +35,9 @@ chkboot-desktopalert & # Warn about changes to /boot
 export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
 
+# Fix for Calibre
+export CALIBRE_USE_SYSTEM_THEME=1
+
 # WM
 unset QT_STYLE_OVERRIDE
 export QT_STYLE_OVERRIDE QT_QPA_PLATFORMTHEME=qt5ct
