@@ -689,6 +689,7 @@ local plugins = {
 
   {
     "neovim/nvim-lspconfig",
+    tag = "v1.8.0",
     dependencies = {
       -- format & linting
       {
@@ -707,6 +708,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
+    branch = "v1.x",
     opts = overrides.mason,
   },
 
