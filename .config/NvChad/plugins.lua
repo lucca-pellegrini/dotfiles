@@ -366,6 +366,60 @@ local plugins = {
         on_attach = require("plugins.configs.lspconfig").on_attach,
         capabilities = require("plugins.configs.lspconfig").capabilities,
         filetypes = { "java" },
+        init_options = {
+          documentSymbol = {
+            dynamicRegistration = false,
+            hierarchicalDocumentSymbolSupport = true,
+            labelSupport = true,
+
+            symbolKind = {
+              valueSet = {
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+              },
+              tagSupport = {
+                valueSet = {},
+              },
+            },
+          },
+        },
+
+        -- NOTE: custom java settings
+        -- https://github.com/ray-x/lsp_signature.nvim/issues/97
+        -- all options:
+        -- https://github.com/mfussenegger/nvim-jdtls
+        -- https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+        single_file_support = true,
+        redhat = { telemetry = { enabled = false } },
         settings = {
           java = {
             configuration = {
