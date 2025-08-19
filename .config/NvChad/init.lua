@@ -99,6 +99,14 @@ api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
+-- Filetype detection by extension (needed when it's plugin is lazy-loaded)
+api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.neorg",
+  callback = function()
+    vim.bo.filetype = "neorg"
+  end,
+})
+
 ----------------------------------- Providers -------------------------------------------
 -- Python
 g.python3_host_prog = '/usr/bin/python'

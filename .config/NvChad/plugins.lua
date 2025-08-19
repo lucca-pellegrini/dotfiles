@@ -495,6 +495,44 @@ local plugins = {
     ft = { "markdown" },
   },
 
+  -- Organizer plugin
+  {
+    "nvim-neorg/neorg",
+    lazy = true,
+    cmd = { "Neorg" },
+    config = function()
+      require("neorg").setup({
+        load = {
+          ["core.defaults"] = {},
+          ["core.export"] = {},
+          ["core.presenter"] = {
+            config = {
+              zen_mode = "truezen",
+            },
+          },
+          ["core.concealer"] = {
+            config = {
+              icon_preset = "varied",
+            },
+          },
+          ["core.completion"] = {
+            config = {
+              engine = "nvim-cmp",
+            },
+          },
+          ["core.integrations.nvim-cmp"] = {},
+        },
+      })
+    end,
+  },
+
+  -- Distraction-free mode plugin
+  {
+    "pocco81/true-zen.nvim",
+    lazy = true,
+    cmd = { "TZAtaraxis", "TZMinimalist", "TZNarrow", "TZFocus" },
+  },
+
   -- Flutter support
   {
     "nvim-flutter/flutter-tools.nvim",
