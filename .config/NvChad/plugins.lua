@@ -619,21 +619,35 @@ local plugins = {
   {
     "nvim-flutter/flutter-tools.nvim",
     ft = "dart",
+    -- config = function()
+    --   require("flutter-tools").setup({
+    --     debugger = {
+    --       enabled = true,
+    --     },
+    --     dev_log = {
+    --       enabled = true,
+    --     },
+    --     dev_tools = {
+    --       autostart = true,
+    --     },
+    --     lsp = {
+    --       color = {
+    --         enabled = true,
+    --       },
+    --     },
+    --   })
+    -- end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      -- 'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+    -- config = true,
     config = function()
       require("flutter-tools").setup({
-        debugger = {
-          enabled = true,
-        },
-        dev_log = {
-          enabled = true,
-        },
+        widget_guides = { enabled = true },
         dev_tools = {
-          autostart = true,
-        },
-        lsp = {
-          color = {
-            enabled = true,
-          },
+          autostart = false,         -- autostart devtools server if not detected
+          auto_open_browser = false, -- Automatically opens devtools in the browser
         },
       })
     end,
