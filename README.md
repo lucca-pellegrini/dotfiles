@@ -11,14 +11,14 @@ because that repo is _b i g_ (some 81 MiB on a fresh clone as of Thu Apr 17
 Packages from official arch repositories:
 
 ```sh
-sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool         \
-    xdg-user-dirs sxiv urxvt vifm tmux neomutt abook neovim zathura         \
-    zathura-pdf-mupdf mpd mpc ncmpcpp alsa-utils pulseaudio pulseaudio-alsa \
-    ffmpeg maim transmission-cli zsh zsh-syntax-highlighting xorg-xinit     \
-    xorg-server xorg-ssetroot lsof unclutter pacman-contrib                 \
-    pipewire-{alsa,jack,pulse} alsa-utils xwallpaper eza rustup hyprland    \
-    hyprpanel swww grim slurp wl-clipboard wl-clipboard-persist hypridle    \
-    hyprlock mako thunar nautilus hyprpolkitagent cliphist
+sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool           \
+    xdg-user-dirs sxiv vifm tmux neomutt neovim zathura zathura-pdf-mupdf mpd \
+    mpc ncmpcpp alsa-utils                                                    \
+    pipewire{,-{alsa,audio,jack,pulse,session-manager,v4l2}} ffmpeg maim      \
+    transmission-cli zsh zsh-syntax-highlighting xorg-xinit xorg-server       \
+    xorg-xsetroot lsof unclutter pacman-contrib pipewire-{alsa,jack,pulse}    \
+    alsa-utils xwallpaper eza rustup hyprland swww grim slurp wl-clipboard    \
+    hypridle hyprlock mako thunar nautilus hyprpolkitagent cliphist
 ```
 
 There are probably a few (maybe many?) other packages missing… It's not easy to
