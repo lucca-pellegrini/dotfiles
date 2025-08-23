@@ -19,5 +19,5 @@ bindings = [
 
 [general]
 import = [
-    "~/.config/alacritty/themes/themes/carbonfox.toml"
+    "~/.cache/wal/colors-alacritty.toml"
 ]

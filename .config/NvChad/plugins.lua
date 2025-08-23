@@ -85,6 +85,34 @@ local plugins = {
     },
   },
 
+  -- Undo tree visualization and navigation
+  {
+    "debugloop/telescope-undo.nvim",
+    dependencies = {
+      {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+      },
+    },
+    keys = { { "<leader>u", "<cmd>Telescope undo<cr>", desc = "undo history" } },
+    -- opts = {
+    --   -- don't use `defaults = { }` here, do this in the main telescope spec
+    --   extensions = {
+    --     undo = {
+    --       -- telescope-undo.nvim config, see below
+    --     },
+    --     -- no other extensions here, they can have their own spec too
+    --   },
+    -- },
+    config = function(_, opts)
+      -- Calling telescope's setup from multiple specs does not hurt, it will happily merge the
+      -- configs for us. We won't use data, as everything is in it's own namespace (telescope
+      -- defaults, as well as each extension).
+      require("telescope").setup(opts)
+      require("telescope").load_extension("undo")
+    end,
+  },
+
   -- Generative AI integration
   {
     "yetone/avante.nvim",
@@ -106,9 +134,9 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "hrsh7th/nvim-cmp",         -- autocompletion for avante commands and mentions
+      "hrsh7th/nvim-cmp",            -- autocompletion for avante commands and mentions
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua",   -- for providers='copilot'
+      "zbirenbaum/copilot.lua",      -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
@@ -338,6 +366,60 @@ local plugins = {
         on_attach = require("plugins.configs.lspconfig").on_attach,
         capabilities = require("plugins.configs.lspconfig").capabilities,
         filetypes = { "java" },
+        init_options = {
+          documentSymbol = {
+            dynamicRegistration = false,
+            hierarchicalDocumentSymbolSupport = true,
+            labelSupport = true,
+
+            symbolKind = {
+              valueSet = {
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+              },
+              tagSupport = {
+                valueSet = {},
+              },
+            },
+          },
+        },
+
+        -- NOTE: custom java settings
+        -- https://github.com/ray-x/lsp_signature.nvim/issues/97
+        -- all options:
+        -- https://github.com/mfussenegger/nvim-jdtls
+        -- https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+        single_file_support = true,
+        redhat = { telemetry = { enabled = false } },
         settings = {
           java = {
             configuration = {
@@ -354,12 +436,6 @@ local plugins = {
       })
     end,
   },
-
-  --[[ {
-    "mfussenegger/nvim-jdtls",
-    ft = "java",
-    event = "LspAttach",
-  }, ]]
 
   -- Language-specific plugins
 
@@ -495,25 +571,77 @@ local plugins = {
     ft = { "markdown" },
   },
 
+  -- Organizer plugin
+  {
+    "nvim-neorg/neorg",
+    lazy = true,
+    cmd = { "Neorg" },
+    config = function()
+      require("neorg").setup({
+        load = {
+          ["core.defaults"] = {},
+          ["core.export"] = {},
+          ["core.presenter"] = {
+            config = {
+              zen_mode = "truezen",
+            },
+          },
+          ["core.concealer"] = {
+            config = {
+              icon_preset = "varied",
+            },
+          },
+          ["core.completion"] = {
+            config = {
+              engine = "nvim-cmp",
+            },
+          },
+          ["core.integrations.nvim-cmp"] = {},
+        },
+      })
+    end,
+  },
+
+  -- Distraction-free mode plugin
+  {
+    "pocco81/true-zen.nvim",
+    lazy = true,
+    cmd = { "TZAtaraxis", "TZMinimalist", "TZNarrow", "TZFocus" },
+  },
+
   -- Flutter support
   {
     "nvim-flutter/flutter-tools.nvim",
     ft = "dart",
+    -- config = function()
+    --   require("flutter-tools").setup({
+    --     debugger = {
+    --       enabled = true,
+    --     },
+    --     dev_log = {
+    --       enabled = true,
+    --     },
+    --     dev_tools = {
+    --       autostart = true,
+    --     },
+    --     lsp = {
+    --       color = {
+    --         enabled = true,
+    --       },
+    --     },
+    --   })
+    -- end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      -- 'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+    -- config = true,
     config = function()
       require("flutter-tools").setup({
-        debugger = {
-          enabled = true,
-        },
-        dev_log = {
-          enabled = true,
-        },
+        widget_guides = { enabled = true },
         dev_tools = {
-          autostart = true,
-        },
-        lsp = {
-          color = {
-            enabled = true,
-          },
+          autostart = false,         -- autostart devtools server if not detected
+          auto_open_browser = false, -- Automatically opens devtools in the browser
         },
       })
     end,
@@ -555,6 +683,7 @@ local plugins = {
 
   {
     "neovim/nvim-lspconfig",
+    tag = "v1.8.0",
     dependencies = {
       -- format & linting
       {
@@ -573,6 +702,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
+    branch = "v1.x",
     opts = overrides.mason,
   },
 
@@ -584,15 +714,6 @@ local plugins = {
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
-  },
-
-  -- Install a plugin
-  {
-    "max397574/better-escape.nvim",
-    event = "InsertEnter",
-    config = function()
-      require("better_escape").setup()
-    end,
   },
 
   -- To make a plugin not be loaded

@@ -34,7 +34,8 @@ api.nvim_set_hl(0, "ColorColumn", { ctermbg = "black" }) -- Set color to black
 opt.title = true -- Set window title to 'titlestring'
 opt.titlestring = "%{ObsessionStatus()}%m%r%q NeoVim (%n) %f %y %03l:%02c --%p%%--" -- Window title
 opt.titlelen = 50 -- Maximum length of window title
-opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+opt.guicursor =
+"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 g.man_hardwrap = 0 -- Enable dynamic width for :Man pages (may break tables)
 
 -- Enable code folding with Treesitter
@@ -62,19 +63,49 @@ api.nvim_create_autocmd({ "TextYankPost" }, {
 -- Filetype rules
 api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "tex", "java" },
-  command = "setlocal noet ts=4 sts=4 sw=4", -- Tabs, 4
+  callback = function()
+    vim.bo.expandtab = false
+    vim.bo.tabstop = 4
+    vim.bo.softtabstop = 4
+    vim.bo.shiftwidth = 4
+  end,
 })
 api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "python", "lilypond", "cs", "sql" },
-  command = "setlocal et ts=4 sts=4 sw=4", -- Spaces, 4
+  callback = function()
+    vim.bo.expandtab = true
+    vim.bo.tabstop = 4
+    vim.bo.softtabstop = 4
+    vim.bo.shiftwidth = 4
+  end,
 })
 api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "html", "css", "typescript", "lisp", "lua", "javascriptreact" },
-  command = "setlocal et ts=2 sts=2 sw=2", -- Spaces, 2
+  pattern = { "html", "css", "typescript", "lisp", "lua", "javascriptreact", "dart" },
+  callback = function()
+    vim.bo.expandtab = true
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2
+    vim.bo.shiftwidth = 2
+  end,
 })
 api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "haskell" }, -- Haskell rules from <http://dmwit.com/tabs/>
-  command = "setlocal noet ci pi ts=8 sts=8 sw=8 sts=0",
+  callback = function()
+    vim.bo.expandtab = false
+    vim.bo.copyindent = true
+    vim.bo.preserveindent = true
+    vim.bo.tabstop = 8
+    vim.bo.softtabstop = 0
+    vim.bo.shiftwidth = 8
+  end,
+})
+
+-- Filetype detection by extension (needed when it's plugin is lazy-loaded)
+api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.neorg",
+  callback = function()
+    vim.bo.filetype = "neorg"
+  end,
 })
 
 ----------------------------------- Providers -------------------------------------------
@@ -84,9 +115,9 @@ g.loaded_python3_provider = 1
 
 -- Node.js
 g.node_host_prog = os.getenv("XDG_DATA_HOME")
-  .. "/nvm/versions/node/"
-  .. io.popen("node -v"):read("*a"):gsub("\n", "")
-  .. "/bin/neovim-node-host"
+    .. "/nvm/versions/node/"
+    .. io.popen("node -v"):read("*a"):gsub("\n", "")
+    .. "/bin/neovim-node-host"
 g.loaded_node_provider = 1
 
 -------------------------------------- LSP ----------------------------------------------
