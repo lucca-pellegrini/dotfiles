@@ -12,8 +12,8 @@ Packages from official arch repositories:
 
 ```sh
 sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool           \
-    xdg-user-dirs sxiv vifm tmux neomutt neovim zathura zathura-pdf-mupdf mpd \
-    mpc ncmpcpp alsa-utils                                                    \
+    xdg-user-dirs sxiv vifm tmux neomutt neovim zathura zathura-pdf-poppler   \
+    mpd mpc ncmpcpp alsa-utils                                                \
     pipewire{,-{alsa,audio,jack,pulse,session-manager,v4l2}} ffmpeg maim      \
     transmission-cli zsh zsh-syntax-highlighting xorg-xinit xorg-server       \
     xorg-xsetroot lsof unclutter pacman-contrib pipewire-{alsa,jack,pulse}    \
