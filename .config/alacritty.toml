@@ -9,8 +9,13 @@ history = 100000
 multiplier = 1
 
 [font]
-normal = { family = "JetBrainsMono Nerd Font Propo", style = "Regular" }
-size = 9
+normal = { family = "Terminess Nerd Font", style = "Regular" }
+size = 6.5
+
+[keyboard]
+bindings = [
+	{ key = "I", mods = "Control", chars = "\u001B[105;5u" }
+]
 
 [general]
 import = [
