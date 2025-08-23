@@ -45,7 +45,7 @@ git clone https://aur.archlinux.org/yay.git /tmp/yay && (
 yay -S --needed pyprland aylurs-gtk-shell-git wireplumber libgtop bluez \
     bluez-utils networkmanager dart-sass wl-clipboard upower gvfs       \
     gtksourceview3 libsoup3 ags-hyprpanel-git python-pywal16 \
-    python-pywalfox-librewolf deezer librewolf
+    python-pywalfox-librewolf python-haishoku deezer librewolf
 ```
 
 ## Setup dotfiles
