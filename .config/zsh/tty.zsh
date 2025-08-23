@@ -9,4 +9,5 @@ if [ "$(gpg -d ~/.local/share/.xinit-unlock-data.gpg 2>/dev/null | b3sum --no-na
 fi
 
 SHLVL=0 # Reset shell level
-exec env NOLOCK=1 startx #-- -config /etc/X11/xorg.conf.d/10-monitor.conf
+# exec env NOLOCK=1 startx #-- -config /etc/X11/xorg.conf.d/10-monitor.conf
+hyprland
