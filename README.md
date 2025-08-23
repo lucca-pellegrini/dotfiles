@@ -13,7 +13,7 @@ Packages from official arch repositories:
 ```sh
 sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool           \
     xdg-user-dirs sxiv vifm tmux neomutt neovim zathura zathura-pdf-poppler   \
-    mpd mpc ncmpcpp alsa-utils                                                \
+    mpd mpc ncmpcpp alsa-utils brightnessctl                                  \
     pipewire{,-{alsa,audio,jack,pulse,session-manager,v4l2}} ffmpeg maim      \
     transmission-cli zsh zsh-syntax-highlighting xorg-xinit xorg-server       \
     xorg-xsetroot lsof unclutter pacman-contrib pipewire-{alsa,jack,pulse}    \
@@ -42,10 +42,10 @@ git clone https://aur.archlinux.org/yay.git /tmp/yay && (
 ```
 
 ```sh
-yay -S --needed pyprland aylurs-gtk-shell-git wireplumber libgtop bluez \
-    bluez-utils networkmanager dart-sass wl-clipboard upower gvfs       \
-    gtksourceview3 libsoup3 ags-hyprpanel-git python-pywal16 \
-    python-pywalfox-librewolf python-haishoku deezer librewolf
+yay -S --needed pyprland aylurs-gtk-shell-git wireplumber libgtop bluez     \
+    bluez-utils networkmanager dart-sass wl-clipboard upower gvfs           \
+    gtksourceview3 libsoup3 ags-hyprpanel-git python-pywal16                \
+    python-pywalfox-librewolf python-haishoku deezer librewolf matugen-git
 ```
 
 ## Setup dotfiles
