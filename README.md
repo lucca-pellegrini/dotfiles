@@ -11,12 +11,14 @@ because that repo is _b i g_ (some 81 MiB on a fresh clone as of Thu Apr 17
 Packages from official arch repositories:
 
 ```sh
-sudo pacman -Syu --needed git sxhkd picom dunst libnotify xdo xdotool       \
-    xdg-user-dirs sxiv urxvt vifm tmux neomutt abook neovim zathura         \
-    zathura-pdf-mupdf mpd mpc ncmpcpp alsa-utils pulseaudio pulseaudio-alsa \
-    ffmpeg maim transmission-cli zsh zsh-syntax-highlighting xorg-xinit     \
-    xorg-server xorg-ssetroot lsof unclutter pacman-contrib                 \
-    pipewire-{alsa,jack,pulse} alsa-utils xwallpaper eza rustup
+sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool           \
+    xdg-user-dirs sxiv vifm tmux neomutt neovim zathura zathura-pdf-mupdf mpd \
+    mpc ncmpcpp alsa-utils                                                    \
+    pipewire{,-{alsa,audio,jack,pulse,session-manager,v4l2}} ffmpeg maim      \
+    transmission-cli zsh zsh-syntax-highlighting xorg-xinit xorg-server       \
+    xorg-xsetroot lsof unclutter pacman-contrib pipewire-{alsa,jack,pulse}    \
+    alsa-utils xwallpaper eza rustup hyprland swww grim slurp wl-clipboard    \
+    hypridle hyprlock mako thunar nautilus hyprpolkitagent cliphist
 ```
 
 There are probably a few (maybe many?) other packages missing… It's not easy to
@@ -26,7 +28,7 @@ tell, because I only very rarely do a fresh install.
 
 ```sh
 rustup default stable
-cargo install broot skim alass-cli
+cargo install broot skim alass-cli git-delta
 ```
 
 ## Optional: Install an AUR helper (eww… Go 🤮)
@@ -37,6 +39,13 @@ git clone https://aur.archlinux.org/yay.git /tmp/yay && (
     cd /tmp/yay
     makepkg -si
 )
+```
+
+```sh
+yay -S --needed pyprland aylurs-gtk-shell-git wireplumber libgtop bluez \
+    bluez-utils networkmanager dart-sass wl-clipboard upower gvfs       \
+    gtksourceview3 libsoup3 ags-hyprpanel-git python-pywal16 \
+    python-pywalfox-librewolf deezer librewolf
 ```
 
 ## Setup dotfiles
@@ -129,6 +138,24 @@ make all
 systemctl --user daemon-reload
 systemctl --user enable {checkupdates,newsboat}.timer
 ```
+
+## Optional: set up colorscheme synchronization between HyprLand and browser
+
+First, run the browser once to initialize its profile directory and install the
+extension:
+
+```sh
+librewolf 'https://addons.mozilla.org/en-US/firefox/addon/pywalfox/'
+```
+
+Then, execute the installation script before following the instructions on the
+extension's page:
+
+```sh
+pywalfox --browser librewolf install
+```
+
+## Cleanup
 
 Remove some files from your `$HOME`
 
