@@ -4,7 +4,9 @@
 # Fonts needed: gnu-free-fonts, ttf-arphic-uming, ttf-indic-otf, otf-ipafont
 #
 
-m() { ${DMENU:-dmenu} -i "$@"; }
+set -x
+
+m() { ${DMENU:-dmenu} "$@"; }
 
 type="$(printf "Font Awesome\nEmoji\nKaomoji" | m)"
 [ ! "$type" ] && exit
@@ -16,7 +18,7 @@ if [ "$type" = 'Font Awesome' ] || [ "$type" = 'Emoji' ]; then
 	[ ! "$chosen" ] && exit
 
 	c=$(echo "$chosen" | sed "s/ .*//")
-	printf %s "$c" | xclip -selection clipboard
+	printf %s "$c" | wl-copy
 	notify-send "$c copied to clipboard." &
 
 	s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')
@@ -27,6 +29,6 @@ else
 	[ ! "$chosen" ] && exit
 
 	c="${chosen%% [A-Z]*}"
-	printf %s "$c" | xclip -sel clip
+	printf %s "$c" | wl-copy
 	notify-send "$chosen" "copied to clipboard."
 fi

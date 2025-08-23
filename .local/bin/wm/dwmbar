@@ -166,40 +166,9 @@ updates() {
 	fi
 }
 
-torrents() {
-	data=$(transmission-remote -l 2>/dev/null | grep -E "%|n/a")
-	[ "$data" ] || return
-
-	i=0
-	while read -r line; do
-		per="$(printf %s "$line" | awk '{ printf $2 }')"
-		[ "${per%?}" = 100 ] && {
-			continue
-		}
-
-		[ $i -ge 6 ] && {
-			break
-		}
-		i=$((i+1))
-
-		printf %s "$line" | sed "
-				s/.*Stopped.*/  /g;
-				s/.*Seeding.*/  /g;
-				s/.*Idle.*/  /g;
-				s/.*Uploading.*/  /g;
-				s/.*Downloading.*/  /g;
-				s/.*[A-Z][a-z].*/  / g;
-				"
-		printf %s "$per"
-	done <<-EOF
-		$data
-	EOF
-	transmission-remote -l | grep -qE "%|n/a" && printf " %s" "$SEP"
-}
-
 while :; do
 	i=$((i+1))
-	name=" $(mpd)$(torrents)$(news)$(updates) $(volume) $SEP $(keymap) $SEP $(_date) "
+	name=" $(mpd)$(news)$(updates) $(volume) $SEP $(keymap) $SEP $(_date) "
 	xsetroot -name "$name"
 	[ ! "$NOPRINT" ] && printf '%s\n' "$name"
 	sleep .1

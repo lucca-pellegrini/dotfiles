@@ -1,16 +1,7 @@
 #!/bin/sh
 
-kill_xorg() {
-	socket="$(printf '%s' "$DISPLAY" | sed 's/^://;s/\.[0-9]*//')"
-	pid="$(
-		lsof /tmp/.X11-unix/X"${socket}" |
-		awk '/^Xorg/ { print $2 }'
-	)"
-	kill "$pid"
-}
-
 reboot_to() {
-	systemctl reboot --boot-loader-entry="$*"
+	hyprlock & systemctl reboot --boot-loader-entry="$*"
 }
 
 ANS="$(cat <<-\! | $DMENU -i -p ' Power'
@@ -27,10 +18,10 @@ ANS="$(cat <<-\! | $DMENU -i -p ' Power'
 )"
 
 case "$ANS" in
-	' Lock') slock;;
-	' Exit') kill_xorg;;
-	' Suspend') slock & systemctl suspend;;
-	' Hibernate') systemctl hibernate;;
+	' Lock') hyprlock;;
+	' Exit') hyprctl dispatch exit;;
+	' Suspend') hyprlock & systemctl suspend;;
+	' Hibernate') hyprlock & systemctl hibernate;;
 	' Reboot') reboot;;
 	' Reboot to Arch Netboot') reboot_to arch_netboot;;
 	' Reboot to Windows') reboot_to auto-windows;;
