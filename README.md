@@ -18,7 +18,7 @@ sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool           \
     transmission-cli zsh zsh-syntax-highlighting xorg-xinit xorg-server       \
     xorg-xsetroot lsof unclutter pacman-contrib pipewire-{alsa,jack,pulse}    \
     alsa-utils xwallpaper eza rustup hyprland swww grim slurp wl-clipboard    \
-    hypridle hyprlock mako thunar nautilus hyprpolkitagent cliphist
+    hypridle hyprlock mako thunar nautilus hyprpolkitagent cliphist rofi
 ```
 
 There are probably a few (maybe many?) other packages missing… It's not easy to
