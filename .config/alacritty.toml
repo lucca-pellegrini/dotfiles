@@ -14,5 +14,5 @@ size = 11.5
 
 [general]
 import = [
-    "~/.config/alacritty/themes/themes/carbonfox.toml"
+    "~/.cache/wal/colors-alacritty.toml"
 ]
