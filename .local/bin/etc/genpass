@@ -27,8 +27,9 @@ if [ -z "$pass" ]; then
 else
 	notify-send '🗝 Passphrase generated.' "$pass" &
 	if [ -n "$DISPLAY" ]; then
-		printf '%s' "$pass" | xclip -sel clip 2>/dev/null
+		printf '%s' "$pass" | wl-copy 2>/dev/null
 	fi
 	printf '%s\n' "$pass"
+	setsid sh -c "sleep 30 && cliphist delete-query '$pass'" &
 	exit 0
 fi

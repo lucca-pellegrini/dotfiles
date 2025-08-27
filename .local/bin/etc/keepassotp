@@ -11,5 +11,5 @@ fi
 
 
 entry="$(cat "$LAST_ENTRY_FILE")"
-kpcli "show -t \"$entry\"" | grep -oE '[0-9]{6}' | xclip -sel clip -r
+kpcli "show -t \"$entry\"" | grep -oE '[0-9]{6}' | wl-copy
 notify-send "  OTP copied to clipboard" "$entry"

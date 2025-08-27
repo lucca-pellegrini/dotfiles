@@ -47,8 +47,8 @@ if [ -f "$CACHE_FILE" ]; then
 		refresh_cache
 	fi
 else
-    # Cache file doesn't exist, create it
-    refresh_cache
+	# Cache file doesn't exist, create it
+	refresh_cache
 fi
 
 # Read entries from cache
@@ -75,8 +75,12 @@ else
 fi
 
 # Copy the password to the clipboard
-printf %s "$username" | xclip -sel prim -r
-printf %s "$password" | xclip -sel clip -r
+printf %s "$username" | wl-copy
+printf %s "$password" | wl-copy --primary
+
+# Delete from clipboard history after some time
+setsid sh -c "sleep 30 && cliphist delete-query '$username'" &
+setsid sh -c "sleep 30 && cliphist delete-query '$password'" &
 
 # Notify the user
 notify-send "  Password copied to clipboard" "$selected_entry"

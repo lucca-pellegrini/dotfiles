@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+clip="$(wl-paste)"
+prim="$(wl-paste --primary)"
+
+printf %s "$prim" | wl-copy
+printf %s "$clip" | wl-copy --primary
+
+notify-send -a "Clipboard Swap" -u low -e "Clipboard Swap"  "Swapped primary selection with clipboard"
