@@ -10,6 +10,10 @@ if [ $# -lt 1 ] || [ ! -d "$1" ]; then
 	exit 1
 fi
 
+if [ ! -d "$XDG_RUNTIME_DIR/swww" ]; then
+	mkdir "$XDG_RUNTIME_DIR/swww"
+fi
+
 # See swww-img(1)
 RESIZE_TYPE="crop"
 export SWWW_TRANSITION_FPS="${SWWW_TRANSITION_FPS:-60}"
@@ -44,12 +48,18 @@ while true; do
 			# Example:
 			# hyprctl set window_border_color $(cat ~/.cache/wal/colors | grep -E '^color[0-9]' | awk '{print $2}')
 
-			pywalfox update
+			pywalfox update &
+
+			(genzathurarc > ~/.cache/wal/zathurarc) &
 
 			unset -v img # Each image should only be used once per loop
 
 			set +x
 		done
-		sleep "${2:-$DEFAULT_INTERVAL}"
+		(sleep "${2:-$DEFAULT_INTERVAL}"; touch "$XDG_RUNTIME_DIR/swww/next") &
+		sleep_pid=$!
+		inotifywait -e create "$XDG_RUNTIME_DIR/swww/"
+		rm "$XDG_RUNTIME_DIR/swww/next"
+		kill $sleep_pid
 	done
 done

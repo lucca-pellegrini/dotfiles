@@ -22,7 +22,7 @@ if [ "$type" = 'Font Awesome' ] || [ "$type" = 'Emoji' ]; then
 	notify-send "$c copied to clipboard." &
 
 	s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')
-	printf %s "$s" | xclip
+	printf %s "$s" | wl-copy
 	notify-send "$s copied to primary." &
 else
 	chosen=$(grep -v "^#" ~/.local/share/dots/kaomoji | ${DMENU:-dmenu})
