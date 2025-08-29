@@ -78,6 +78,7 @@ export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 export EZA_ICONS_AUTO=1
 export CALIBRE_USE_SYSTEM_THEME=1
+export BAT_THEME=ansi
 
 [ ! -f ~/.config/zsh/shortcutrc ] && shortcuts >/dev/null 2>&1
 [ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
