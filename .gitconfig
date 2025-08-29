@@ -12,7 +12,7 @@
 [core]
 	quotepath = false
 	commitGraph = true
-	pager = less -F -+X
+	pager = delta
 	fsmonitor = true
 	untrackedCache = true
 [gc]
@@ -61,4 +61,8 @@
 [help]
 	autocorrect = 20
 [merge]
-	conflictstyle = zdiff3
+	conflictStyle = zdiff3
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
