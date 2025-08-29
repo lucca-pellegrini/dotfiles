@@ -19,7 +19,7 @@ sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool           \
     xorg-xsetroot lsof unclutter pacman-contrib pipewire-{alsa,jack,pulse}    \
     alsa-utils xwallpaper eza rustup hyprland swww grim slurp wl-clipboard    \
     hypridle hyprlock mako thunar nautilus hyprpolkitagent cliphist rofi      \
-    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-hyprland wtype ydotool python-pipx
 ```
 
 There are probably a few (maybe many?) other packages missing… It's not easy to
@@ -48,6 +48,11 @@ yay -S --needed pyprland aylurs-gtk-shell-git wireplumber libgtop bluez     \
     gtksourceview3 libsoup3 ags-hyprpanel-git python-pywal16                \
     python-pywalfox-librewolf python-haishoku deezer librewolf matugen-git  \
     wpgtk gradience
+```
+
+### Install Python dependencies (eww… Python 🤮)
+```sh
+pipx install rofimoji
 ```
 
 ## Setup dotfiles
