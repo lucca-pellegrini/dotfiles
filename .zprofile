@@ -81,6 +81,13 @@ export CALIBRE_USE_SYSTEM_THEME=1
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export BAT_THEME=ansi
 
+# pnpm executables
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 [ ! -f ~/.config/zsh/shortcutrc ] && shortcuts >/dev/null 2>&1
 [ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 
