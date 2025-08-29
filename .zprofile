@@ -7,6 +7,9 @@
 # ░██     ░███   ░░██████   ░██  ░██ ███░░██████
 # ░░      ░░░     ░░░░░░    ░░   ░░ ░░░  ░░░░░░
 
+# Set your default GnuPG key fingerprint here
+export GPG_DEFAULT_KEY='2CAEDEBD407FA54F816C139550D458344399D7D8'
+
 # Adds `~/.local/bin` to $PATH
 export PATH="$HOME/.local/share/cargo/bin/:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/.config/fzf/fzf/bin/:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):/usr/lib/ccache/bin:$PATH"
 
@@ -91,6 +94,26 @@ if [ ! -S "$SSH_AUTH_SOCK" ] \
 then
 	eval "$(ssh-agent | grep -v echo | tee "$SSH_EVAL_FILE")"
 fi
+
+# Unlock default GnuPG key using systemd-creds on secure boot. We use `setsid`
+# to cleanly run this without blocking as this exports no environment
+# variables. Make sure to initialize your credential for this to work like:
+# systemd-creds --user --tpm2-pcrs=7 encrypt - "$GNUPGHOME/$GPG_DEFAULT_KEY.cred"
+# This will read your passphrase from stdin.
+setsid sh <<-'!'
+	DEFAULT_KEY_CRED="$GNUPGHOME/$GPG_DEFAULT_KEY.cred"
+	SB_EFIVAR_PATH="$(find /sys/firmware/efi/efivars -name 'SecureBoot-*')"
+
+	if [ -f "$DEFAULT_KEY_CRED" ] &&
+	   [ -f "$SB_EFIVAR_PATH" ] &&
+	   [ "$(hexdump -v -e '1/1 "%02X\n"' $SB_EFIVAR_PATH | sed -n '5p')" -eq 1 ]
+	then
+		systemd-creds --user decrypt "$DEFAULT_KEY_CRED" |
+			gpg --batch --passphrase-fd 0 --pinentry-mode loopback \
+			--output /dev/null --sign-with "$GPG_DEFAULT_KEY" \
+			--sign /dev/null
+	fi
+!
 
 # Start graphical server on tty1 if not already running.
 if [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null; then
