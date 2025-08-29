@@ -80,7 +80,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 
-  /* realod colorscheme */
+	/* realod colorscheme */
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 
 	/* layouts */
