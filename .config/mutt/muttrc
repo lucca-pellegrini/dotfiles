@@ -14,7 +14,8 @@ source ~/.config/mutt/etc/gpg.rc
 
 set date_format="%y/%m/%d %I:%M%p"
 set index_format="%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
-set sort = 'reverse-date'
+set sort = threads
+set sort_aux = reverse-last-date-received
 set smtp_authenticators = 'gssapi:login'
 set query_command = "abook --datafile $HOME/.config/abook/addressbook --mutt-query '%s'"
 set rfc2047_parameters = yes
