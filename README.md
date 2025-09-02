@@ -47,10 +47,11 @@ yay -S --needed pyprland aylurs-gtk-shell-git wireplumber libgtop bluez     \
     bluez-utils networkmanager dart-sass wl-clipboard upower gvfs           \
     gtksourceview3 libsoup3 ags-hyprpanel-git python-pywal16                \
     python-pywalfox-librewolf python-haishoku deezer librewolf matugen-git  \
-    wpgtk gradience
+    wpgtk gradience sunshine-git
 ```
 
 ### Install Python dependencies (eww… Python 🤮)
+
 ```sh
 pipx install rofimoji
 ```
@@ -125,10 +126,13 @@ Install all Tmux plugins:
 
 Set your GnuPG defauly key fingerprint at the top of the `~/.zprofile` file
 (for programs like `pass`):
+
 ```sh
 nvim ~/.zprofile
 ```
+
 Example:
+
 ```zsh
 #                            ████ ██  ██
 #  ██████                   ░██░ ░░  ░██
@@ -164,7 +168,7 @@ make all
 
 ```sh
 systemctl --user daemon-reload
-systemctl --user enable {checkupdates,newsboat}.timer
+systemctl --user enable {checkupdates,newsboat}.timer mpd sunshine
 ```
 
 ### Optional: set up colorscheme synchronization between HyprLand and browser
