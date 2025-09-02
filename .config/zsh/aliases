@@ -27,7 +27,7 @@ alias ltree="l -R --tree"                         # Similar to 'l', but recursiv
 alias latree="la -R --tree"                       # Similar to 'la', but recursive.
 
 # dotfiles
-alias dots='git --git-dir="$HOME/.config/dots-git/" --work-tree="$HOME"'
+alias dots="git --git-dir='$HOME/.config/dots-git/' --work-tree='$HOME'"
 
 # programs
 alias ir='irssi --home "$XDG_CONFIG_HOME"/irssi'
