@@ -124,8 +124,3 @@ setsid sh <<-'!'
 			--sign /dev/null
 	fi
 !
-
-# Start graphical server on tty1 if not already running.
-if [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null; then
-	exec ~/.config/zsh/tty.zsh
-fi
