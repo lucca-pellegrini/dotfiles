@@ -19,7 +19,7 @@ sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool           \
     xorg-xsetroot lsof unclutter pacman-contrib pipewire-{alsa,jack,pulse}    \
     alsa-utils xwallpaper eza rustup hyprland swww grim slurp wl-clipboard    \
     hypridle hyprlock mako thunar nautilus hyprpolkitagent cliphist rofi      \
-    xdg-desktop-portal-hyprland wtype ydotool python-pipx
+    xdg-desktop-portal-hyprland wtype ydotool python-pipx greetd{,-tuigreet}
 ```
 
 There are probably a few (maybe many?) other packages missing… It's not easy to
@@ -107,7 +107,7 @@ Set `zsh` as default shell
 chsh -s /usr/bin/zsh
 ```
 
-## NeoVim's configuration
+### NeoVim's configuration
 
 Create a symbolic link to your NeoVim configuration:
 
@@ -115,7 +115,7 @@ Create a symbolic link to your NeoVim configuration:
 ln -s ~/.config/NvChad ~/.config/nvim/lua/custom
 ```
 
-## Tmux's configuration
+### Tmux's configuration
 
 Install all Tmux plugins:
 
@@ -144,7 +144,7 @@ export GPG_DEFAULT_KEY='2CAEDEBD407FA54F816C139550D458344399D7D8'
 
 ```
 
-## Build and install suckless programs (eww… C 🤮)
+### Build and install suckless programs (eww… C 🤮)
 
 ```sh
 for d in ~/.config/suckless/*; do
@@ -160,14 +160,14 @@ cd ~/.local/bin/wm
 make all
 ```
 
-## Enable systemd user units (eww… systemd 🤮)
+### Enable systemd user units (eww… systemd 🤮)
 
 ```sh
 systemctl --user daemon-reload
 systemctl --user enable {checkupdates,newsboat}.timer
 ```
 
-## Optional: set up colorscheme synchronization between HyprLand and browser
+### Optional: set up colorscheme synchronization between HyprLand and browser
 
 First, run the browser once to initialize its profile directory and install the
 extension:
@@ -181,6 +181,29 @@ extension's page:
 
 ```sh
 pywalfox --browser librewolf install
+```
+
+### Optional: configure and enable the Display Manager
+
+```/etc/greetd/config.toml
+[terminal]
+# The VT to run the greeter on. Can be "next", "current" or a number
+# designating the VT.
+vt = 12
+
+# The default session, also known as the greeter.
+[default_session]
+
+command = "tuigreet --cmd Hyprland --remember-session --user-menu --time --greeting 'Access is restricted to authorized personnel only.' --width 90 --remember --asterisks --asterisks-char • --window-padding 2 --container-padding 4 --prompt-padding 0"
+
+# The user to run the command as. The privileges this user must have depends
+# on the greeter. A graphical greeter may for example require the user to b
+# in the `video` group.
+user = "greeter"
+```
+
+```sh
+sudo systemctl enable --now greetd.service
 ```
 
 ## Cleanup
