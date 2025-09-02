@@ -17,8 +17,6 @@ local servers = {
   "pyright",
   "rust_analyzer",
   "sqlls",
-  -- "sqls",
-  "sqruff",
   "texlab",
   "ts_ls",
 }

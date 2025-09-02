@@ -38,7 +38,6 @@ local sources = {
   b.formatting.pyink,
 
   -- SQL
-  b.formatting.sqruff,
   b.formatting.pg_format,
 
   -- GitHub actions
