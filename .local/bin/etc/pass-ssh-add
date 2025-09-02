@@ -10,7 +10,6 @@ if {[llength $argv] != 2} {
 if {
 	![file exists $env(SSH_AUTH_SOCK)]
 	|| [string compare [file type $env(SSH_AUTH_SOCK)] "socket"] != 0
-	|| ![file exists "/proc/$env(SSH_AGENT_PID)"]
 	|| [catch {exec ssh-add -l} result] && $result == 2
 } {
 	puts "Error: Failed to connect to ssh-agent. Please make sure it's running and the correct environment variables are set."
