@@ -1,0 +1,2 @@
+prompt = 
+files = [emoticons, emojis, math, number_forms, general_punctuation, supplemental_punctuation, html_characters, alchemical_symbols, miscellaneous_symbols*, supplemental_symbols*, dingbats, symbols_for_legacy_computing*, arrows, geometric*, block_elements, control_pictures, box_drawing, miscellaneous_technical, musical_symbols, superscripts_and_subscripts, currency_symbols, greek*, specials, fontawesome6, nerd_font]
