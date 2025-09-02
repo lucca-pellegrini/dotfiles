@@ -6,8 +6,8 @@ After=network-online.target multi-user.target
 [Service]
 Type=simple
 Restart=on-failure
-; %C points to ${XDG_CACHE_HOME}. See systemd.unit(5) for details.
-; Environment=CHECKUPDATES_DB=%C/checkupdates_db
+Environment=DISPLAY=
+Environment=WAYLAND_DISPLAY=
 ExecStart=sunshine
 
 [Install]
