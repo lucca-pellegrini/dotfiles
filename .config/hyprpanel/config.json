@@ -219,7 +219,7 @@
   "wallpaper.image": "/home/luc/Pictures/wallpaper",
   "theme.bar.transparent": true,
   "theme.matugen_settings.scheme_type": "tonal-spot",
-  "theme.matugen": true,
+  "theme.matugen": false,
   "theme.osd.muted_zero": false,
   "menus.dashboard.powermenu.avatar.name": "Lucca",
   "menus.dashboard.powermenu.avatar.image": "/home/luc/Pictures/pfp.jpg",
