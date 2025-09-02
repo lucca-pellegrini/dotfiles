@@ -19,7 +19,8 @@ sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool           \
     xorg-xsetroot lsof unclutter pacman-contrib pipewire-{alsa,jack,pulse}    \
     alsa-utils xwallpaper eza rustup hyprland swww grim slurp wl-clipboard    \
     hypridle hyprlock mako thunar nautilus hyprpolkitagent cliphist rofi      \
-    xdg-desktop-portal-hyprland wtype ydotool python-pipx greetd{,-tuigreet}
+    xdg-desktop-portal-hyprland wtype ydotool python-pipx greetd{,-tuigreet}  \
+    nerd-fonts
 ```
 
 There are probably a few (maybe many?) other packages missing… It's not easy to
@@ -47,7 +48,7 @@ yay -S --needed pyprland aylurs-gtk-shell-git wireplumber libgtop bluez     \
     bluez-utils networkmanager dart-sass wl-clipboard upower gvfs           \
     gtksourceview3 libsoup3 ags-hyprpanel-git python-pywal16                \
     python-pywalfox-librewolf python-haishoku deezer librewolf matugen-git  \
-    wpgtk gradience sunshine-git
+    wpgtk gradience sunshine-git kmscon
 ```
 
 ### Install Python dependencies (eww… Python 🤮)
@@ -189,6 +190,8 @@ pywalfox --browser librewolf install
 
 ### Optional: configure and enable the Display Manager
 
+You can edit this with `sudoedit`.
+
 ```/etc/greetd/config.toml
 [terminal]
 # The VT to run the greeter on. Can be "next", "current" or a number
@@ -207,7 +210,25 @@ user = "greeter"
 ```
 
 ```sh
-sudo systemctl enable --now greetd.service
+sudo systemctl enable greetd.service
+```
+
+### Optional: configure and enable a nice Agetty replacement
+
+You can edit this with `sudoedit`. Set your preferred font and keyboard layout
+like this:
+
+```/etc/kmscon/kmscon.conf
+font-name=JetBrainsMono Nerd Font Mono
+font-size=12
+xkb-layout=br
+xkb-variant=abnt2
+```
+
+Then, enable it on all virtual terminals:
+
+```sh
+sudo ln -s '/usr/lib/systemd/system/kmsconvt@.service' '/etc/systemd/system/autovt@.service'
 ```
 
 ## Cleanup
