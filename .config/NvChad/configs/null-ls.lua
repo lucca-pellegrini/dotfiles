@@ -34,11 +34,15 @@ local sources = {
   }),
 
   -- Python
-  b.formatting.blue,
+  b.formatting.isort,
+  b.formatting.pyink,
 
   -- SQL
   b.formatting.sqruff,
   b.formatting.pg_format,
+
+  -- GitHub actions
+  b.diagnostics.actionlint,
 }
 
 null_ls.setup({

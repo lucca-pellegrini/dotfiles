@@ -11,6 +11,7 @@ M.treesitter = {
     "lua",
     "markdown",
     "markdown_inline",
+    "php",
     "rust",
     "tsx",
     "typescript",
@@ -36,6 +37,8 @@ M.mason = {
     "typescript-language-server",
     "deno",
     "prettier",
+    "phpactor",
+    "laravel_ls",
 
     -- c/cpp stuff
     "clang-format",
