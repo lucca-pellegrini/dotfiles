@@ -25,14 +25,14 @@ sudo pacman -S --needed git sxhkd picom dunst libnotify xdo xdotool           \
 There are probably a few (maybe many?) other packages missing… It's not easy to
 tell, because I only very rarely do a fresh install.
 
-## Optional: Install Cargo programs (eww… Rust 🤮)
+### Optional: Install Cargo programs (eww… Rust 🤮)
 
 ```sh
 rustup default stable
 cargo install broot skim alass-cli git-delta
 ```
 
-## Optional: Install an AUR helper (eww… Go 🤮)
+### Install an AUR helper (eww… Go 🤮)
 
 ```sh
 git clone https://aur.archlinux.org/yay.git /tmp/yay && (
