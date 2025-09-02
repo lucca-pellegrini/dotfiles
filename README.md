@@ -6,6 +6,12 @@ because that repo is _b i g_ (some 81 MiB on a fresh clone as of Thu Apr 17
 
 # Installation Instructions
 
+> [!NOTE]
+>
+> This configuration is very centered around _my_ particular tastes and
+> preferences. It will most likely not serve your use case, unless you're
+> willing to alter it _a lot!_ This README is kept for my own reference.
+
 ## Install dependencies
 
 Packages from official arch repositories:
@@ -34,6 +40,11 @@ cargo install broot skim alass-cli git-delta
 ```
 
 ### Install an AUR helper (eww… Go 🤮)
+
+> [!NOTE]
+>
+> The AUR helper itself is not strictly necessary. I use it for convenience,
+> but you may choose to build and install all packages below by hand.
 
 ```sh
 git clone https://aur.archlinux.org/yay.git /tmp/yay && (
