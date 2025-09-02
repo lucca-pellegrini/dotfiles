@@ -22,6 +22,7 @@ opt.backspace = "start,indent" -- Backspacing rules
 opt.textwidth = 79             -- By default, lines must be less than 80 columns wide
 opt.path = opt.path + "**"     -- Search all subdirectories recursively with :find
 opt.mousemoveevent = true      -- Enable mouse move events
+opt.formatoptions = "tcqjb"    -- Enable line wrapping only when inserting before 'textwidth'
 
 -- Visual enhancements
 opt.pumblend = 10 -- Pseudo-transparency for the popup menu
