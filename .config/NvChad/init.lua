@@ -111,7 +111,7 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 ----------------------------------- Providers -------------------------------------------
 -- Python
-g.python3_host_prog = '/usr/bin/python'
+g.python3_host_prog = "/usr/bin/python"
 g.loaded_python3_provider = 1
 
 -- Node.js
