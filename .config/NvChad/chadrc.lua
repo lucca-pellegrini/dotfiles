@@ -72,7 +72,10 @@ M.lazy_nvim = {
   performance = {
     rtp = {
       disabled_plugins = vim.tbl_filter(function(name)
-        return not vim.tbl_contains({ "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers", "tohtml", "2html_plugin" }, name)
+        return not vim.tbl_contains(
+          { "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers", "tohtml", "2html_plugin" },
+          name
+        )
       end, require("plugins.configs.lazy_nvim").performance.rtp.disabled_plugins),
     },
   },

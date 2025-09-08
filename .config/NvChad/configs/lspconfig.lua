@@ -101,8 +101,8 @@ lspconfig.jdtls.setup({
             path = "/usr/lib/jvm/java-23-openjdk",
             default = true,
           },
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 })

@@ -115,10 +115,10 @@ local plugins = {
 
   -- Generative AI integration
   {
-    'NickvanDyke/opencode.nvim',
+    "NickvanDyke/opencode.nvim",
     dependencies = {
       -- Recommended for a better prompt input, and required to use opencode.nvim's embedded terminal. Otherwise optional.
-      { 'folke/snacks.nvim', opts = { input = { enabled = true } } },
+      { "folke/snacks.nvim", opts = { input = { enabled = true } } },
     },
     ---@type opencode.Opts
     opts = {
@@ -245,7 +245,7 @@ local plugins = {
   -- Breadcrumbs navigation
   {
     "Bekaboo/dropbar.nvim",
-    tag = 'v12.0.2',
+    tag = "v12.0.2",
     lazy = false,
     dependencies = {
       "nvim-telescope/telescope-fzf-native.nvim",
@@ -281,6 +281,7 @@ local plugins = {
       handlers = {},
     },
   },
+
   {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
@@ -498,6 +499,7 @@ local plugins = {
       require("core.utils").load_mappings("vimtex")
     end,
   },
+
   --[[ {
     "vigoux/ltex-ls.nvim",
     event = "LspAttach",
@@ -591,29 +593,9 @@ local plugins = {
   {
     "nvim-flutter/flutter-tools.nvim",
     ft = "dart",
-    -- config = function()
-    --   require("flutter-tools").setup({
-    --     debugger = {
-    --       enabled = true,
-    --     },
-    --     dev_log = {
-    --       enabled = true,
-    --     },
-    --     dev_tools = {
-    --       autostart = true,
-    --     },
-    --     lsp = {
-    --       color = {
-    --         enabled = true,
-    --       },
-    --     },
-    --   })
-    -- end,
     dependencies = {
       "nvim-lua/plenary.nvim",
-      -- 'stevearc/dressing.nvim', -- optional for vim.ui.select
     },
-    -- config = true,
     config = function()
       require("flutter-tools").setup({
         widget_guides = { enabled = true },
@@ -693,20 +675,6 @@ local plugins = {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
-
-  -- To make a plugin not be loaded
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
-
-  -- All NvChad plugins are lazy-loaded by default
-  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
-  -- {
-  --   "mg979/vim-visual-multi",
-  --   lazy = false,
-  -- }
 }
 
 return plugins
