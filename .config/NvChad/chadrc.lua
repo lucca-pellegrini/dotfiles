@@ -35,7 +35,13 @@ M.ui = {
   tabufline = {
     enabled = true,
     lazyload = true,
-    order = { "treeOffset", "buffers", "tabs", "btns" },
+    overriden_modules = function(modules)
+      table.remove(modules, 1)
+    end,
+  },
+
+  nvdash = {
+    load_on_startup = true,
   },
 }
 

@@ -177,7 +177,13 @@ local plugins = {
     event = "LspAttach",
     cmd = "Trouble",
     config = function()
-      require("trouble").setup()
+      require("trouble").setup({
+        modes = {
+          symbols = {
+            win = { position = "left" },
+          },
+        },
+      })
       require("core.utils").load_mappings("trouble")
     end,
   },
