@@ -1,7 +1,7 @@
 
 [window]
 dynamic_padding = true
-opacity = 0.95
+opacity = 0.75
 blur = true
 
 [scrolling]
@@ -10,7 +10,7 @@ multiplier = 1
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font Propo", style = "Regular" }
-size = 11.5
+size = 10
 
 [general]
 import = [
