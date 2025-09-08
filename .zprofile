@@ -88,6 +88,13 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
+# bun executables
+export BUN_INSTALL="$XDG_DATA_HOME/bun"
+case ":$PATH:" in
+  *":$BUN_INSTALL/bin:"*) ;;
+  *) export PATH="$BUN_INSTALL/bin:$PATH" ;;
+esac
+
 [ ! -f ~/.config/zsh/shortcutrc ] && shortcuts >/dev/null 2>&1
 [ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 
