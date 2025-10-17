@@ -11,7 +11,7 @@
 export GPG_DEFAULT_KEY='2CAEDEBD407FA54F816C139550D458344399D7D8'
 
 # Adds `~/.local/bin` to $PATH
-export PATH="$HOME/.local/share/cargo/bin/:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/.config/fzf/fzf/bin/:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):/usr/lib/ccache/bin:$PATH"
+export PATH="$HOME/.local/share/android/cmdline-tools/latest/bin:$HOME/.local/share/cargo/bin/:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/.config/fzf/fzf/bin/:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):/usr/lib/ccache/bin:$PATH"
 
 # Default programs:
 export EDITOR="nvim"
