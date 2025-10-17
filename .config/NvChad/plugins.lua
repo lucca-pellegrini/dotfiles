@@ -126,16 +126,73 @@ local plugins = {
     },
     keys = {
       -- Recommended keymaps
-      { '<leader>oa', function() require('opencode').ask('@cursor: ') end,                          desc = 'Ask opencode',                 mode = 'n', },
-      { '<leader>oa', function() require('opencode').ask('@selection: ') end,                       desc = 'Ask opencode about selection', mode = 'v', },
-      { '<leader>ot', function() require('opencode').toggle() end,                                  desc = 'Toggle embedded opencode', },
-      { '<leader>on', function() require('opencode').command('session_new') end,                    desc = 'New session', },
-      { '<leader>oy', function() require('opencode').command('messages_copy') end,                  desc = 'Copy last message', },
-      { '<S-C-u>',    function() require('opencode').command('messages_half_page_up') end,          desc = 'Scroll messages up', },
-      { '<S-C-d>',    function() require('opencode').command('messages_half_page_down') end,        desc = 'Scroll messages down', },
-      { '<leader>op', function() require('opencode').select_prompt() end,                           desc = 'Select prompt',                mode = { 'n', 'v', }, },
+      {
+        "<leader>oa",
+        function()
+          require("opencode").ask("@cursor: ")
+        end,
+        desc = "Ask opencode",
+        mode = "n",
+      },
+      {
+        "<leader>oa",
+        function()
+          require("opencode").ask("@selection: ")
+        end,
+        desc = "Ask opencode about selection",
+        mode = "v",
+      },
+      {
+        "<leader>ot",
+        function()
+          require("opencode").toggle()
+        end,
+        desc = "Toggle embedded opencode",
+      },
+      {
+        "<leader>on",
+        function()
+          require("opencode").command("session_new")
+        end,
+        desc = "New session",
+      },
+      {
+        "<leader>oy",
+        function()
+          require("opencode").command("messages_copy")
+        end,
+        desc = "Copy last message",
+      },
+      {
+        "<S-C-u>",
+        function()
+          require("opencode").command("messages_half_page_up")
+        end,
+        desc = "Scroll messages up",
+      },
+      {
+        "<S-C-d>",
+        function()
+          require("opencode").command("messages_half_page_down")
+        end,
+        desc = "Scroll messages down",
+      },
+      {
+        "<leader>op",
+        function()
+          require("opencode").select_prompt()
+        end,
+        desc = "Select prompt",
+        mode = { "n", "v" },
+      },
       -- Example: keymap for custom prompt
-      { '<leader>oe', function() require('opencode').prompt("Explain @cursor and its context") end, desc = "Explain code near cursor", },
+      {
+        "<leader>oe",
+        function()
+          require("opencode").prompt("Explain @cursor and its context")
+        end,
+        desc = "Explain code near cursor",
+      },
     },
   },
 
@@ -418,61 +475,114 @@ local plugins = {
     end,
   },
 
-  -- Language-specific plugins
-
-  -- SonarLint support
+  -- Workspace management
   {
-    "https://gitlab.com/schrieveslaach/sonarlint.nvim",
-    commit = "cd7276e9d741492e2de149c98c4f406c2984640c",
-    ft = {
-      "c",
-      "cobol",
-      "cpp",
-      "cs",
-      "css",
-      "go",
-      "html",
-      "java",
-      "js",
-      "kotlin",
-      "php",
-      "python",
-      "ruby",
-      "ts",
+    "natecraddock/workspaces.nvim",
+    cmd = {
+      "WorkspacesAdd",
+      "WorkspacesAddDir",
+      "WorkspacesRemove",
+      "WorkspacesRemoveDir",
+      "WorkspacesRename",
+      "WorkspacesList",
+      "WorkspacesListDirs",
+      "WorkspacesOpen",
+      "WorkspacesSyncDirs",
     },
     config = function()
-      require("sonarlint").setup({
-        server = {
-          cmd = {
-            "sonarlint-language-server",
-            -- Ensure that sonarlint-language-server uses stdio channel
-            "-stdio",
-            "-analyzers",
-            -- paths to the analyzers you need, using those for python and java in this example
-            vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarpython.jar"),
-            vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarcfamily.jar"),
-            vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
-          },
-        },
-        filetypes = {
-          "c",
-          "cobol",
-          "cpp",
-          "cs",
-          "css",
-          "go",
-          "html",
-          "java",
-          "js",
-          "kotlin",
-          "php",
-          "python",
-          "ruby",
-          "ts",
+      require("workspaces").setup({
+        -- controls how the directory is changed. valid options are "global", "local", and "tab"
+        --   "global" changes directory for the neovim process. same as the :cd command
+        --   "local" changes directory for the current window. same as the :lcd command
+        --   "tab" changes directory for the current tab. same as the :tcd command
+        --
+        -- if set, overrides the value of global_cd
+        cd_type = "global",
+
+        -- sort the list of workspaces by name after loading from the workspaces path.
+        sort = true,
+
+        -- sort by recent use rather than by name. requires sort to be true
+        mru_sort = true,
+
+        -- option to automatically activate workspace when opening neovim in a workspace directory
+        auto_open = true,
+
+        -- option to automatically activate workspace when changing directory not via this plugin
+        -- set to "autochdir" to enable auto_dir when using :e and vim.opt.autochdir
+        -- valid options are false, true, and "autochdir"
+        auto_dir = true,
+
+        -- lists of hooks to run after specific actions
+        -- hooks can be a lua function or a vim command (string)
+        -- lua hooks take a name, a path, and an optional state table
+        -- if only one hook is needed, the list may be omitted
+        hooks = {
+          add = {},
+          remove = {},
+          rename = {},
+          open_pre = {},
+          open = { "Obsession" },
         },
       })
     end,
   },
+
+  -- Language-specific plugins
+
+  -- SonarLint support
+  -- {
+  --   "https://gitlab.com/schrieveslaach/sonarlint.nvim",
+  --   commit = "cd7276e9d741492e2de149c98c4f406c2984640c",
+  --   ft = {
+  --     "c",
+  --     "cobol",
+  --     "cpp",
+  --     "cs",
+  --     "css",
+  --     "go",
+  --     "html",
+  --     "java",
+  --     "js",
+  --     "kotlin",
+  --     "php",
+  --     "python",
+  --     "ruby",
+  --     "ts",
+  --   },
+  --   config = function()
+  --     require("sonarlint").setup({
+  --       server = {
+  --         cmd = {
+  --           "sonarlint-language-server",
+  --           -- Ensure that sonarlint-language-server uses stdio channel
+  --           "-stdio",
+  --           "-analyzers",
+  --           -- paths to the analyzers you need, using those for python and java in this example
+  --           vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarpython.jar"),
+  --           vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarcfamily.jar"),
+  --           vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
+  --         },
+  --       },
+  --       filetypes = {
+  --         "c",
+  --         "cobol",
+  --         "cpp",
+  --         "cs",
+  --         "css",
+  --         "go",
+  --         "html",
+  --         "java",
+  --         "js",
+  --         "kotlin",
+  --         "php",
+  --         "python",
+  --         "ruby",
+  --         "ts",
+  --       },
+  --     })
+  --   end,
+  -- },
 
   -- Go tooling support
   {
@@ -513,32 +623,15 @@ local plugins = {
     dependencies = {
       "neovim/nvim-lspconfig",
     },
-  }, ]]
+  },
   {
     "barreiroleo/ltex_extra.nvim",
     event = "LspAttach",
     ft = { "latex", "tex", "bib", "markdown", "gitcommit", "text" },
-    -- config = function()
-    --   require("ltex_extra").setup({
-    --     load_langs = { "en-US", "en-GB" },
-    --     init_check = true,
-    --     path = "", -- project root or current working directory
-    --     log_level = "none",
-    --     --[[ server_opts = {
-    --       -- capabilities = your_capabilities,
-    --       on_attach = function(client, bufnr)
-    --         -- your on_attach process
-    --       end,
-    --       -- settings = {
-    --       --   ltex = { your settings }
-    --       -- }
-    --     }, ]]
-    --   })
-    -- end,
     dependencies = {
       "neovim/nvim-lspconfig",
     },
-  },
+  }, ]]
 
   -- Markdown preview support
   {
@@ -594,13 +687,6 @@ local plugins = {
     end,
   },
 
-  -- Distraction-free mode plugin
-  {
-    "pocco81/true-zen.nvim",
-    lazy = true,
-    cmd = { "TZAtaraxis", "TZMinimalist", "TZNarrow", "TZFocus" },
-  },
-
   -- Flutter support
   {
     "nvim-flutter/flutter-tools.nvim",
@@ -612,8 +698,8 @@ local plugins = {
       require("flutter-tools").setup({
         widget_guides = { enabled = true },
         dev_tools = {
-          autostart = false,         -- autostart devtools server if not detected
-          auto_open_browser = false, -- Automatically opens devtools in the browser
+          autostart = true,
+          auto_open_browser = false,
         },
       })
     end,
@@ -625,18 +711,6 @@ local plugins = {
     cmd = "SQLua",
     config = function()
       require("sqlua").setup()
-    end,
-  },
-
-  -- Pkl language support
-  {
-    "apple/pkl-neovim",
-    event = "BufReadPre *.pkl",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-    build = function()
-      vim.cmd("TSInstall! pkl")
     end,
   },
 
