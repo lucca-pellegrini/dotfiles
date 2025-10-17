@@ -26,7 +26,7 @@ while true; do
 	done \
 	| sort -n | cut -d':' -f2- \
 	| while read -r img; do
-		for d in $(swww query | grep -Po "^[^:]+"); do # see swww-query(1)
+		for d in $(swww query | sed 's/^:\s*//' | grep -Po "^[^:]+"); do # see swww-query(1)
 			set -x
 
 			# Get next random image for this display, or re-shuffle images
