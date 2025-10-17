@@ -340,7 +340,7 @@ local plugins = {
           version = "23.0.2",
         },
         jdtls = {
-          version = "v1.44.0",
+          version = "v1.46.1",
         },
       })
       require("lspconfig").jdtls.setup({
