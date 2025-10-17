@@ -87,7 +87,7 @@ lspconfig.bashls.setup({
   filetypes = { "sh", "bash", "zsh" },
 })
 
--- -- Java Language Server
+-- Java Language Server
 lspconfig.jdtls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
