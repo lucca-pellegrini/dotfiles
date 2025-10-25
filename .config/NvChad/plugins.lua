@@ -245,6 +245,17 @@ local plugins = {
     end,
   },
 
+  -- Diagnostics on virtual lines
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    lazy = true,
+    event = "LspAttach",
+    config = function()
+      vim.diagnostic.config({ virtual_lines = { only_current_line = true } })
+      require("lsp_lines").setup()
+    end,
+  },
+
   -- Custom icon provider
   {
     "echasnovski/mini.nvim",

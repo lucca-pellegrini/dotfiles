@@ -124,10 +124,28 @@ g.loaded_node_provider = 1
 -------------------------------------- LSP ----------------------------------------------
 -- Auto-show diagnostics on hover
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = true,
+  virtual_text = false, -- not needed, on account of the `lsp_lines` plugin
   underline = true,
   signs = true,
 })
+
+-- Function to set underline styles without changing existing colors
+local function set_diagnostic_underline(name, style)
+  -- Get the current highlight settings for the group
+  local hl = api.nvim_get_hl(0, { name = name, link = false })
+
+  -- Modify only the specified style
+  hl[style] = true -- Set the desired underline style
+
+  -- Set the highlight group with the existing colors and the new style
+  api.nvim_set_hl(0, name, hl)
+end
+
+-- Override diagnostics underline style
+set_diagnostic_underline("DiagnosticUnderlineError", "undercurl")
+set_diagnostic_underline("DiagnosticUnderlineWarn", "underdashed")
+set_diagnostic_underline("DiagnosticUnderlineInfo", "underdashed")
+set_diagnostic_underline("DiagnosticUnderlineHint", "underdotted")
 
 -- If we hold the cursor for one second on a line, show diagnostics
 --[[ api.nvim_create_autocmd({"CursorHold"}, {
