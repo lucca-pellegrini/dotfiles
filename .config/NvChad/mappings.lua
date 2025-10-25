@@ -36,6 +36,10 @@ M.lspsaga = {
       "<cmd> Lspsaga code_action <CR>",
       "List code actions",
     },
+    ["<leader>to"] = {
+      "<cmd> Lspsaga outline <CR>",
+      "Toggle document outline",
+    },
     ["<leader>dn"] = {
       "<cmd> Lspsaga diagnostic_jump_next <CR>",
       "Jump to next diagnostic",

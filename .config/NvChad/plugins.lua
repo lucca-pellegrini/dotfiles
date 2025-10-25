@@ -213,6 +213,9 @@ local plugins = {
         symbol_in_winbar = {
           enable = false,
         },
+        outline = {
+          win_position = "left",
+        },
         ui = {
           code_action = "",
           virtual_text = false,
