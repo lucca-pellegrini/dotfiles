@@ -9,6 +9,7 @@ local util = require("lspconfig.util")
 local servers = {
   "ast_grep",
   "cssls",
+  "eslint",
   "html",
   "laravel_ls",
   "lemminx",
